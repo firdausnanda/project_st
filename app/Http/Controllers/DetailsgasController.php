@@ -58,11 +58,13 @@ class DetailsgasController extends Controller
 
         //tampil data pembimbing
         $pembimbing = DB::table('detail_pembimbingan')
+            ->where('id_sgas','=',$id)
             ->orderBy('id_pembimbingan','desc')
             ->get();
 
         //tampil data pembimbing
         $penunjang = DB::table('detail_penunjang')
+            ->where('id_sgas','=',$id)
             ->orderBy('id_penunjang','desc')
             ->get();
 
