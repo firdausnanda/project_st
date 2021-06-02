@@ -580,6 +580,9 @@
                     if (response != null) {
                         $('#nama_matkul').val(response.nama_matkul).change();
                         $('#skss').val(response.sks);
+                        $('#skst').val(response.t);
+                        $('#sksp').val(response.p);
+                        $('#sksk').val(response.k); 
                     }
                    
                 }
