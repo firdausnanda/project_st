@@ -45,8 +45,8 @@
     <!-- END THEME GLOBAL STYLES -->
 
     <!--  BEGIN CUSTOM STYLE FILE  -->
-    <link href="assets/css/scrollspyNav.css" rel="stylesheet" type="text/css" />
-    <link href="assets/css/components/tabs-accordian/custom-tabs.css" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/css/scrollspyNav.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/css/components/tabs-accordian/custom-tabs.css') }}" rel="stylesheet" type="text/css" />
     <!--  END CUSTOM STYLE FILE  -->
 
     <!--  BEGIN CUSTOM ALERT FILE  -->
