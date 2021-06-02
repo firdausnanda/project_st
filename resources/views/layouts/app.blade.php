@@ -565,7 +565,7 @@
         });
     });
 
-    //autofill nama detail sgas
+    //autofill nama detail_sgas
     $(document).ready(function () {
         $(document).on('keyup', '#kode_matkul', function () {
             var id = $(this).val();
@@ -590,7 +590,7 @@
         });
     });
 
-    //autofill nama detail sgas
+    //autofill nama detail_sgas
     $(document).ready(function () {
         $(document).on('change', '#nama_matkul', function () {
             var id = $(this).val();
