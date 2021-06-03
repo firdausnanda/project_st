@@ -583,9 +583,21 @@ class DetailsgasController extends Controller
             ->where('id_sgas','=',$id)
             ->orderBy('id_detailsgas','desc')
             ->sum('total');
+
+        $pembimbing = DB::table('detail_pembimbingan')
+            ->where('id_sgas','=',$id)
+            ->orderBy('id_pembimbingan','desc')
+            ->get();
+
+        $penunjang = DB::table('detail_penunjang')
+            ->where('id_sgas','=',$id)
+            ->orderBy('id_penunjang','desc')
+            ->get();
         // $pdf = PDF::loadView('admin/print',['invoice' => $invoice, 'total' => $total]);
         // return $pdf->stream();
         // dd($tampil);
-        return view('user/print',['invoice' => $invoice, 'tampil' => $tampil, 'total' => $total]);
+        return view('user/print',['invoice' => $invoice, 
+            'tampil' => $tampil, 'total' => $total,
+            'pembimbing' => $pembimbing, 'penunjang' => $penunjang]);
     }
 }

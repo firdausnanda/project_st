@@ -112,14 +112,89 @@
             </tr>
             @endforeach
         </table>
-        <div style="margin-top: 25p }}</td>                
+        <div style="margin-top: 25px;"></div>
+        <h4>I. Pengajaran</h4>
+        <table>
+            <thead>
+                <tr style="height: 25px;">
+                    <th>No</th>
+                    <th>Kode Matkul</th>
+                    <th>Matakuliah</th>
+                    <th>Prodi</th>
+                    <th>Semester</th>
+                    <th>Kelas</th>
+                    <th>SKS</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $no = 0; ?>
+                @foreach ($invoice as $m)
+                <?php $no++ ;?>
+                <tr style="height: 25px;">
+                    <td align="center">{{ $no }}</td>
+                    <td align="center">{{ $m->kode_matkul }}</td>
+                    <td>{{ $m->nama_matkul }}</td>
+                    <td>{{ $m->prodi }}</td>
+                    <td align="center">{{ $m->semesterd }}</td>
+                    <td align="center">{{ $m->kelas }}</td>
+                    <td align="center">{{ $m->total }} ({{ $m->tsks }}T, {{ $m->psks }}P, {{ $m->ksks }}K)</td>
+                    <td align="center">{{ $m->grandtotal }}</td>
                 </tr>
                 @endforeach
                 <tr style="height: 25px;">
                     <td></td>
-                    <td colspan="5" style="font-weight: bold;">Total</td>
+                    <td colspan="6" style="font-weight: bold;">Total</td>
                     <td align="center">{{ $total }}</td>
                 </tr>
+            </tbody>
+        </table>
+
+        <h4>II. Pembimbingan</h4>
+        <table>
+            <thead>
+                <tr style="height: 25px;">
+                    <th>No</th>
+                    <th>Nama Kegiatan</th>
+                    <th>SKS</th>
+                    <th>Masa Pelaksanaan Tugas</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $no = 0; ?>
+                @foreach ($pembimbing as $pem)
+                <?php $no++ ;?>
+                <tr style="height: 25px;">
+                    <td align="center">{{ $no }}</td>
+                    <td>{{ $pem->jenis_kegiatan }}</td>
+                    <td align="center">{{ $pem->sks }}</td>
+                    <td align="center">{{ $pem->masa_penugasan }}</td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+
+        <h4>III. Penunjang</h4>
+        <table>
+            <thead>
+                <tr style="height: 25px;">
+                    <th>No</th>
+                    <th>Nama Kegiatan</th>
+                    <th>SKS</th>
+                    <th>Masa Pelaksanaan Tugas</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $no = 0; ?>
+                @foreach ($penunjang as $pen)
+                <?php $no++ ;?>
+                <tr style="height: 25px;">
+                    <td align="center">{{ $no }}</td>
+                    <td>{{ $pen->jenis_kegiatan }}</td>
+                    <td align="center">{{ $pen->sks }}</td>
+                    <td align="center">{{ $pen->masa_penugasan }}</td>
+                </tr>
+                @endforeach
             </tbody>
         </table>
 
@@ -179,7 +254,7 @@
                 <td style="width: 35%; border: none; vertical-align: top;">Dasar</td>
                 <td style="width: 5%; border: none; vertical-align: top;">:</td>
                 <td style="width: 58%; border: none; vertical-align: top; text-align: justify;">
-                    &ensp;&ensp;&ensp;&ensp;Permohonan penerbitan Surat Tugas Pengajar Semester {{ ucfirst($item->semester) }}
+                    &ensp;&ensp;&ensp;&ensp;Permohonan penerbitan Surat Tugas Pengajar Semester {{ucfirst($item->semester) }}
                     TA. {{ $item->ta }} Program Studi {{ $item->prodi }} ITSK RS dr Soepraoen
                 </td>
             </tr>
