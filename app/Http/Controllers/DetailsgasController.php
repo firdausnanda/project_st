@@ -553,9 +553,21 @@ class DetailsgasController extends Controller
             ->orderBy('id_prodi','desc')
             ->get();
 
+        $pembimbing = DB::table('detail_pembimbingan')
+            ->where('id_sgas','=',$id)
+            ->orderBy('id_pembimbingan','desc')
+            ->get();
+
+        $penunjang = DB::table('detail_penunjang')
+            ->where('id_sgas','=',$id)
+            ->orderBy('id_penunjang','desc')
+            ->get();
+
         // grab data from database
         //return $print;
-        return view('user/sgas_detail',['detail_sgas' => $detail_sgas, 'items'=> $items, 'matkul'=> $matkul, 'prodi' => $prodi, 'print' => $print ]);
+        return view('user/sgas_detail',['detail_sgas' => $detail_sgas, 'items'=> $items, 
+            'matkul'=> $matkul, 'prodi' => $prodi, 'print' => $print,
+            'pembimbing' => $pembimbing, 'penunjang' => $penunjang ]);
     }
 
     public function generateInvoiceUser($id){
