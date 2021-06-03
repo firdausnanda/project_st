@@ -21,8 +21,8 @@ class TrackingController extends Controller
                         ->join('matkul','matkul.kode_matkul','=','detail_sgas.kode_matkul')
                         ->join('dosen','dosen.id','=','sgas.id_dosen')
                         ->join('ta','ta.id_ta','=','sgas.ta')
-                        ->join('detail_pembimbingan','detail_pembimbingan.id_sgas','=','sgas.id_sgas')
-                        ->join('detail_penunjang','detail_penunjang.id_sgas','=','sgas.id_sgas')
+                        // ->join('detail_pembimbingan','detail_pembimbingan.id_sgas','=','sgas.id_sgas')
+                        // ->join('detail_penunjang','detail_penunjang.id_sgas','=','sgas.id_sgas')
                         ->orderBy('detail_sgas.kode_matkul','desc')
                         ->get();
 
