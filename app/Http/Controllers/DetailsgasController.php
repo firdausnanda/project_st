@@ -217,7 +217,7 @@ class DetailsgasController extends Controller
         // return $grandtotal;
         return redirect()->back();
 
-}
+    }
 
     public function hapus($id){
 
@@ -354,9 +354,24 @@ class DetailsgasController extends Controller
             ->orderBy('id_prodi','desc')
             ->get();
 
+        //tampil data pembimbing
+        $pembimbing = DB::table('detail_pembimbingan')
+            ->where('id_sgas','=',$id)
+            ->orderBy('id_pembimbingan','desc')
+            ->get();
+
+        //tampil data pembimbing
+        $penunjang = DB::table('detail_penunjang')
+            ->where('id_sgas','=',$id)
+            ->orderBy('id_penunjang','desc')
+            ->get();
+
         // grab data from database
         //return $ngecek;
-        return view('prodi/sgas_detail',['detail_sgas' => $detail_sgas, 'ngecek'=> $ngecek, 'items'=> $items, 'matkul'=> $matkul, 'prodi' => $prodi, 'print' => $print ]);
+        return view('prodi/sgas_detail',['detail_sgas' => $detail_sgas, 
+                'ngecek'=> $ngecek, 'items'=> $items, 'matkul'=> $matkul, 
+                'prodi' => $prodi, 'print' => $print, 'pembimbing' => $pembimbing,
+                'penunjang' => $penunjang ]);
     }
 
     public function storeadmin(Request $request){
@@ -450,9 +465,56 @@ class DetailsgasController extends Controller
         }
     }
 
+    public function storepembimbingadmin(Request $request){
+
+        DB::table('detail_pembimbingan')->insert([
+            'id_sgas' => $request->id_sgas,
+            'jenis_kegiatan' => $request->jenis_kegiatan,
+            'sks' => $request->sks,
+            'masa_penugasan' => $request->masa_penugasan,
+                
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+            
+        // return $grandtotal;
+        return redirect()->back();
+
+    }
+
+    public function storepenunjangadmin(Request $request){
+
+        
+        DB::table('detail_penunjang') -> insert([
+            'id_sgas' => $request->id_sgas,
+            'jenis_kegiatan' => $request->jenis_kegiatanp,
+            'sks' => $request->sksp,
+            'masa_penugasan' => $request->masa_penugasanp,
+
+            'created_at' => \Carbon\ Carbon::now(),
+            'updated_at' => \Carbon\ Carbon::now()
+        ]);
+        
+        // return $grandtotal;
+        return redirect()->back();
+
+    }
+
     public function hapusadmin($id){
 
         DB::table('detail_sgas')->where('id_detailsgas',$id)->delete();
+        return back()->with('success','Post deleted successfully');
+    }
+
+    public function hapuspembimbingadmin($id){
+
+        DB::table('detail_pembimbingan')->where('id_pembimbingan',$id)->delete();
+        return back()->with('success','Post deleted successfully');
+    }
+
+    public function hapuspenunjangadmin($id){
+
+        DB::table('detail_penunjang')->where('id_penunjang',$id)->delete();
         return back()->with('success','Post deleted successfully');
     }
 

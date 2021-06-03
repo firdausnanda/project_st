@@ -111,8 +111,16 @@ Route::get('/inputdata/hapus/{id}','SgasController@hapus');
 
 //detail Management
 Route::get('/inputdata/detail/{id}', 'DetailsgasController@indexadmin');
+
 Route::post('/inputdata/detail/store','DetailsgasController@storeadmin');
+Route::post('/inputdata/detail/storepembimbing','DetailsgasController@storepembimbingadmin');
+Route::post('/inputdata/detail/storepenunjang','DetailsgasController@storepenunjangadmin');
+
 Route::get('/inputdata/detail/hapus/{id}','DetailsgasController@hapusadmin');
+Route::get('/inputdata/pembimbing/{id}','DetailsgasController@hapuspembimbingadmin');
+Route::get('/inputdata/penunjang/{id}','DetailsgasController@hapuspenunjangadmin');
+
+
 Route::get('/inputdata/idmatkul/{id}', 'DetailsgasController@loadDataKode')->name('getDataKodeMatkul');
 Route::get('/inputdata/namamatkul/{id}', 'DetailsgasController@loadDataNama')->name('getDataNamaMatkul');
 
