@@ -559,6 +559,7 @@
                     if (response != null) {
                         $('#nidnn').val(response.nidn);
                         $('#jabatann').val(response.jabatan);
+                        $('#id').val(response.id);
                     }
                 }
             });

@@ -216,6 +216,7 @@
                         <option value="0" selected>-</option>
                     </select>
                 </div>
+                <input type="hidden" name="id" id="id">
                 <div class="form-group mb-4">
                     <label for="nidn">NIDN</label>
                     <input type="text" name="nidn" id="nidnn" class="form-control" readonly>
