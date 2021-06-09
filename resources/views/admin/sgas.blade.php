@@ -243,7 +243,7 @@
                                 <th>TA</th>
                                 <th>Semester</th>
                                 <th>Status</th>
-                                <th class="no-content"></th>
+                                <th class="no-content" style="width:10%;"></th>
                             </tr>
                         </thead>
                         <tbody>
