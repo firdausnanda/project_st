@@ -89,6 +89,9 @@ Route::post('/tracking/store','TrackingController@store');
 Route::post('/tracking/update','TrackingController@update');
 Route::get('/tracking/hapus/{id}','TrackingController@hapus');
 
+//Rekap Matkul
+Route::get('/rekap-matkul', 'RekapMatkulController@index')->name('rekapmatkul');
+
 });
 
 // ----------------------------------------------------- // ADMIN/PRODI \\ ---------------------------------- \\
