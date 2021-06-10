@@ -640,7 +640,7 @@
                     
                 <div class="form-group mb-4">
                     <label for="sks">SKS</label>
-                    <input type="text" class="form-control" id="sks" name="sks" required>
+                    <input type="number" class="form-control" id="sks" name="sks" required>
                 </div>
                 <div class="form-group mb-4">
                     <label for="masa_penugasan">Masa Penugasan</label>
@@ -679,7 +679,7 @@
                     
                 <div class="form-group mb-4">
                     <label for="sksp">SKS</label>
-                    <input type="text" class="form-control" id="sksp" name="sksp" required>
+                    <input type="number" class="form-control" id="sksp" name="sksp" required>
                 </div>
                 <div class="form-group mb-4">
                     <label for="masa_penugasanp">Masa Penugasan</label>
