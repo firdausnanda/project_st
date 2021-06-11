@@ -167,39 +167,6 @@
                     <h4 style="font-weight: bold;">Data Rekap Mata Kuliah</h4>
                 </div>
 
-                {{-- <div style="margin-top: 20px; margin-bottom: -25px;">
-                    <button class="btn btn-primary mb-2" data-toggle="modal" data-target="#TambahDataSgas"><i class="far fa-edit"></i>Add Data</button>
-                </div> --}}
-
-                {{-- <form action="/sgas/cari" method="POST">
-                    {{ csrf_field() }}
-                    <input type="text" name="ta" placeholder="Cari Pegawai .." value="{{ old('cari') }}">
-                    <input type="submit" value="CARI">
-                </form> --}}
-
-                {{-- <div class="form-row">
-                    <div class="form-group col-md-2">
-                        <label for="ta">Tahun Akademik</label>
-                        <select class="form-control custom-select selecta" id="taa" name="taa">
-                            @foreach($items as $item)
-                            <option value="{{ $item->ta }}">{{ $item->ta }}</option>
-                            @endforeach
-                            <option value="">-</option>
-                        </select>
-                    </div>
-                </div> --}}
-
-                {{-- menampilkan error validasi --}}
-               @if ($error = Session::get('error'))
-               <div class="alert alert-icon-left alert-light-danger mb-4 alert-dismissible fade show" role="alert" style="margin-top:25px;">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                   </button>
-                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-alert-triangle"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12" y2="17"></line></svg>
-                   <strong>Error!</strong> {{ $error }}
-               </div>
-               @endif
-
                 <div class="table-responsive mb-4 mt-4">
                     <table id="zero-config" class="table table-hover" style="width:100%">
                         <thead>
@@ -228,7 +195,15 @@
                                 <td>{{ $m->t }}</td>
                                 <td>{{ $m->p }}</td>
                                 <td>{{ $m->k }}</td>
-                                <td>{{ $m->nama }}</td>
+                                <td>
+                                @php
+                                    $data = explode("@" , $m->nama);
+                                    foreach ($data as $key => $dataa) {
+                                    echo "<li>".$dataa."</li>";
+                                    }
+                                    echo "<br>";
+                                @endphp
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>
