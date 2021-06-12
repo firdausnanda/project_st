@@ -72,15 +72,6 @@
                 </a>
             </li>
 
-            <li class="menu">
-                <a href="/akun" data-active="{{ (request()->is('akun')) ? 'true' : '' }}" aria-expanded="{{ (request()->is('akun')) ? 'true' : 'false' }}"  class="dropdown-toggle" style="text-decoration: none">
-                    <div class="">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-                        <span>Akun</span>
-                    </div>
-                </a>
-            </li>
-
             <li class="menu menu-heading">
                 <div class="heading" style="margin-left: 3px;;"><span>Transaction</span></div>
             </li>
@@ -115,7 +106,8 @@
             </li>
 
             <li class="menu">
-                <a href="#elements" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed" style="text-decoration: none;">
+                <a href="#elements" data-toggle="collapse" data-active="{{ (request()->is('report/*')) ? 'true' : '' }}" aria-expanded="{{ (request()->is('report/*')) ? 'true' : 'false' }}"
+                    class="dropdown-toggle" style="text-decoration: none;">
                     <div class="">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-layers"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
                         <span>Report</span>
@@ -128,23 +120,36 @@
                         </svg>
                     </div>
                 </a>
-                <ul class="submenu list-unstyled collapse" id="elements" data-parent="#accordionExample" style="">
-                    <li>
-                        <a href="#" style="text-decoration: none;">Rekap Matakuliah</a>
+                <ul class="submenu list-unstyled collapse {{ (request()->is('report/*')) ? 'show' : '' }}" id="elements" data-parent="#accordionExample" style="">
+                    <li class="{{ (request()->is('report/rekap-matkul')) ? 'active' : '' }}">
+                        <a href="/report/rekap-matkul" style="text-decoration: none;">Rekap Matakuliah</a>
                     </li>
-                    <li>
-                        <a href="#" style="text-decoration: none;">Rekap Dosen</a>
+                    <li class="{{ (request()->is('report/rekap-dosen')) ? 'active' : '' }}">
+                        <a href="/report/rekap-dosen" style="text-decoration: none;">Rekap Dosen</a>
                     </li>
-                    <li>
-                        <a href="#" style="text-decoration: none;">Rekap Pembimbingan</a>
+                    <li class="{{ (request()->is('report/rekap-pembimbingan')) ? 'active' : '' }}">
+                        <a href="/report/rekap-pembimbingan" style="text-decoration: none;">Rekap Pembimbingan</a>
                     </li>
-                    <li>
-                        <a href="#" style="text-decoration: none;">Rekap Penunjang</a>
+                    <li class="{{ (request()->is('report/rekap-penunjang')) ? 'active' : '' }}">
+                        <a href="/report/rekap-penunjang" style="text-decoration: none;">Rekap Penunjang</a>
                     </li>
-                    <li>
-                        <a href="#" style="text-decoration: none;">Rekap Dosen Total</a>
+                    <li class="{{ (request()->is('report/dosen-total')) ? 'active' : '' }}">
+                        <a href="/report/dosen-total" style="text-decoration: none;">Rekap Dosen Total</a>
                     </li>
                 </ul>
+            </li>
+
+            <li class="menu menu-heading">
+                <div class="heading" style="margin-left: 3px;;"><span>System</span></div>
+            </li>
+
+            <li class="menu">
+                <a href="/akun" data-active="{{ (request()->is('akun')) ? 'true' : '' }}" aria-expanded="{{ (request()->is('akun')) ? 'true' : 'false' }}"  class="dropdown-toggle" style="text-decoration: none">
+                    <div class="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                        <span>Akun</span>
+                    </div>
+                </a>
             </li>
 
         </ul>
