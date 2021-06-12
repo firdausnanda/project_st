@@ -202,11 +202,6 @@
 <script src="{{ asset('assets/js/custom.js') }}"></script>
 <!-- END GLOBAL MANDATORY SCRIPTS -->
 
-<!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
-{{-- <script src="plugins/apex/apexcharts.min.js"></script>
-<script src="assets/js/dashboard/dash_1.js"></script> --}}
-<!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
-
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
 <script src="{{ asset('plugins/table/datatable/datatables.js') }}"></script>
 
