@@ -163,7 +163,8 @@
     <div class="search-overlay"></div>
 
     <!--  BEGIN SIDEBAR  -->
-    @yield('sidebar')
+    @include('layouts.menu')
+    {{-- @yield('sidebar') --}}
     <!--  END SIDEBAR  -->
     
     <!--  BEGIN CONTENT AREA  -->
