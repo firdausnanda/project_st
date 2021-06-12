@@ -346,14 +346,14 @@
                         <option value="genap">Genap</option>
                     </select>
                 </div>
-                <div class="form-group mb-4">
+                {{-- <div class="form-group mb-4">
                     <label for="prodi">Prodi</label><br>
                     <select class="selectpicker form-control" data-live-search="true" id="prodi" name="prodi" required>
                         @foreach($prodi as $mat)
                         <option value="{{ $mat->nama_prodi }}">{{ $mat->nama_prodi }}</option>
                         @endforeach
                     </select>
-                </div>
+                </div> --}}
             </div>
             <div class="modal-footer">
                 <input type="submit" class="btn btn-primary" value="Save">
