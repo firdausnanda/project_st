@@ -100,9 +100,9 @@ class DetailsgasController extends Controller
                         ->join('sgas','sgas.id_sgas','=','detail_sgas.id_sgas')
                         ->join('ta','ta.id_ta','=','sgas.ta')
                         ->where('detail_sgas.kode_matkul','=',$request->kode_matkul)
-                        ->where('ta.ta','=',$request->ta)
-                        ->where('sgas.semester','=',$request->semester)
-                        // ->get();
+                        ->where('ta.id_ta','=',$request->ta)
+                        ->where('sgas.semester','=',$request->semesterr)
+                        //->get();
                         ->sum('tsks'); //2
 
         $cektsks2 = DB::table('matkul')
@@ -119,8 +119,8 @@ class DetailsgasController extends Controller
                         ->join('sgas','sgas.id_sgas','=','detail_sgas.id_sgas')
                         ->join('ta','ta.id_ta','=','sgas.ta')
                         ->where('detail_sgas.kode_matkul','=',$request->kode_matkul)
-                        ->where('ta.ta','=',$request->ta)
-                        ->where('sgas.semester','=',$request->semester)
+                        ->where('ta.id_ta','=',$request->ta)
+                        ->where('sgas.semester','=',$request->semesterr)
                         // ->get();
                         ->sum('psks'); //2
 
@@ -138,8 +138,8 @@ class DetailsgasController extends Controller
                         ->join('sgas','sgas.id_sgas','=','detail_sgas.id_sgas')
                         ->join('ta','ta.id_ta','=','sgas.ta')
                         ->where('detail_sgas.kode_matkul','=',$request->kode_matkul)
-                        ->where('ta.ta','=',$request->ta)
-                        ->where('sgas.semester','=',$request->semester)
+                        ->where('ta.id_ta','=',$request->ta)
+                        ->where('sgas.semester','=',$request->semesterr)
                         // ->get();
                         ->sum('ksks'); //2
 
@@ -207,7 +207,7 @@ class DetailsgasController extends Controller
         DB::table('detail_penunjang')->insert([
             'id_sgas' => $request->id_sgas,
             'jenis_kegiatan' => $request->jenis_kegiatanp,
-            'sks' => $request->sksp,
+            'sks' => $request->skspenunjang,
             'masa_penugasan' => $request->masa_penugasanp,
                 
             'created_at' => \Carbon\Carbon::now(),
@@ -384,8 +384,8 @@ class DetailsgasController extends Controller
                         ->join('sgas','sgas.id_sgas','=','detail_sgas.id_sgas')
                         ->join('ta','ta.id_ta','=','sgas.ta')
                         ->where('detail_sgas.kode_matkul','=',$request->kode_matkul)
-                        ->where('ta.ta','=',$request->ta)
-                        ->where('sgas.semester','=',$request->semester)
+                        ->where('ta.id_ta','=',$request->ta)
+                        ->where('sgas.semester','=',$request->semesterr)
                         // ->get();
                         ->sum('tsks'); //2
 
@@ -403,8 +403,8 @@ class DetailsgasController extends Controller
                         ->join('sgas','sgas.id_sgas','=','detail_sgas.id_sgas')
                         ->join('ta','ta.id_ta','=','sgas.ta')
                         ->where('detail_sgas.kode_matkul','=',$request->kode_matkul)
-                        ->where('ta.ta','=',$request->ta)
-                        ->where('sgas.semester','=',$request->semester)
+                        ->where('ta.id_ta','=',$request->ta)
+                        ->where('sgas.semester','=',$request->semesterr)
                         // ->get();
                         ->sum('psks'); //2
 
@@ -422,8 +422,8 @@ class DetailsgasController extends Controller
                         ->join('sgas','sgas.id_sgas','=','detail_sgas.id_sgas')
                         ->join('ta','ta.id_ta','=','sgas.ta')
                         ->where('detail_sgas.kode_matkul','=',$request->kode_matkul)
-                        ->where('ta.ta','=',$request->ta)
-                        ->where('sgas.semester','=',$request->semester)
+                        ->where('ta.id_ta','=',$request->ta)
+                        ->where('sgas.semester','=',$request->semesterr)
                         // ->get();
                         ->sum('ksks'); //2
 
@@ -488,7 +488,7 @@ class DetailsgasController extends Controller
         DB::table('detail_penunjang') -> insert([
             'id_sgas' => $request->id_sgas,
             'jenis_kegiatan' => $request->jenis_kegiatanp,
-            'sks' => $request->sksp,
+            'sks' => $request->skspenunjang,
             'masa_penugasan' => $request->masa_penugasanp,
 
             'created_at' => \Carbon\ Carbon::now(),

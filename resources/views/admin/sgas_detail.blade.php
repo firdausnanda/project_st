@@ -337,7 +337,7 @@
             {{ csrf_field() }}
             @foreach($ngecek as $cek)
             <input type="hidden" value="{{ $cek ->ta }}" name="ta" id="ta">
-            <input type="hidden" value="{{ $cek ->semester }}" name="semester" id="semester">
+            <input type="hidden" value="{{ $cek ->semester }}" name="semesterr" id="semesterr">
             @endforeach
             <div class="modal-body">
                 <div class="form-group mb-4">
@@ -528,7 +528,7 @@
                     
                 <div class="form-group mb-4">
                     <label for="sksp">SKS</label>
-                    <input type="number" class="form-control" id="sksp" name="sksp" required>
+                    <input type="number" class="form-control" id="skspenunjang" name="skspenunjang" required>
                 </div>
                 <div class="form-group mb-4">
                     <label for="masa_penugasanp">Masa Penugasan</label>
