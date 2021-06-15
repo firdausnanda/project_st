@@ -94,6 +94,9 @@ class SgasController extends Controller
     public function hapus($id){
 
         DB::table('sgas')->where('id_sgas',$id)->delete();
+        DB::table('detail_sgas')->where('id_sgas',$id)->delete();
+        DB::table('detail_penunjang')->where('id_sgas',$id)->delete();
+        DB::table('detail_pembimbingan')->where('id_sgas',$id)->delete();
         return back()->with('success','Post deleted successfully');
     }
 
