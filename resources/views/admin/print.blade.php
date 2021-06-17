@@ -267,7 +267,7 @@
 
                     <h3 id="judul">SURAT TUGAS</h3>
 
-                    <table style="margin-top: 50px; border: none;">
+                    <table style="margin-top: 35px; border: none;">
                         @foreach ($tampil as $inv)
                         <tr style="height: 35px;">
                             <td style="width: 2%; border: none;">1.</td>
@@ -301,7 +301,7 @@
                         </tr>
                         @endforeach
                     </table>
-                    <div style="margin-top: 25px;"></div>
+                    <div style="margin-top: 15px;"></div>
                     <h4>I. Pengajaran</h4>
                     <table>
                         <thead>
