@@ -308,7 +308,7 @@ class DetailsgasController extends Controller
 
         // dd($counttotal);
 
-        return view('admin/print2',['invoice' => $invoice, 'tampil' => $tampil, 
+        return view('admin/print',['invoice' => $invoice, 'tampil' => $tampil, 
         'total' => $total, 'pembimbing' => $pembimbing, 'penunjang' => $penunjang,
         'totalpembimbing' => $totalpembimbing, 'totalpenunjang' => $totalpenunjang,
         'counttotal' => $counttotal]);

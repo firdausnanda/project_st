@@ -229,7 +229,7 @@
 
                             <tr height="80px">
                                 <td style="border: none;" align="center" valign="bottom" colspan="3">
-                                    {{-- <img src="{{ asset('assets/img/ttd.png')}}" alt="ttd"><br> --}}
+                                    <img src="{{ asset('assets/img/ttd.png')}}" alt="ttd"><br>
                                     Arief Efendi, S.Kep., Ns., MM., M.Kes</td>
                             </tr>
                             <tr>
@@ -421,7 +421,7 @@
 
                         <tr height="80px">
                             <td style="border: none;" align="center" valign="bottom" colspan="3">
-                                {{-- <img src="{{ asset('assets/img/ttd.png')}}" alt="ttd"><br> --}}
+                                <img src="{{ asset('assets/img/ttd.png')}}" alt="ttd"><br>
                                 Arief Efendi, S.Kep., Ns., MM., M.Kes</td>
                         </tr>
                         <tr>
@@ -489,7 +489,7 @@
 
                         <tr height="80px">
                             <td style="border: none;" align="center" valign="bottom" colspan="3">
-                                {{-- <img src="{{ asset('assets/img/ttd.png')}}" alt="ttd"><br> --}}
+                                <img src="{{ asset('assets/img/ttd.png')}}" alt="ttd"><br>
                                 Arief Efendi, S.Kep., Ns., MM., M.Kes</td>
                         </tr>
                         <tr>
