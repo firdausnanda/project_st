@@ -82,6 +82,7 @@ Route::get('/detail/idmatkul/{id}', 'DetailsgasController@loadDataKode')->name('
 Route::get('/detail/namamatkul/{id}', 'DetailsgasController@loadDataNama')->name('getDetailNamaMatkul');
 
 Route::get('/print/{id}', 'DetailsgasController@generateInvoice')->name('invoice');
+Route::get('/printno/{id}', 'DetailsgasController@generateInvoice2')->name('invoice2');
 
 // Tracking Management
 Route::get('/tracking', 'TrackingController@index')->name('tracking');
@@ -89,8 +90,12 @@ Route::post('/tracking/store','TrackingController@store');
 Route::post('/tracking/update','TrackingController@update');
 Route::get('/tracking/hapus/{id}','TrackingController@hapus');
 
-//Rekap Matkul
-Route::get('/rekap-matkul', 'RekapMatkulController@index')->name('rekapmatkul');
+//Report
+Route::get('/report/rekap-matkul', 'RekapMatkulController@index');
+Route::get('/report/rekap-dosen', 'RekapDosenController@index');
+Route::get('/report/rekap-pembimbingan', 'RekapMatkulController@index');
+Route::get('/report/rekap-penunjang', 'RekapMatkulController@index');
+Route::get('/report/dosen-total', 'RekapMatkulController@index');
 
 });
 

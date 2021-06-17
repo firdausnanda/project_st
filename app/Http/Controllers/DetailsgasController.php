@@ -263,6 +263,16 @@ class DetailsgasController extends Controller
             ->orderBy('id_detailsgas','desc')
             ->sum('grandtotal');
             // ->get();
+        
+        $totalpembimbing = DB::table('detail_pembimbingan')
+            ->where('id_sgas','=',$id)
+            ->orderBy('id_detailsgas','desc')
+            ->sum('sks');
+        
+        $totalpenunjang = DB::table('detail_penunjang')
+            ->where('id_sgas','=',$id)
+            ->orderBy('id_detailsgas','desc')
+            ->sum('sks');
 
         $pembimbing = DB::table('detail_pembimbingan')
             ->where('id_sgas','=',$id)
@@ -273,14 +283,112 @@ class DetailsgasController extends Controller
             ->where('id_sgas','=',$id)
             ->orderBy('id_penunjang','desc')
             ->get();
+        
+        $invoicecount = DB::table('detail_sgas')
+            ->join('sgas','sgas.id_sgas','=','detail_sgas.id_sgas')
+            ->join('matkul','matkul.kode_matkul','=','detail_sgas.kode_matkul')
+            ->join('dosen','dosen.id','=','sgas.id_dosen')
+            ->join('ta','ta.id_ta','=','sgas.ta') 
+            ->where('sgas.id_sgas','=',$id)
+            ->orderBy('sgas.id_sgas','desc')
+            ->count();
 
-        // $pdf = PDF::loadView('admin/print',['invoice' => $invoice, 'total' => $total]);
-        // return $pdf->stream();
-        // return $total;
+        $pembimbingcount = DB::table('detail_pembimbingan')
+            ->where('id_sgas','=',$id)
+            ->orderBy('id_pembimbingan','desc')
+            ->count();
+        
+        $penunjangcount = DB::table('detail_penunjang')
+            ->where('id_sgas','=',$id)
+            ->orderBy('id_penunjang','desc')
+            ->count();
+        
+        // menghitung banyak record untuk print maks 7
+        $counttotal = $invoicecount + $pembimbingcount + $penunjangcount;
 
+        // dd($counttotal);
 
-        return view('admin/print',['invoice' => $invoice, 'tampil' => $tampil, 
-        'total' => $total, 'pembimbing' => $pembimbing, 'penunjang' => $penunjang]);
+        return view('admin/print2',['invoice' => $invoice, 'tampil' => $tampil, 
+        'total' => $total, 'pembimbing' => $pembimbing, 'penunjang' => $penunjang,
+        'totalpembimbing' => $totalpembimbing, 'totalpenunjang' => $totalpenunjang,
+        'counttotal' => $counttotal]);
+    }
+
+    public function generateInvoice2($id){
+    
+        $tampil = DB::table('detail_sgas')
+            ->join('sgas','sgas.id_sgas','=','detail_sgas.id_sgas')
+            ->join('matkul','matkul.kode_matkul','=','detail_sgas.kode_matkul')
+            ->join('dosen','dosen.id','=','sgas.id_dosen')
+            ->join('ta','ta.id_ta','=','sgas.ta') 
+            ->where('sgas.id_sgas','=',$id)
+            ->orderBy('sgas.id_sgas','desc')
+            ->limit(1)
+            ->get();
+        
+        $invoice = DB::table('detail_sgas')
+            ->join('sgas','sgas.id_sgas','=','detail_sgas.id_sgas')
+            ->join('matkul','matkul.kode_matkul','=','detail_sgas.kode_matkul')
+            ->join('dosen','dosen.id','=','sgas.id_dosen')
+            ->join('ta','ta.id_ta','=','sgas.ta') 
+            ->where('sgas.id_sgas','=',$id)
+            ->orderBy('sgas.id_sgas','desc')
+            ->get();
+        
+        $total = DB::table('detail_sgas')
+            ->where('id_sgas','=',$id)
+            ->orderBy('id_detailsgas','desc')
+            ->sum('grandtotal');
+            // ->get();
+        
+        $totalpembimbing = DB::table('detail_pembimbingan')
+            ->where('id_sgas','=',$id)
+            ->orderBy('id_detailsgas','desc')
+            ->sum('sks');
+        
+        $totalpenunjang = DB::table('detail_penunjang')
+            ->where('id_sgas','=',$id)
+            ->orderBy('id_detailsgas','desc')
+            ->sum('sks');
+
+        $pembimbing = DB::table('detail_pembimbingan')
+            ->where('id_sgas','=',$id)
+            ->orderBy('id_pembimbingan','desc')
+            ->get();
+
+        $penunjang = DB::table('detail_penunjang')
+            ->where('id_sgas','=',$id)
+            ->orderBy('id_penunjang','desc')
+            ->get();
+        
+        $invoicecount = DB::table('detail_sgas')
+            ->join('sgas','sgas.id_sgas','=','detail_sgas.id_sgas')
+            ->join('matkul','matkul.kode_matkul','=','detail_sgas.kode_matkul')
+            ->join('dosen','dosen.id','=','sgas.id_dosen')
+            ->join('ta','ta.id_ta','=','sgas.ta') 
+            ->where('sgas.id_sgas','=',$id)
+            ->orderBy('sgas.id_sgas','desc')
+            ->count();
+
+        $pembimbingcount = DB::table('detail_pembimbingan')
+            ->where('id_sgas','=',$id)
+            ->orderBy('id_pembimbingan','desc')
+            ->count();
+        
+        $penunjangcount = DB::table('detail_penunjang')
+            ->where('id_sgas','=',$id)
+            ->orderBy('id_penunjang','desc')
+            ->count();
+        
+        // menghitung banyak record untuk print maks 7
+        $counttotal = $invoicecount + $pembimbingcount + $penunjangcount;
+
+        // dd($counttotal);
+
+        return view('admin/print2',['invoice' => $invoice, 'tampil' => $tampil, 
+        'total' => $total, 'pembimbing' => $pembimbing, 'penunjang' => $penunjang,
+        'totalpembimbing' => $totalpembimbing, 'totalpenunjang' => $totalpenunjang,
+        'counttotal' => $counttotal]);
     }
 
     public function validasi($validasi){
