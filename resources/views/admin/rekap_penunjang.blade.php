@@ -9,7 +9,7 @@
             <div class="widget-content widget-content-area br-6">
                 
                 <div class="">
-                    <h4 style="font-weight: bold;">Data Rekap Mata Kuliah</h4>
+                    <h4 style="font-weight: bold;">Data Rekap Penunjang</h4>
                 </div>
 
                 <div style="margin-top: 30px; margin-bottom: -25px;">
@@ -46,7 +46,7 @@
 
                 {{-- button print --}}
                 <div style="margin-top: 20px; margin-bottom: -20px;">
-                    <a href="{{ route('printmatkul') }}" target="_blank">
+                    <a href="{{ route('printpenunjang') }}" target="_blank">
                     <button class="btn btn-success mb-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-printer"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
                     Print
@@ -57,40 +57,32 @@
                 <div class="table-responsive mb-4 mt-4">
                     <table id="zero-config" class="table table-hover" style="width:100%">
                         <thead>
-                            <tr style="text-align: center;">
+                            <tr>
                                 <th>NO</th>
-                                <th>Kode Matakuliah</th>
-                                <th>Nama Matakuliah</th>
+                                <th>NRP/NIP/NIK NIDN/NIDK</th>
+                                <th>Nama Dosen</th>
                                 <th>TA</th>
                                 <th>Semester</th>
-                                <th>SKS</th>
-                                <th>T</th>
-                                <th>P</th>
-                                <th>K</th>
-                                <th>Team Teaching</th>
+                                <th>Jenis Kegiatan</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php $no = 0; ?>
-                            @foreach ($rekapmatkul as $m)
+                            @foreach ($rekappenunjang as $m)
                             <?php 
                                 $no++ ;
                             ?>
                             <tr>
                                 <td>{{ $no }}</td>
-                                <td>{{ $m->kode_matkul }}</td>
-                                <td>{{ $m->nama_matkul }}</td>
+                                <td>{{ $m->nidn }}</td>
+                                <td>{{ $m->nama }}</td>
                                 <td>{{ $m->ta }}</td>
-                                <td align="center">{{ ucfirst($m->semester) }}</td>
-                                <td>{{ $m->sks }}</td>
-                                <td>{{ $m->t }}</td>
-                                <td>{{ $m->p }}</td>
-                                <td>{{ $m->k }}</td>
+                                <td>{{ ucfirst($m->semester) }}</td>
                                 <td>
                                 @php
-                                    $data = explode("@" , $m->nama);
+                                    $data = explode("@" , $m->jenis);
                                     foreach ($data as $key => $dataa) {
-                                    echo "<li style='margin: 10px;'>".$dataa."</li>";
+                                    echo "<li style='margin: 5px;'>".$dataa."</li>";
                                     }
                                     echo "<br>";
                                 @endphp
@@ -101,15 +93,11 @@
                         <tfoot>
                             <tr>
                                 <th>NO</th>
-                                <th>Kode Matakuliah</th>
-                                <th>Nama Matakuliah</th>
+                                <th>NRP/NIP/NIK NIDN/NIDK</th>
+                                <th>Nama Dosen</th>
                                 <th>TA</th>
                                 <th>Semester</th>
-                                <th>SKS</th>
-                                <th>T</th>
-                                <th>P</th>
-                                <th>K</th>
-                                <th>Team Teaching</th>
+                                <th>Jenis Kegiatan</th>
                             </tr>
                         </tfoot>
                     </table>

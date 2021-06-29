@@ -92,10 +92,19 @@ Route::get('/tracking/hapus/{id}','TrackingController@hapus');
 
 //Report
 Route::get('/report/rekap-matkul', 'RekapMatkulController@index');
+Route::get('/report/rekap-matkul/print', 'RekapMatkulController@print')->name('printmatkul');
+
 Route::get('/report/rekap-dosen', 'RekapDosenController@index');
-Route::get('/report/rekap-pembimbingan', 'RekapMatkulController@index');
-Route::get('/report/rekap-penunjang', 'RekapMatkulController@index');
-Route::get('/report/dosen-total', 'RekapMatkulController@index');
+Route::get('/report/rekap-dosen/print', 'RekapDosenController@print')->name('printdosen');
+
+Route::get('/report/rekap-pembimbingan', 'RekapPembimbinganController@index');
+Route::get('/report/rekap-pembimbingan/print', 'RekapPembimbinganController@print')->name('printpembimbingan');
+
+Route::get('/report/rekap-penunjang', 'RekapPenujangController@index');
+Route::get('/report/rekap-penunjang/print', 'RekapPenujangController@print')->name('printpenunjang');
+
+Route::get('/report/dosen-total', 'RekapDosenTotalController@index');
+Route::get('/report/dosen-total/print', 'RekapDosenTotalController@print')->name('printdosentotal');
 
 });
 
@@ -154,7 +163,9 @@ Route::post('/profileuser/store','ProfilController@store');
 // user cetak data
 Route::get('/cetak', 'SgasController@indexuser');
 Route::get('/cetak/detail/{id}', 'DetailsgasController@indexuser');
-Route::get('/cetak/print/{id}', 'DetailsgasController@generateInvoiceUser')->name('invoiceUser');
+
+Route::get('/cetak/print/{id}', 'DetailsgasController@generateInvoice')->name('invoiceuser');
+Route::get('/cetak/printno/{id}', 'DetailsgasController@generateInvoice2')->name('invoiceuser2');
 
 });
 

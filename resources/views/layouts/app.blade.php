@@ -235,6 +235,22 @@
             table.columns(4).search($('#taa').val()).draw();
             table.columns(5).search($('#semesterr').val()).draw();
         });
+
+        $('#filter').on('click', function (){
+            table.columns(3).search($('#taa').val()).draw();
+            table.columns(4).search($('#semesterr').val()).draw();
+        });
+
+        $('#filter2').on('click', function (){
+            table.columns(3).search($('#taa').val()).draw();
+            table.columns(4).search($('#semesterr').val()).draw();
+        });
+
+        $('#filter3').on('click', function (){
+            table.columns(3).search($('#statuss').val()).draw();
+            table.columns(4).search($('#taa').val()).draw();
+            table.columns(5).search($('#semesterr').val()).draw();
+        });
     });
 
     //datatable pembimbingan
