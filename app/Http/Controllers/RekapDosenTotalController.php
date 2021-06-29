@@ -34,22 +34,152 @@ class RekapDosenTotalController extends Controller
         //return $nama;
     }
 
-    public function print(){
+    public function print(Request $request){
         //tampil di tabel
-        $rekapdosen = DB::table('dosen')
-            ->select("dosen.nidn","dosen.nama","dosen.status",
-                DB::raw("GROUP_CONCAT(matkul.nama_matkul SEPARATOR '@') as nama_matkul"),
-                DB::raw("GROUP_CONCAT(detail_sgas.total SEPARATOR '@') as sks"),
-                DB::raw("GROUP_CONCAT(detail_sgas.kelas SEPARATOR '@') as kelas"),
-                DB::raw("GROUP_CONCAT(detail_sgas.grandtotal SEPARATOR '@') as total"))
-            ->join('sgas','sgas.id_dosen','=','dosen.id')
-            ->join('detail_sgas','detail_sgas.id_sgas','=','sgas.id_sgas')
-            ->join('matkul','matkul.kode_matkul','=','detail_sgas.kode_matkul')
-            ->join('ta','ta.id_ta','=','sgas.ta')
-            ->groupBy('dosen.nidn','ta.ta','sgas.semester')
-            ->get();
+        $ta = $request->taa;
+        $smt = $request->semesterr;
+        $sts = $request->statuss;
+
+        if ($sts == null and $smt == null and $sts == null) {
+            # code...
+            $rekapdosen = DB::table('dosen')
+                ->select("dosen.nidn","dosen.nama","dosen.status","ta.ta","sgas.semester",
+                    DB::raw("GROUP_CONCAT(matkul.nama_matkul SEPARATOR '@') as nama_matkul"),
+                    DB::raw("GROUP_CONCAT(detail_sgas.total SEPARATOR '@') as sks"),
+                    DB::raw("GROUP_CONCAT(detail_sgas.kelas SEPARATOR '@') as kelas"),
+                    DB::raw("GROUP_CONCAT(detail_sgas.grandtotal SEPARATOR '@') as total"))
+                ->join('sgas','sgas.id_dosen','=','dosen.id')
+                ->join('detail_sgas','detail_sgas.id_sgas','=','sgas.id_sgas')
+                ->join('matkul','matkul.kode_matkul','=','detail_sgas.kode_matkul')
+                ->join('ta','ta.id_ta','=','sgas.ta')
+                // ->where('sgas.semester','=',$request->semesterr)
+                // ->where('ta.ta','=',$request->taa)
+                // ->where('dosen.status','=',$request->statuss)
+                ->groupBy('dosen.nidn','ta.ta','sgas.semester')
+                ->get();
+        }elseif ($sts == null) {
+            # code...
+            $rekapdosen = DB::table('dosen')
+                ->select("dosen.nidn","dosen.nama","dosen.status","ta.ta","sgas.semester",
+                    DB::raw("GROUP_CONCAT(matkul.nama_matkul SEPARATOR '@') as nama_matkul"),
+                    DB::raw("GROUP_CONCAT(detail_sgas.total SEPARATOR '@') as sks"),
+                    DB::raw("GROUP_CONCAT(detail_sgas.kelas SEPARATOR '@') as kelas"),
+                    DB::raw("GROUP_CONCAT(detail_sgas.grandtotal SEPARATOR '@') as total"))
+                ->join('sgas','sgas.id_dosen','=','dosen.id')
+                ->join('detail_sgas','detail_sgas.id_sgas','=','sgas.id_sgas')
+                ->join('matkul','matkul.kode_matkul','=','detail_sgas.kode_matkul')
+                ->join('ta','ta.id_ta','=','sgas.ta')
+                ->where('sgas.semester','=',$request->semesterr)
+                ->where('ta.ta','=',$request->taa)
+                // ->where('dosen.status','=',$request->statuss)
+                ->groupBy('dosen.nidn','ta.ta','sgas.semester')
+                ->get();
+        }elseif($smt == null) {
+            $rekapdosen = DB::table('dosen')
+                ->select("dosen.nidn","dosen.nama","dosen.status","ta.ta","sgas.semester",
+                    DB::raw("GROUP_CONCAT(matkul.nama_matkul SEPARATOR '@') as nama_matkul"),
+                    DB::raw("GROUP_CONCAT(detail_sgas.total SEPARATOR '@') as sks"),
+                    DB::raw("GROUP_CONCAT(detail_sgas.kelas SEPARATOR '@') as kelas"),
+                    DB::raw("GROUP_CONCAT(detail_sgas.grandtotal SEPARATOR '@') as total"))
+                ->join('sgas','sgas.id_dosen','=','dosen.id')
+                ->join('detail_sgas','detail_sgas.id_sgas','=','sgas.id_sgas')
+                ->join('matkul','matkul.kode_matkul','=','detail_sgas.kode_matkul')
+                ->join('ta','ta.id_ta','=','sgas.ta')
+                // ->where('sgas.semester','=',$request->semesterr)
+                ->where('ta.ta','=',$request->taa)
+                ->where('dosen.status','=',$request->statuss)
+                ->groupBy('dosen.nidn','ta.ta','sgas.semester')
+                ->get();
+        }elseif($ta == null) {
+            # code...
+            $rekapdosen = DB::table('dosen')
+                ->select("dosen.nidn","dosen.nama","dosen.status","ta.ta","sgas.semester",
+                    DB::raw("GROUP_CONCAT(matkul.nama_matkul SEPARATOR '@') as nama_matkul"),
+                    DB::raw("GROUP_CONCAT(detail_sgas.total SEPARATOR '@') as sks"),
+                    DB::raw("GROUP_CONCAT(detail_sgas.kelas SEPARATOR '@') as kelas"),
+                    DB::raw("GROUP_CONCAT(detail_sgas.grandtotal SEPARATOR '@') as total"))
+                ->join('sgas','sgas.id_dosen','=','dosen.id')
+                ->join('detail_sgas','detail_sgas.id_sgas','=','sgas.id_sgas')
+                ->join('matkul','matkul.kode_matkul','=','detail_sgas.kode_matkul')
+                ->join('ta','ta.id_ta','=','sgas.ta')
+                ->where('sgas.semester','=',$request->semesterr)
+                // ->where('ta.ta','=',$request->taa)
+                ->where('dosen.status','=',$request->statuss)
+                ->groupBy('dosen.nidn','ta.ta','sgas.semester')
+                ->get();
+        }elseif($ta == null and $smt == null) {
+            # code...
+            $rekapdosen = DB::table('dosen')
+                ->select("dosen.nidn","dosen.nama","dosen.status","ta.ta","sgas.semester",
+                    DB::raw("GROUP_CONCAT(matkul.nama_matkul SEPARATOR '@') as nama_matkul"),
+                    DB::raw("GROUP_CONCAT(detail_sgas.total SEPARATOR '@') as sks"),
+                    DB::raw("GROUP_CONCAT(detail_sgas.kelas SEPARATOR '@') as kelas"),
+                    DB::raw("GROUP_CONCAT(detail_sgas.grandtotal SEPARATOR '@') as total"))
+                ->join('sgas','sgas.id_dosen','=','dosen.id')
+                ->join('detail_sgas','detail_sgas.id_sgas','=','sgas.id_sgas')
+                ->join('matkul','matkul.kode_matkul','=','detail_sgas.kode_matkul')
+                ->join('ta','ta.id_ta','=','sgas.ta')
+                // ->where('sgas.semester','=',$request->semesterr)
+                // ->where('ta.ta','=',$request->taa)
+                ->where('dosen.status','=',$request->statuss)
+                ->groupBy('dosen.nidn','ta.ta','sgas.semester')
+                ->get();
+
+        }elseif($ta == null and $sts == null) {
+            # code...
+            $rekapdosen = DB::table('dosen')
+                ->select("dosen.nidn","dosen.nama","dosen.status","ta.ta","sgas.semester",
+                    DB::raw("GROUP_CONCAT(matkul.nama_matkul SEPARATOR '@') as nama_matkul"),
+                    DB::raw("GROUP_CONCAT(detail_sgas.total SEPARATOR '@') as sks"),
+                    DB::raw("GROUP_CONCAT(detail_sgas.kelas SEPARATOR '@') as kelas"),
+                    DB::raw("GROUP_CONCAT(detail_sgas.grandtotal SEPARATOR '@') as total"))
+                ->join('sgas','sgas.id_dosen','=','dosen.id')
+                ->join('detail_sgas','detail_sgas.id_sgas','=','sgas.id_sgas')
+                ->join('matkul','matkul.kode_matkul','=','detail_sgas.kode_matkul')
+                ->join('ta','ta.id_ta','=','sgas.ta')
+                ->where('sgas.semester','=',$request->semesterr)
+                // ->where('ta.ta','=',$request->taa)
+                // ->where('dosen.status','=',$request->statuss)
+                ->groupBy('dosen.nidn','ta.ta','sgas.semester')
+                ->get();
+        }elseif($smt == null and $sts == null) {
+            # code...
+            $rekapdosen = DB::table('dosen')
+                ->select("dosen.nidn","dosen.nama","dosen.status","ta.ta","sgas.semester",
+                    DB::raw("GROUP_CONCAT(matkul.nama_matkul SEPARATOR '@') as nama_matkul"),
+                    DB::raw("GROUP_CONCAT(detail_sgas.total SEPARATOR '@') as sks"),
+                    DB::raw("GROUP_CONCAT(detail_sgas.kelas SEPARATOR '@') as kelas"),
+                    DB::raw("GROUP_CONCAT(detail_sgas.grandtotal SEPARATOR '@') as total"))
+                ->join('sgas','sgas.id_dosen','=','dosen.id')
+                ->join('detail_sgas','detail_sgas.id_sgas','=','sgas.id_sgas')
+                ->join('matkul','matkul.kode_matkul','=','detail_sgas.kode_matkul')
+                ->join('ta','ta.id_ta','=','sgas.ta')
+                // ->where('sgas.semester','=',$request->semesterr)
+                ->where('ta.ta','=',$request->taa)
+                // ->where('dosen.status','=',$request->statuss)
+                ->groupBy('dosen.nidn','ta.ta','sgas.semester')
+                ->get();
+        }else{
+            $rekapdosen = DB::table('dosen')
+                ->select("dosen.nidn","dosen.nama","dosen.status","ta.ta","sgas.semester",
+                    DB::raw("GROUP_CONCAT(matkul.nama_matkul SEPARATOR '@') as nama_matkul"),
+                    DB::raw("GROUP_CONCAT(detail_sgas.total SEPARATOR '@') as sks"),
+                    DB::raw("GROUP_CONCAT(detail_sgas.kelas SEPARATOR '@') as kelas"),
+                    DB::raw("GROUP_CONCAT(detail_sgas.grandtotal SEPARATOR '@') as total"))
+                ->join('sgas','sgas.id_dosen','=','dosen.id')
+                ->join('detail_sgas','detail_sgas.id_sgas','=','sgas.id_sgas')
+                ->join('matkul','matkul.kode_matkul','=','detail_sgas.kode_matkul')
+                ->join('ta','ta.id_ta','=','sgas.ta')
+                ->where('sgas.semester','=',$request->semesterr)
+                ->where('ta.ta','=',$request->taa)
+                ->where('dosen.status','=',$request->statuss)
+                ->groupBy('dosen.nidn','ta.ta','sgas.semester')
+                ->get();
+        }
+
         
-        // dd($rekapdosen);
+        
+        // dd($sts);
         return view('report/print_rekap_dosen_total',['rekapdosen' => $rekapdosen]);
 
         //return $nama;

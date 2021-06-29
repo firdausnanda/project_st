@@ -32,25 +32,65 @@ class RekapPembimbinganController extends Controller
         //return $nama;
     }
 
-    public function print(){
+    public function print(Request $request){
         //tampil di tabel
-        $rekappembimbingan = DB::table('dosen')
-            ->select("dosen.nidn","dosen.nama","ta.ta","sgas.semester",
-                DB::raw("(GROUP_CONCAT(detail_pembimbingan.jenis_kegiatan SEPARATOR '@')) as jenis"),
-                DB::raw("(GROUP_CONCAT(detail_pembimbingan.sks SEPARATOR '@')) as sks"))
-            ->join('sgas','sgas.id_dosen','=','dosen.id')
-            ->join('detail_pembimbingan','detail_pembimbingan.id_sgas','=','sgas.id_sgas')            
-            ->join('ta','ta.id_ta','=','sgas.ta')
-            ->groupBy('dosen.nidn','dosen.nama','ta.ta','sgas.semester')
-            ->get();
+        $ta = $request->taa;
+        $smt = $request->semesterr;
 
-        // dd($rekapmatkul);
+        if ($ta == null and $smt == null) {
 
-        $items = DB::table('ta')
-            ->orderBy('id_ta','desc')
-            ->get();
+            $rekappembimbingan = DB::table('dosen')
+                ->select("dosen.nidn","dosen.nama","ta.ta","sgas.semester",
+                    DB::raw("(GROUP_CONCAT(detail_pembimbingan.jenis_kegiatan SEPARATOR '@')) as jenis"),
+                    DB::raw("(GROUP_CONCAT(detail_pembimbingan.sks SEPARATOR '@')) as sks"))
+                ->join('sgas','sgas.id_dosen','=','dosen.id')
+                ->join('detail_pembimbingan','detail_pembimbingan.id_sgas','=','sgas.id_sgas')            
+                ->join('ta','ta.id_ta','=','sgas.ta')
+                ->groupBy('dosen.nidn','dosen.nama','ta.ta','sgas.semester')
+                ->get();
 
-        return view('report/print_rekap_pembimbingan',['rekappembimbingan' => $rekappembimbingan, 'items' => $items]);
+        }elseif($ta == null){
+
+            $rekappembimbingan = DB::table('dosen')
+                ->select("dosen.nidn","dosen.nama","ta.ta","sgas.semester",
+                    DB::raw("(GROUP_CONCAT(detail_pembimbingan.jenis_kegiatan SEPARATOR '@')) as jenis"),
+                    DB::raw("(GROUP_CONCAT(detail_pembimbingan.sks SEPARATOR '@')) as sks"))
+                ->join('sgas','sgas.id_dosen','=','dosen.id')
+                ->join('detail_pembimbingan','detail_pembimbingan.id_sgas','=','sgas.id_sgas')            
+                ->join('ta','ta.id_ta','=','sgas.ta')
+                ->where('sgas.semester','=',$request->semesterr)
+                ->groupBy('dosen.nidn','dosen.nama','ta.ta','sgas.semester')
+                ->get();
+
+        }elseif($smt == null){
+
+            $rekappembimbingan = DB::table('dosen')
+                ->select("dosen.nidn","dosen.nama","ta.ta","sgas.semester",
+                    DB::raw("(GROUP_CONCAT(detail_pembimbingan.jenis_kegiatan SEPARATOR '@')) as jenis"),
+                    DB::raw("(GROUP_CONCAT(detail_pembimbingan.sks SEPARATOR '@')) as sks"))
+                ->join('sgas','sgas.id_dosen','=','dosen.id')
+                ->join('detail_pembimbingan','detail_pembimbingan.id_sgas','=','sgas.id_sgas')            
+                ->join('ta','ta.id_ta','=','sgas.ta')
+                ->where('ta.ta','=',$request->taa)
+                ->groupBy('dosen.nidn','dosen.nama','ta.ta','sgas.semester')
+                ->get();
+        }else{
+
+            $rekappembimbingan = DB::table('dosen')
+                ->select("dosen.nidn","dosen.nama","ta.ta","sgas.semester",
+                    DB::raw("(GROUP_CONCAT(detail_pembimbingan.jenis_kegiatan SEPARATOR '@')) as jenis"),
+                    DB::raw("(GROUP_CONCAT(detail_pembimbingan.sks SEPARATOR '@')) as sks"))
+                ->join('sgas','sgas.id_dosen','=','dosen.id')
+                ->join('detail_pembimbingan','detail_pembimbingan.id_sgas','=','sgas.id_sgas')            
+                ->join('ta','ta.id_ta','=','sgas.ta')
+                ->where('ta.ta','=',$request->taa)
+                ->where('sgas.semester','=',$request->semesterr)
+                ->groupBy('dosen.nidn','dosen.nama','ta.ta','sgas.semester')
+                ->get();
+
+        }
+        
+        return view('report/print_rekap_pembimbingan',['rekappembimbingan' => $rekappembimbingan]);
 
         //return $nama;
     }
