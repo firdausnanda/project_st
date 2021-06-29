@@ -128,7 +128,7 @@
                         <a href="/report/rekap-dosen" style="text-decoration: none;">Rekap Dosen</a>
                     </li>
                     <li class="{{ (request()->is('report/rekap-pembimbingan')) ? 'active' : '' }}">
-                        <a href="/report/rekap-pembimbingan" style="text-decoration: none;">Rekap Pembimbingan</a>
+                        <a href="/report/rekap-pembimbingan" style="text-decoration: none; font-size: 12px;">Rekap Pembimbingan</a>
                     </li>
                     <li class="{{ (request()->is('report/rekap-penunjang')) ? 'active' : '' }}">
                         <a href="/report/rekap-penunjang" style="text-decoration: none;">Rekap Penunjang</a>
