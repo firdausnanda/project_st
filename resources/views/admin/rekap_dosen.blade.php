@@ -94,17 +94,17 @@
                             $no = 0;
                             @endphp
                             @foreach ($rekapdosen as $m)
-                            <?php 
+                            @php 
                                 $no++ ;
                                 $rowspan = count(explode("@", $m->nama_matkul)) + 1;
-                            ?>
+                            @endphp
                             <tr>
-                                <td>{{ $no }}</td>
-                                <td>{{ $m->nidn }}</td>
-                                <td>{{ $m->nama }}</td>
-                                <td>{{ $m->ta }}</td>
-                                <td>{{ ucfirst($m->semester) }}</td>
-                                <td style="font-size: 12px;">
+                                <td style="width: 5%;">{{ $no }}</td>
+                                <td style="width: 10%;">{{ $m->nidn }}</td>
+                                <td style="width: 15%;">{{ $m->nama }}</td>
+                                <td style="width: 10%;">{{ $m->ta }}</td>
+                                <td style="width: 10%;">{{ ucfirst($m->semester) }}</td>
+                                <td style="font-size: 12px; width: 15%;">
                                     @php
                                     $data = explode("@" , $m->nama_matkul);
                                     foreach ($data as $key => $dataa) {
@@ -113,7 +113,7 @@
                                     echo "<br>";
                                     @endphp
                                 </td>
-                                <td style="font-size: 12px;">
+                                <td style="font-size: 12px; width: 5%;">
                                     @php
                                     $data = explode("@" , $m->sks);
                                     foreach ($data as $key => $dataa) {
@@ -122,7 +122,7 @@
                                     echo "<br>";
                                     @endphp
                                 </td>
-                                <td style="font-size: 12px;">
+                                <td style="font-size: 12px; width: 5%;">
                                     @php
                                     $data = explode("@" , $m->kelas);
                                     foreach ($data as $key => $dataa) {
@@ -131,7 +131,7 @@
                                     echo "<br>";
                                     @endphp
                                 </td>
-                                <td style="font-size: 12px;">
+                                <td style="font-size: 12px; width: 5%;">
                                     @php
                                     $data = explode("@" , $m->total);
                                     foreach ($data as $key => $dataa) {
@@ -140,6 +140,11 @@
                                     echo "<br>";
                                     @endphp
                                 </td>
+                            </tr>
+                            <tr style="background-color: #e1eeff;">
+                                <td colspan="4"></td>
+                                <td colspan="4" style="font-weight: bold; text-align: center;">Total</td>
+                                <td style="font-weight: bold; text-align: center;">2</td>
                             </tr>
                             @endforeach
                         </tbody>
