@@ -230,7 +230,7 @@
                             <tr height="80px">
                                 <td style="border: none;" align="center" valign="bottom" colspan="3">
                                     {{-- <img src="{{ asset('assets/img/ttd.png')}}" alt="ttd"><br> --}}
-                                    Arief Efendi, S.Kep., Ns., MM., M.Kes</td>
+                                    Arief Efendi, SMPh., SH(adv)., S.Kep., Ners., MM., M.Kes</td>
                             </tr>
                             <tr>
                                 <td style="border: none;" align="center" valign="bottom" colspan="3">NIDK. 8807901019
@@ -422,7 +422,7 @@
                         <tr height="80px">
                             <td style="border: none;" align="center" valign="bottom" colspan="3">
                                 {{-- <img src="{{ asset('assets/img/ttd.png')}}" alt="ttd"><br> --}}
-                                Arief Efendi, S.Kep., Ns., MM., M.Kes</td>
+                                    Arief Efendi, SMPh., SH(adv)., S.Kep., Ners., MM., M.Kes</td>
                         </tr>
                         <tr>
                             <td style="border: none;" align="center" valign="bottom" colspan="3">NIDK. 8807901019
@@ -490,7 +490,7 @@
                         <tr height="80px">
                             <td style="border: none;" align="center" valign="bottom" colspan="3">
                                 {{-- <img src="{{ asset('assets/img/ttd.png')}}" alt="ttd"><br> --}}
-                                Arief Efendi, S.Kep., Ns., MM., M.Kes</td>
+                                    Arief Efendi, SMPh., SH(adv)., S.Kep., Ners., MM., M.Kes</td>
                         </tr>
                         <tr>
                             <td style="border: none;" align="center" valign="bottom" colspan="3">NIDK. 8807901019
