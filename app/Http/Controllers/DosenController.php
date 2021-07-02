@@ -86,15 +86,29 @@ class DosenController extends Controller
         DB::table('dosen')
             ->where('id',$id)
             ->delete();
+        
+        $sgas = DB::table('sgas')
+                    ->where('id_dosen',$id)
+                    ->get();
+        
+        $users = DB::table('users')
+                    ->where('email',$id)
+                    ->delete();
 
-        DB::table('sgas')
-            ->where('nidn',$id)
-            ->delete();
+        // dd($sgas);
+        
+        if($sgas == null){
+            DB::table('sgas')
+                ->where('nidn',$id)
+                ->delete();
+        }
 
-        DB::table('users')
-            ->where('email',$id)
-            ->delete();
-
+        if($users == null){
+            DB::table('users')
+                ->where('email',$id)
+                ->delete();
+        }
+        
         return redirect('/dosen');
     }
 }

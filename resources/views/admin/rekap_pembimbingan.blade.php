@@ -84,6 +84,7 @@
                                 <th>TA</th>
                                 <th>Semester</th>
                                 <th>Jenis Kegiatan</th>
+                                <th>SKS</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -107,6 +108,15 @@
                                     echo "<br>";
                                     @endphp
                                 </td>
+                                <td>
+                                    @php
+                                    $data = explode("@" , $m->sks);
+                                    foreach ($data as $key => $dataa) {
+                                    echo "<li style='margin: 5px;'>".$dataa."</li>";
+                                    }
+                                    echo "<br>";
+                                    @endphp
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>
@@ -118,6 +128,7 @@
                                 <th>TA</th>
                                 <th>Semester</th>
                                 <th>Jenis Kegiatan</th>
+                                <th>SKS</th>
                             </tr>
                         </tfoot>
                     </table>

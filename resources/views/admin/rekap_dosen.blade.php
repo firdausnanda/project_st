@@ -108,7 +108,7 @@
                                     @php
                                     $data = explode("@" , $m->nama_matkul);
                                     foreach ($data as $key => $dataa) {
-                                    echo "<li style='margin: 5px;'>".$dataa."</li>";
+                                    echo "<li style='margin: 10px;'>".$dataa."</li>";
                                     }
                                     echo "<br>";
                                     @endphp
@@ -117,7 +117,7 @@
                                     @php
                                     $data = explode("@" , $m->sks);
                                     foreach ($data as $key => $dataa) {
-                                    echo "<li style='margin: 5px;'>".$dataa."</li>";
+                                    echo "<li style='margin: 10px;'>".$dataa."</li>";
                                     }
                                     echo "<br>";
                                     @endphp
@@ -126,7 +126,7 @@
                                     @php
                                     $data = explode("@" , $m->kelas);
                                     foreach ($data as $key => $dataa) {
-                                    echo "<li style='margin: 5px;'>".$dataa."</li>";
+                                    echo "<li style='margin: 10px;'>".$dataa."</li>";
                                     }
                                     echo "<br>";
                                     @endphp
@@ -135,17 +135,20 @@
                                     @php
                                     $data = explode("@" , $m->total);
                                     foreach ($data as $key => $dataa) {
-                                    echo "<li style='margin: 5px;'>".$dataa."</li>";
+                                    echo "<li style='margin: 10px;'>".$dataa."</li>";
                                     }
                                     echo "<br>";
                                     @endphp
                                 </td>
                             </tr>
-                            <tr style="background-color: #e1eeff;">
-                                <td colspan="4"></td>
-                                <td colspan="4" style="font-weight: bold; text-align: center;">Total</td>
-                                <td style="font-weight: bold; text-align: center;">2</td>
-                            </tr>
+                            {{-- <tr style="background-color: #e1eeff; height: 10px;">
+                                <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                                <td style="font-weight: bold; text-align: center;">Total</td>
+                                @php
+                                $data = explode("@" , $m->total);
+                                echo '<td style="font-weight: bold; text-align: center;">'.array_sum($data).'</td>';
+                                @endphp
+                            </tr> --}}
                             @endforeach
                         </tbody>
                         <tfoot>

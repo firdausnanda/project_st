@@ -155,12 +155,14 @@
                             <tr>
                                 <th width="5%">NO</th>
                                 <th width="15%">Kode Matakuliah</th>
-                                <th width="25%">Nama Matakuliah</th>
+                                <th width="20%">Nama Matakuliah</th>
                                 <th width="5%">SKS</th>
                                 <th width="5%">T</th>
                                 <th width="5%">P</th>
                                 <th width="5%">K</th>
-                                <th width="35%">Team Teaching</th>
+                                <th width="5%">Kelas</th>
+                                <th width="5%">Total</th>
+                                <th width="30%">Team Teaching</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -172,12 +174,22 @@
                             <tr style="font-size: 12px;">
                                 <td width="5%" align="center">{{ $no }}</td>
                                 <td width="15%">{{ $m->kode_matkul }}</td>
-                                <td width="25%">{{ $m->nama_matkul }}</td>
+                                <td width="20%">{{ $m->nama_matkul }}</td>
                                 <td width="5%" align="center">{{ $m->sks }}</td>
                                 <td width="5%" align="center">{{ $m->t }}</td>
                                 <td width="5%" align="center">{{ $m->p }}</td>
                                 <td width="5%" align="center">{{ $m->k }}</td>
-                                <td width="35%">
+                                <td width="10%" align="center">{{ $m->kelas }}</td>
+                                <td width="5%" align="center">
+                                    @php
+                                    $data = explode("@" , $m->total);
+                                    foreach ($data as $key => $dataa) {
+                                    echo $dataa;
+                                    }
+                                    echo "<br>";
+                                    @endphp
+                                </td>
+                                <td width="25%">
                                 @php
                                     $data = explode("@" , $m->nama);
                                     foreach ($data as $key => $dataa) {
@@ -189,6 +201,13 @@
                             </tr>
                             @endforeach
                         </tbody>
+                        <tfoot>
+                            <tr style="font-size: 17px;">
+                                <th colspan="8">Grand Total</th>
+                                <th>{{ $totalsks }}</th>
+                                <th></th>
+                            </tr>
+                        </tfoot>
                     </table>
                 </div>
             </div>

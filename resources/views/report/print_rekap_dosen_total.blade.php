@@ -108,6 +108,7 @@
             body {
                 width: 210mm;
                 height: 297mm;
+                -webkit-print-color-adjust: exact;
             }
 
             .page {
@@ -214,8 +215,27 @@
                                         @endphp
                                     </td>
                                 </tr>
+                                <tr style="background-color: #e1eeff; height: 10px;">
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td style="font-weight: bold; text-align: center;">Total</td>
+                                    @php
+                                    $data = explode("@" , $m->total);
+                                    echo '<td style="font-weight: bold; text-align: center;">'.array_sum($data).'</td>';
+                                    @endphp
+                                </tr>
                                 @endforeach
                             </tbody>
+                            <tfoot>
+                                <tr style="font-size: 17px;">
+                                    <th colspan="7">Grand Total</th>
+                                    <th>{{ $totalsks }}</th>
+                                </tr>
+                            </tfoot>
                         </table>
                     </div>
             </div>

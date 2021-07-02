@@ -111,7 +111,8 @@
                 </div>
                 <div class="form-group mb-4">
                     <label for="jabatan">Jabatan</label><br>
-                    <select class="selectpicker form-control" data-live-search="true" id="jabatan" name="jabatan" required>
+                    <select class="selectpicker form-control" data-live-search="true" id="jabatan" name="jabatan">
+                        <option value="-" selected>-</option>
                         @foreach($prodi as $i)
                         <option value="Dosen {{ $i->nama_prodi }}">Dosen {{ $i->nama_prodi }}</option>
                         @endforeach
@@ -123,6 +124,7 @@
                 <div class="form-group mb-4">
                     <label for="jabatan_fungsional">Jabatan Fungsional</label><br>
                     <select class="selectpicker form-control" data-live-search="true" id="jabatan_fungsional" name="jabatan_fungsional">
+                        <option value="-">-</option>
                         <option value="Asisten Ahli">Asisten Ahli</option>
                         <option value="Lektor">Lektor</option>
                         <option value="Lektor Kepala">Lektor Kepala</option>
@@ -176,6 +178,7 @@
                         @foreach($prodi as $i)
                         <option value="Dosen {{ $i->nama_prodi }}">Dosen {{ $i->nama_prodi }}</option>
                         @endforeach
+                        <option value="-">-</option>
                     </select>
                 </div>
                 <div class="form-group mb-4">

@@ -48,6 +48,12 @@ class RekapPembimbinganController extends Controller
                 ->join('ta','ta.id_ta','=','sgas.ta')
                 ->groupBy('dosen.nidn','dosen.nama','ta.ta','sgas.semester')
                 ->get();
+            
+            $totalsks = DB::table('dosen')
+                ->join('sgas','sgas.id_dosen','=','dosen.id')
+                ->join('detail_pembimbingan','detail_pembimbingan.id_sgas','=','sgas.id_sgas')            
+                ->join('ta','ta.id_ta','=','sgas.ta')
+                ->sum('detail_pembimbingan.sks');
 
         }elseif($ta == null){
 
@@ -62,6 +68,13 @@ class RekapPembimbinganController extends Controller
                 ->groupBy('dosen.nidn','dosen.nama','ta.ta','sgas.semester')
                 ->get();
 
+            $totalsks = DB::table('dosen')
+                ->join('sgas','sgas.id_dosen','=','dosen.id')
+                ->join('detail_pembimbingan','detail_pembimbingan.id_sgas','=','sgas.id_sgas')            
+                ->join('ta','ta.id_ta','=','sgas.ta')
+                ->where('sgas.semester','=',$request->semesterr)
+                ->sum('detail_pembimbingan.sks');
+
         }elseif($smt == null){
 
             $rekappembimbingan = DB::table('dosen')
@@ -74,6 +87,14 @@ class RekapPembimbinganController extends Controller
                 ->where('ta.ta','=',$request->taa)
                 ->groupBy('dosen.nidn','dosen.nama','ta.ta','sgas.semester')
                 ->get();
+
+                
+            $totalsks = DB::table('dosen')
+                ->join('sgas','sgas.id_dosen','=','dosen.id')
+                ->join('detail_pembimbingan','detail_pembimbingan.id_sgas','=','sgas.id_sgas')            
+                ->join('ta','ta.id_ta','=','sgas.ta')
+                ->where('ta.ta','=',$request->taa)
+                ->sum('detail_pembimbingan.sks');
         }else{
 
             $rekappembimbingan = DB::table('dosen')
@@ -88,9 +109,17 @@ class RekapPembimbinganController extends Controller
                 ->groupBy('dosen.nidn','dosen.nama','ta.ta','sgas.semester')
                 ->get();
 
+            $totalsks = DB::table('dosen')
+                ->join('sgas','sgas.id_dosen','=','dosen.id')
+                ->join('detail_pembimbingan','detail_pembimbingan.id_sgas','=','sgas.id_sgas')            
+                ->join('ta','ta.id_ta','=','sgas.ta')
+                ->where('ta.ta','=',$request->taa)
+                ->where('sgas.semester','=',$request->semesterr)
+                ->sum('detail_pembimbingan.sks');
+
         }
         
-        return view('report/print_rekap_pembimbingan',['rekappembimbingan' => $rekappembimbingan]);
+        return view('report/print_rekap_pembimbingan',['rekappembimbingan' => $rekappembimbingan,'totalsks' => $totalsks]);
 
         //return $nama;
     }

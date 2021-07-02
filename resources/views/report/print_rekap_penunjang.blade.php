@@ -108,6 +108,7 @@
             body {
                 width: 210mm;
                 height: 297mm;
+                -webkit-print-color-adjust: exact;
             }
 
             .page {
@@ -159,6 +160,7 @@
                                     <th>TAHUN AKADEMIK</th>
                                     <th>SEMESTER</th>
                                     <th>JENIS KEGIATAN</th>
+                                    <th>SKS</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -172,13 +174,22 @@
                                 <tr>
                                     <td width="5%" align="center">{{ $no }}</td>
                                     <td width="15%">{{ $m->nidn }}</td>
-                                    <td width="25%" style="font-size: 12px;">{{ $m->nama }}</td>
+                                    <td width="20%" style="font-size: 12px;">{{ $m->nama }}</td>
                                     <td width="15%" align="center">{{ $m->ta }}</td>
                                     <td width="10%" style="font-size: 12px;" align="center">{{ ucfirst($m->semester) }}</td>
                                     
-                                    <td width="30%" style="font-size: 12px;">
+                                    <td width="25%" style="font-size: 12px;">
                                         @php
                                         $data = explode("@" , $m->jenis);
+                                        foreach ($data as $key => $dataa) {
+                                        echo "<li style='margin: 10px;'>".$dataa."</li>";
+                                        }
+                                        echo "<br>";
+                                        @endphp
+                                    </td>
+                                    <td width="10%" style="font-size: 12px;">
+                                        @php
+                                        $data = explode("@" , $m->sks);
                                         foreach ($data as $key => $dataa) {
                                         echo "<li style='margin: 10px;'>".$dataa."</li>";
                                         }
@@ -188,6 +199,12 @@
                                 </tr>
                                 @endforeach
                             </tbody>
+                            <tfoot>
+                                <tr style="font-size: 17px;">
+                                    <th colspan="6">Grand Total</th>
+                                    <th>{{ $totalsks }}</th>
+                                </tr>
+                            </tfoot>
                         </table>
                     </div>
             </div>

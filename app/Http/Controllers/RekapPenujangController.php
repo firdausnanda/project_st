@@ -48,6 +48,12 @@ class RekapPenujangController extends Controller
                 ->join('ta','ta.id_ta','=','sgas.ta')
                 ->groupBy('dosen.nidn','dosen.nama','ta.ta','sgas.semester')
                 ->get();
+            
+            $totalsks = DB::table('dosen')
+                ->join('sgas','sgas.id_dosen','=','dosen.id')
+                ->join('detail_penunjang','detail_penunjang.id_sgas','=','sgas.id_sgas')            
+                ->join('ta','ta.id_ta','=','sgas.ta')
+                ->sum('detail_penunjang.sks');
 
         }elseif($ta == null){
 
@@ -61,6 +67,13 @@ class RekapPenujangController extends Controller
                 ->where('sgas.semester','=',$request->semesterr)
                 ->groupBy('dosen.nidn','dosen.nama','ta.ta','sgas.semester')
                 ->get();
+            
+            $totalsks = DB::table('dosen')
+                ->join('sgas','sgas.id_dosen','=','dosen.id')
+                ->join('detail_penunjang','detail_penunjang.id_sgas','=','sgas.id_sgas')            
+                ->join('ta','ta.id_ta','=','sgas.ta')
+                ->where('sgas.semester','=',$request->semesterr)
+                ->sum('detail_penunjang.sks');
 
         }elseif($smt == null){
 
@@ -75,6 +88,13 @@ class RekapPenujangController extends Controller
                 ->groupBy('dosen.nidn','dosen.nama','ta.ta','sgas.semester')
                 ->get();
 
+            $totalsks = DB::table('dosen')
+                ->join('sgas','sgas.id_dosen','=','dosen.id')
+                ->join('detail_penunjang','detail_penunjang.id_sgas','=','sgas.id_sgas')            
+                ->join('ta','ta.id_ta','=','sgas.ta')
+                ->where('sgas.semester','=',$request->taa)
+                ->sum('detail_penunjang.sks');
+
         }else{
 
             $rekappenunjang = DB::table('dosen')
@@ -88,11 +108,19 @@ class RekapPenujangController extends Controller
                 ->where('sgas.semester','=',$request->semesterr)
                 ->groupBy('dosen.nidn','dosen.nama','ta.ta','sgas.semester')
                 ->get();
+
+            $totalsks = DB::table('dosen')
+                ->join('sgas','sgas.id_dosen','=','dosen.id')
+                ->join('detail_penunjang','detail_penunjang.id_sgas','=','sgas.id_sgas')            
+                ->join('ta','ta.id_ta','=','sgas.ta')
+                ->where('sgas.semester','=',$request->taa)
+                ->where('sgas.semester','=',$request->semesterr)
+                ->sum('detail_penunjang.sks');
         }
         
 
         // dd($rekapmatkul);
-        return view('report/print_rekap_penunjang',['rekappenunjang' => $rekappenunjang]);
+        return view('report/print_rekap_penunjang',['rekappenunjang' => $rekappenunjang,'totalsks' => $totalsks]);
 
         //return $nama;
     }

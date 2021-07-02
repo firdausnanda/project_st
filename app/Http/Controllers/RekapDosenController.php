@@ -24,25 +24,12 @@ class RekapDosenController extends Controller
             ->groupBy('dosen.nidn','ta.ta','sgas.semester')
             ->get();
         
-        $totalsks = DB::table('dosen')
-            ->select("dosen.nidn","dosen.nama","ta.ta","sgas.semester",
-                DB::raw("GROUP_CONCAT(matkul.nama_matkul SEPARATOR '@') as nama_matkul"),
-                DB::raw("GROUP_CONCAT(detail_sgas.total SEPARATOR '@') as sks"),
-                DB::raw("GROUP_CONCAT(detail_sgas.kelas SEPARATOR '@') as kelas"),
-                DB::raw("GROUP_CONCAT(detail_sgas.grandtotal SEPARATOR '@') as total"))
-            ->join('sgas','sgas.id_dosen','=','dosen.id')
-            ->join('detail_sgas','detail_sgas.id_sgas','=','sgas.id_sgas')
-            ->join('matkul','matkul.kode_matkul','=','detail_sgas.kode_matkul')
-            ->join('ta','ta.id_ta','=','sgas.ta')
-            ->groupBy('dosen.nidn','ta.ta','sgas.semester')
-            ->sum("detail_sgas.grandtotal");
-        
         $items = DB::table('ta')
             ->orderBy('id_ta','desc')
             ->get();
 
         // dd($rekapdosen);
-        return view('admin/rekap_dosen',['rekapdosen' => $rekapdosen, 'items' => $items,  'totalsks' => $totalsks]);
+        return view('admin/rekap_dosen',['rekapdosen' => $rekapdosen, 'items' => $items]);
 
         //return $nama;
     }
@@ -66,6 +53,20 @@ class RekapDosenController extends Controller
                 ->join('ta','ta.id_ta','=','sgas.ta')
                 ->groupBy('dosen.nidn','ta.ta','sgas.semester')
                 ->get();
+            
+            $totalsks = DB::table('dosen')
+                // ->select("dosen.nidn","dosen.nama","ta.ta","sgas.semester",
+                //     DB::raw("GROUP_CONCAT(matkul.nama_matkul SEPARATOR '@') as nama_matkul"),
+                //     DB::raw("GROUP_CONCAT(detail_sgas.total SEPARATOR '@') as sks"),
+                //     DB::raw("GROUP_CONCAT(detail_sgas.kelas SEPARATOR '@') as kelas"),
+                //     DB::raw("GROUP_CONCAT(detail_sgas.grandtotal SEPARATOR '@') as total"))
+                ->join('sgas','sgas.id_dosen','=','dosen.id')
+                ->join('detail_sgas','detail_sgas.id_sgas','=','sgas.id_sgas')
+                ->join('matkul','matkul.kode_matkul','=','detail_sgas.kode_matkul')
+                ->join('ta','ta.id_ta','=','sgas.ta')
+                // ->groupBy('dosen.nidn','ta.ta','sgas.semester')
+                //->get();
+                ->sum("detail_sgas.grandtotal");
 
         }elseif($ta == null){
 
@@ -82,6 +83,21 @@ class RekapDosenController extends Controller
                 ->where('sgas.semester','=',$request->semesterr)
                 ->groupBy('dosen.nidn','ta.ta','sgas.semester')
                 ->get();
+
+            $totalsks = DB::table('dosen')
+                // ->select("dosen.nidn","dosen.nama","ta.ta","sgas.semester",
+                //     DB::raw("GROUP_CONCAT(matkul.nama_matkul SEPARATOR '@') as nama_matkul"),
+                //     DB::raw("GROUP_CONCAT(detail_sgas.total SEPARATOR '@') as sks"),
+                //     DB::raw("GROUP_CONCAT(detail_sgas.kelas SEPARATOR '@') as kelas"),
+                //     DB::raw("GROUP_CONCAT(detail_sgas.grandtotal SEPARATOR '@') as total"))
+                ->join('sgas','sgas.id_dosen','=','dosen.id')
+                ->join('detail_sgas','detail_sgas.id_sgas','=','sgas.id_sgas')
+                ->join('matkul','matkul.kode_matkul','=','detail_sgas.kode_matkul')
+                ->join('ta','ta.id_ta','=','sgas.ta')
+                ->where('sgas.semester','=',$request->semesterr)
+                // ->groupBy('dosen.nidn','ta.ta','sgas.semester')
+                //->get();
+                ->sum("detail_sgas.grandtotal");
 
         }elseif($smt == null){
 
@@ -118,7 +134,7 @@ class RekapDosenController extends Controller
         }
         
         // dd($rekapdosen);
-        return view('report/print_rekap_dosen',['rekapdosen' => $rekapdosen]);
+        return view('report/print_rekap_dosen',['rekapdosen' => $rekapdosen, 'totalsks' => $totalsks]);
 
         //return $nama;
     }

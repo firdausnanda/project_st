@@ -87,6 +87,8 @@
                                 <th>T</th>
                                 <th>P</th>
                                 <th>K</th>
+                                <th>Kelas</th>
+                                <th>Total</th>
                                 <th>Team Teaching</th>
                             </tr>
                         </thead>
@@ -106,6 +108,25 @@
                                 <td>{{ $m->t }}</td>
                                 <td>{{ $m->p }}</td>
                                 <td>{{ $m->k }}</td>
+                                <td>{{ $m->kelas }}</td>
+                                {{-- <td>
+                                    @php
+                                    $data = explode("@" , $m->kelas);
+                                    foreach ($data as $key => $dataa) {
+                                    echo $dataa;
+                                    }
+                                    echo "<br>";
+                                    @endphp
+                                </td> --}}
+                                <td>
+                                    @php
+                                    $data = explode("@" , $m->total);
+                                    foreach ($data as $key => $dataa) {
+                                    echo $dataa;
+                                    }
+                                    echo "<br>";
+                                    @endphp
+                                </td>
                                 <td>
                                     @php
                                     $data = explode("@" , $m->nama);
@@ -129,6 +150,8 @@
                                 <th>T</th>
                                 <th>P</th>
                                 <th>K</th>
+                                <th>Kelas</th>
+                                <th>Total</th>
                                 <th>Team Teaching</th>
                             </tr>
                         </tfoot>
