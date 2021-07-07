@@ -147,7 +147,9 @@
                     </tr>
                 </table>
 
-                    <h3 id="judul">Rekap Data Matakuliah</h3>
+                    <h3 id="judul"><b>Rekapitulasi Data Matakuliah yang Diajarkan <br>
+                    Institut Teknologi Sains dan Kesehatan RS DR Soepraoen Kesdam V/Brw Malang <br>
+                    Semester Ganjil TA. 2021/2022</b></h3>
 
                     <div class="table-responsive mb-4 mt-4">
                     <table id="zero-config" class="table table-hover" style="width:100%">

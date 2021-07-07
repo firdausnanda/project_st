@@ -117,7 +117,7 @@
             {{-- <div class="subpage"> --}}
                     <div id="subpage">
                         <h5 id="kop">YAYASAN WAHANA BHAKTI KARYA HUSADA <br>
-                            INSTITUT TEKNOLOGI SAINS dan KESEHATAN RS dr. SOEPRAOEN
+                            INSTITUT TEKNOLOGI SAINS dan KESEHATAN RS DR. SOEPRAOEN
                             <hr align="left">
                         </h5>
 
@@ -136,7 +136,7 @@
                                 <td style="width: 58%; border: none; vertical-align: top; text-align: justify;">
                                     &ensp;&ensp;&ensp;&ensp;Bahwa untuk menjadi Dosen Pengajar Semester
                                     {{ ucfirst($item->semester) }} TA. {{ $item->ta }}
-                                    Program Studi {{ $item->prodi }} ITSK RS dr Soepraoen, maka perlu dikeluarkan surat
+                                    Program Studi {{ $item->prodi }} ITSK RS DR. Soepraoen Kesdam V/Brw Malang, maka perlu dikeluarkan surat
                                     tugas
                                 </td>
                             </tr>
@@ -149,7 +149,7 @@
                                 <td style="width: 58%; border: none; vertical-align: top; text-align: justify;">
                                     &ensp;&ensp;&ensp;&ensp;Permohonan penerbitan Surat Tugas Pengajar Semester
                                     {{ucfirst($item->semester) }}
-                                    TA. {{ $item->ta }} Program Studi {{ $item->prodi }} ITSK RS dr Soepraoen
+                                    TA. {{ $item->ta }} Program Studi {{ $item->prodi }} ITSK RS DR. Soepraoen Kesdam V/Brw Malang
                                 </td>
                             </tr>
                             <tr style="height:10px;">
@@ -181,7 +181,7 @@
                                 <td style="width: 35%; border: none; vertical-align: top;"></td>
                                 <td style="width: 5%; border: none; vertical-align: top;"></td>
                                 <td style="width: 58%; border: none; vertical-align: top; text-align: justify;">
-                                    2.&ensp;&ensp;&ensp;Lapor kepada Rektor ITSK RS dr. Soepraoen atas pelaksanaan surat
+                                    2.&ensp;&ensp;&ensp;Lapor kepada Rektor ITSK RS DR. Soepraoen atas pelaksanaan surat
                                     perintah ini.
                                 </td>
                             </tr>
@@ -257,7 +257,7 @@
             {{-- <div class="subpage">Page 2/2 --}}
                 <div id="subpage">
                     <h5 id="kop">YAYASAN WAHANA BHAKTI KARYA HUSADA <br>
-                        INSTITUT TEKNOLOGI SAINS dan KESEHATAN RS dr. SOEPRAOEN
+                        INSTITUT TEKNOLOGI SAINS dan KESEHATAN RS DR. SOEPRAOEN
                         <hr align="left">
                     </h5>
 
@@ -273,7 +273,7 @@
                             <td style="width: 2%; border: none;">1.</td>
                             <td style="width: 35%; border: none;">Pejabat yang memberi tugas</td>
                             <td style="width: 5%; border: none;">:</td>
-                            <td style="width: 58%; border: none;">Rektor ITSK RS dr.Soepraoen</td>
+                            <td style="width: 58%; border: none;">Rektor ITSK RS DR.Soepraoen</td>
                         </tr>
                         <tr style="height: 35px;">
                             <td style="width: 2%; border: none;">2.</td>
