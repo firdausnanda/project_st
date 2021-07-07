@@ -281,11 +281,13 @@
         $('#filter').on('click', function (){
             table.columns(3).search($('#taa').val()).draw();
             table.columns(4).search($('#semesterr').val()).draw();
+            table.columns(5).search($('#prodii').val()).draw();
         });
 
         $('#filter2').on('click', function (){
             table.columns(3).search($('#taa').val()).draw();
             table.columns(4).search($('#semesterr').val()).draw();
+            table.columns(5).search($('#prodii').val()).draw();
         });
 
         $('#filter3').on('click', function (){

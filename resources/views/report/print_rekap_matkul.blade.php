@@ -23,7 +23,7 @@
         #judul {
             text-align: center;
             font-weight: normal;
-            font-size: 16px;
+            font-size: 15px;
         }
 
         #kop {
@@ -134,7 +134,7 @@
                         <td style="border: none;" align="center"><img src="{{ asset('assets/img/YWBKH.jpg')}}" style="width: 75px; height: 75px;" alt='ywbkh'></td>
                         <td style="border: none;" align="center"><h5 id="kop">YAYASAN WAHANA BHAKTI KARYA HUSADA </h5>
                             <h4 id="subkop">INSTITUT TEKNOLOGI SAINS DAN KESEHATAN<br>
-                            RS dr. SOEPRAOEN KESDAM V/BRW
+                            RS DR. SOEPRAOEN KESDAM V/BRW
                             </h4>
                             <h5 id="supkop-min" style="margin-bottom: 5px;">Jalan Soedanco Supriadi nomor 22 Malang 65147 Telp (0341) 351275 Fax. (0341) 351310 <br>
                             Website : www.itsk-soepraoen.ac.id / Email : informasi@itsk-soepraoen.ac.id
@@ -148,9 +148,18 @@
                 </table>
 
                     <h3 id="judul"><b>Rekapitulasi Data Matakuliah yang Diajarkan <br>
-                    Institut Teknologi Sains dan Kesehatan RS DR Soepraoen Kesdam V/Brw Malang <br>
-                    Semester Ganjil TA. 2021/2022</b></h3>
-
+                                Institut Teknologi Sains dan Kesehatan RS DR Soepraoen Kesdam V/Brw Malang </b><br>
+                                @if($prd != null)
+                                    Program Studi {{ $prd }} 
+                                @endif
+                                @if($ta != null)
+                                    Tahun Ajaran {{ $ta }} 
+                                @endif
+                                @if($smt != null)
+                                    Semester {{ ucfirst($smt) }}
+                                @endif
+                    </h3>
+                    
                     <div class="table-responsive mb-4 mt-4">
                     <table id="zero-config" class="table table-hover" style="width:100%">
                         <thead>

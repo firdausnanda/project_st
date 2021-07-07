@@ -23,7 +23,7 @@
         #judul {
             text-align: center;
             font-weight: normal;
-            font-size: 16px;
+            font-size: 15px;
         }
 
         #kop {
@@ -148,7 +148,19 @@
                     </tr>
                 </table>
 
-                    <h3 id="judul">Rekap Data Dosen</h3>
+                    {{-- <h3 id="judul">Rekap Data Dosen</h3> --}}
+                    <h3 id="judul"><b>Rekapitulasi Data Pengajaran Dosen <br>
+                                Institut Teknologi Sains dan Kesehatan RS DR Soepraoen Kesdam V/Brw Malang </b><br>
+                                @if($prd != null)
+                                    Program Studi {{ $prd }} 
+                                @endif
+                                @if($ta != null)
+                                    Tahun Ajaran {{ $ta }} 
+                                @endif
+                                @if($smt != null)
+                                    Semester {{ ucfirst($smt) }}
+                                @endif
+                    </h3>
 
                     <div class="table-responsive mb-4 mt-4">
                         <table id="zero-config" class="table table-hover" style="width:100%">

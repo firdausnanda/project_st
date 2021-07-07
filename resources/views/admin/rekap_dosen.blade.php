@@ -33,6 +33,15 @@
                                 </select>
                             </div>
                             <div class="form-group col-md-2">
+                                <label for="smt">Prodi</label>
+                                <select class="form-control custom-select" id="prodii" name="prodii">
+                                    <option value="" selected>-</option>
+                                    @foreach($prodi as $p)
+                                    <option value="{{ $p->nama_prodi }}">{{ $p->nama_prodi }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="form-group col-md-2">
                                 <div style="margin-top: 32px;" class="btn btn-primary" id="filter2" name="filter2">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -83,6 +92,7 @@
                                 <th>Nama Dosen</th>
                                 <th>TA</th>
                                 <th>Semester</th>
+                                <th>Prodi</th>
                                 <th>Matakuliah</th>
                                 <th>SKS</th>
                                 <th>Kelas</th>
@@ -104,6 +114,7 @@
                                 <td style="width: 15%;">{{ $m->nama }}</td>
                                 <td style="width: 10%;">{{ $m->ta }}</td>
                                 <td style="width: 10%;">{{ ucfirst($m->semester) }}</td>
+                                <td style="width: 10%;">{{ $m->prodii }}</td>
                                 <td style="font-size: 12px; width: 15%;">
                                     @php
                                     $data = explode("@" , $m->nama_matkul);
@@ -158,6 +169,7 @@
                                 <th>Nama Dosen</th>
                                 <th>TA</th>
                                 <th>Semester</th>
+                                <th>Prodi</th>
                                 <th>Matakuliah</th>
                                 <th>SKS</th>
                                 <th>Kelas</th>

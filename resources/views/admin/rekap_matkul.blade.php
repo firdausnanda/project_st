@@ -33,6 +33,15 @@
                                 </select>
                             </div>
                             <div class="form-group col-md-2">
+                                <label for="smt">Prodi</label>
+                                <select class="form-control custom-select" id="prodii" name="prodii">
+                                    <option value="" selected>-</option>
+                                    @foreach($prodi as $p)
+                                    <option value="{{ $p->nama_prodi }}">{{ $p->nama_prodi }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="form-group col-md-2">
                                 <div style="margin-top: 32px;" class="btn btn-primary" id="filter" name="filter">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -83,6 +92,7 @@
                                 <th>Nama Matakuliah</th>
                                 <th>TA</th>
                                 <th>Semester</th>
+                                <th>Prodi</th>
                                 <th>SKS</th>
                                 <th>T</th>
                                 <th>P</th>
@@ -104,6 +114,7 @@
                                 <td>{{ $m->nama_matkul }}</td>
                                 <td>{{ $m->ta }}</td>
                                 <td align="center">{{ ucfirst($m->semester) }}</td>
+                                <td>{{ $m->prodii }}</td>
                                 <td>{{ $m->sks }}</td>
                                 <td>{{ $m->t }}</td>
                                 <td>{{ $m->p }}</td>
@@ -146,6 +157,7 @@
                                 <th>Nama Matakuliah</th>
                                 <th>TA</th>
                                 <th>Semester</th>
+                                <th>Prodi</th>
                                 <th>SKS</th>
                                 <th>T</th>
                                 <th>P</th>
