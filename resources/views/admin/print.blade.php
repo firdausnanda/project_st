@@ -123,7 +123,16 @@
 
                         <h5 style="font-weight: normal; font-size: 14px; text-align: center;">SURAT TUGAS</h5>
                         <h5 style="margin-top: -20px; font-weight: normal; font-size: 14px; text-align: center;">Nomor :
-                            Sgas/&ensp;&ensp;&ensp;&ensp;/&ensp;&ensp;&ensp;&ensp;/</h5>
+                            @foreach ($tampil as $item)
+                            Sgas/ {{ rand(10,50) }} /
+                            @if(ucfirst($item->semester) == 'Ganjil')
+                            VIII
+                            @elseif(ucfirst($item->semester) == 'Genap')
+                            III
+                            @endif
+                            /{{ substr($item->ta,0,4) }}
+                            @endforeach
+                        </h5>
 
                         <table style="margin-top: 50px; height: 35px;">
                             @foreach ($tampil as $item)
@@ -216,7 +225,16 @@
                             <tr>
                                 <td style="width: 40%; border: none;" align="right">Pada tanggal</td>
                                 <td style="border: none;">:</td>
-                                <td style="border: none;"></td>
+                                <td style="border: none;">
+                                    @foreach ($tampil as $item)
+                                    @if(ucfirst($item->semester) == 'Ganjil')
+                                    18 Agustus {{ substr($item->ta,0,4) }}
+                                    @elseif(ucfirst($item->semester) == 'Genap')
+                                    18 Februari {{ substr($item->ta,0,4) }}
+                                    @endif
+                                    @endforeach
+                                
+                                </td>
                             </tr>
                             <tr>
                                 <td style="border: none;" colspan="3">
@@ -224,17 +242,18 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td style="border: none;" align="center" valign="bottom" colspan="3">Rektor</td>
+                                <td style="border: none;" align="center" valign="bottom" colspan="3"></td>
                             </tr>
 
                             <tr height="80px">
                                 <td style="border: none;" align="center" valign="bottom" colspan="3">
                                     <img src="{{ asset('assets/img/ttd.png')}}" alt="ttd"><br>
-                                    Arief Efendi, SMPh., SH(adv)., S.Kep., Ners., MM., M.Kes</td>
+                                    {{-- Arief Efendi, SMPh., SH(adv)., S.Kep., Ners., MM., M.Kes --}}
+                                    </td>
                             </tr>
                             <tr>
-                                <td style="border: none;" align="center" valign="bottom" colspan="3">NIDK. 8807901019
-                                </td>
+                                {{-- <td style="border: none;" align="center" valign="bottom" colspan="3">NIDK. 8807901019
+                                </td> --}}
                             </tr>
                         </table>
 
@@ -261,8 +280,20 @@
                         <hr align="left">
                     </h5>
 
+                    {{-- <h5 style="margin-top: -10px; font-weight: normal; font-size: 14px;">Lampiran Nomor :
+                        Sgas/&ensp;&ensp;&ensp;&ensp;/&ensp;&ensp;&ensp;&ensp;/</h5> --}}
+                    
                     <h5 style="margin-top: -10px; font-weight: normal; font-size: 14px;">Lampiran Nomor :
-                        Sgas/&ensp;&ensp;&ensp;&ensp;/&ensp;&ensp;&ensp;&ensp;/</h5>
+                            @foreach ($tampil as $item)
+                            Sgas/ {{ rand(10,50) }} /
+                            @if(ucfirst($item->semester) == 'Ganjil')
+                            VIII
+                            @elseif(ucfirst($item->semester) == 'Genap')
+                            III
+                            @endif
+                            /{{ substr($item->ta,0,4) }}
+                            @endforeach
+                    </h5>
 
 
                     <h3 id="judul">SURAT TUGAS</h3>
@@ -408,7 +439,15 @@
                         <tr>
                             <td style="width: 40%; border: none;" align="right">Pada tanggal</td>
                             <td style="border: none;">:</td>
-                            <td style="border: none;"></td>
+                            <td style="border: none;">
+                            @foreach ($tampil as $item)
+                            @if(ucfirst($item->semester) == 'Ganjil')
+                            18 Agustus {{ substr($item->ta,0,4) }}
+                            @elseif(ucfirst($item->semester) == 'Genap')
+                            18 Februari {{ substr($item->ta,0,4) }}
+                            @endif
+                            @endforeach
+                            </td>
                         </tr>
                         <tr>
                             <td style="border: none;" colspan="3">
@@ -416,17 +455,18 @@
                             </td>
                         </tr>
                         <tr>
-                            <td style="border: none;" align="center" valign="bottom" colspan="3">Rektor</td>
+                            <td style="border: none;" align="center" valign="bottom" colspan="3"></td>
                         </tr>
 
                         <tr height="80px">
                             <td style="border: none;" align="center" valign="bottom" colspan="3">
                                 <img src="{{ asset('assets/img/ttd.png')}}" alt="ttd"><br>
-                                    Arief Efendi, SMPh., SH(adv)., S.Kep., Ners., MM., M.Kes</td>
+                                    {{-- Arief Efendi, SMPh., SH(adv)., S.Kep., Ners., MM., M.Kes --}}
+                                    </td>
                         </tr>
                         <tr>
-                            <td style="border: none;" align="center" valign="bottom" colspan="3">NIDK. 8807901019
-                            </td>
+                            {{-- <td style="border: none;" align="center" valign="bottom" colspan="3">NIDK. 8807901019
+                            </td> --}}
                         </tr>
                     </table> 
                     @endif
@@ -476,7 +516,15 @@
                         <tr>
                             <td style="width: 40%; border: none;" align="right">Pada tanggal</td>
                             <td style="border: none;">:</td>
-                            <td style="border: none;"></td>
+                            <td style="border: none;">
+                            @foreach ($tampil as $item)
+                            @if(ucfirst($item->semester) == 'Ganjil')
+                            18 Agustus {{ substr($item->ta,0,4) }}
+                            @elseif(ucfirst($item->semester) == 'Genap')
+                            18 Februari {{ substr($item->ta,0,4) }}
+                            @endif
+                            @endforeach
+                            </td>
                         </tr>
                         <tr>
                             <td style="border: none;" colspan="3">
@@ -484,17 +532,18 @@
                             </td>
                         </tr>
                         <tr>
-                            <td style="border: none;" align="center" valign="bottom" colspan="3">Rektor</td>
+                            <td style="border: none;" align="center" valign="bottom" colspan="3"></td>
                         </tr>
 
                         <tr height="80px">
                             <td style="border: none;" align="center" valign="bottom" colspan="3">
                                 <img src="{{ asset('assets/img/ttd.png')}}" alt="ttd"><br>
-                                    Arief Efendi, SMPh., SH(adv)., S.Kep., Ners., MM., M.Kes</td>
+                                    {{-- Arief Efendi, SMPh., SH(adv)., S.Kep., Ners., MM., M.Kes --}}
+                                    </td>
                         </tr>
                         <tr>
-                            <td style="border: none;" align="center" valign="bottom" colspan="3">NIDK. 8807901019
-                            </td>
+                            {{-- <td style="border: none;" align="center" valign="bottom" colspan="3">NIDK. 8807901019
+                            </td> --}}
                         </tr>
                     </table>    
                     @endif
