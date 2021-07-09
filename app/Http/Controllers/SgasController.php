@@ -56,28 +56,53 @@ class SgasController extends Controller
             ->where('ta','=', $request->ta)
             ->where('semester','=', $request->semester)
             ->count();
-
-        //return $cek;
         
+        $cekplot = DB::table('sgas')
+            ->select(DB::raw("max(no_plot) as no_plot"))
+            ->where('ta','=', $request->ta)
+            ->value('no_plot');
+        
+        $cekplotmin = DB::table('ta')
+            ->select('min')
+            ->where('id_ta','=', $request->ta)
+            ->value('min');
+        
+        $cekplotmax = DB::table('ta')
+            ->select('max')
+            ->where('id_ta','=', $request->ta)
+            ->value('max');
+
+        $cekplotstore = $cekplot + 1;
+        
+        if($cekplot = 0){
+            $nostore = $cekplotmin;
+        }else{
+            $nostore = $cekplotstore;
+        }
+        
+        //dd($cekplotmax);
+
         if ($cek != 1) {
             
-            DB::table('sgas')->insert([
-            'id_dosen' => $request->id,
-            'ta' => $request->ta,
-            'semester' => $request->semester,
-            'validasi' => '0',
-            'created_at' => \Carbon\Carbon::now(),
-            'updated_at' => \Carbon\Carbon::now()
-            ]);
-
-            return redirect('/sgas');
-
+            if($nostore <= $cekplotmax){
+                DB::table('sgas')->insert([
+                    'id_dosen' => $request->id,
+                    'ta' => $request->ta,
+                    'semester' => $request->semester,
+                    'validasi' => '0',
+                    'no_plot' => $nostore,
+                    'created_at' => \Carbon\Carbon::now(),
+                    'updated_at' => \Carbon\Carbon::now()
+                ]);
+    
+                return redirect('/sgas');
+            }else{
+                return redirect('/sgas')->with('error','No Plot Surat Melebihi Batas');
+            }
         }else {
             return redirect('/sgas')->with('error','Data Sudah Ada'); 
-        //return "gagal";
         }
            
-        // return redirect('/sgas');
     }
 
     // public function update(Request $request){

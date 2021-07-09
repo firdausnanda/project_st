@@ -124,7 +124,7 @@
                         <h5 style="font-weight: normal; font-size: 14px; text-align: center;">SURAT TUGAS</h5>
                         <h5 style="margin-top: -20px; font-weight: normal; font-size: 14px; text-align: center;">Nomor :
                             @foreach ($tampil as $item)
-                            Sgas/ {{ rand(10,50) }} /
+                            Sgas/ {{ $item->no_plot }} /
                             @if(ucfirst($item->semester) == 'Ganjil')
                             @php
                                 $data = explode("-" , $item->tglgjl);
@@ -293,7 +293,7 @@
                     
                     <h5 style="margin-top: -10px; font-weight: normal; font-size: 14px;">Lampiran Nomor :
                             @foreach ($tampil as $item)
-                            Sgas/ {{ rand(10,50) }} /
+                            Sgas/ {{ $item->no_plot }} /
                             @if(ucfirst($item->semester) == 'Ganjil')
                             @php
                                 $data = explode("-" , $item->tglgjl);
