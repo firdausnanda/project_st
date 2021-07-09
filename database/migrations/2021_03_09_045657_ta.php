@@ -17,6 +17,10 @@ class Ta extends Migration
         Schema::create('ta', function (Blueprint $table) {
             $table->bigIncrements('id_ta');
             $table->string('ta');
+            $table->string('tglgjl');
+            $table->string('tglgnp');
+            $table->string('min');
+            $table->string('max');
             $table->timestamps();
         });
     }

@@ -240,14 +240,18 @@ class DetailsgasController extends Controller
     public function generateInvoice($id){
     
         $tampil = DB::table('detail_sgas')
+            ->select('sgas.semester','ta.ta','dosen.nama','dosen.jabatan','dosen.jabatan_fungsional','dosen.nidn','ta.tglgjl','ta.tglgnp',
+                DB::raw("GROUP_CONCAT(detail_sgas.prodi) as prodi"))
             ->join('sgas','sgas.id_sgas','=','detail_sgas.id_sgas')
             ->join('matkul','matkul.kode_matkul','=','detail_sgas.kode_matkul')
             ->join('dosen','dosen.id','=','sgas.id_dosen')
             ->join('ta','ta.id_ta','=','sgas.ta') 
             ->where('sgas.id_sgas','=',$id)
             ->orderBy('sgas.id_sgas','desc')
-            ->limit(1)
+            // ->limit(1)
             ->get();
+        
+        //dd($tampil);
         
         $invoice = DB::table('detail_sgas')
             ->join('sgas','sgas.id_sgas','=','detail_sgas.id_sgas')

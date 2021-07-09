@@ -126,9 +126,17 @@
                             @foreach ($tampil as $item)
                             Sgas/ {{ rand(10,50) }} /
                             @if(ucfirst($item->semester) == 'Ganjil')
-                            VIII
+                            @php
+                                $data = explode("-" , $item->tglgjl);
+                                $romawi = getRomawi($data[1]);
+                                echo $romawi;
+                            @endphp
                             @elseif(ucfirst($item->semester) == 'Genap')
-                            III
+                            @php
+                                $data = explode("-" , $item->tglgnp);
+                                $romawi = getRomawi($data[1]);
+                                echo $romawi;
+                            @endphp
                             @endif
                             /{{ substr($item->ta,0,4) }}
                             @endforeach
@@ -156,7 +164,7 @@
                                 <td style="width: 35%; border: none; vertical-align: top;">Dasar</td>
                                 <td style="width: 5%; border: none; vertical-align: top;">:</td>
                                 <td style="width: 58%; border: none; vertical-align: top; text-align: justify;">
-                                    &ensp;&ensp;&ensp;&ensp;Permohonan penerbitan Surat Tugas Pengajar Semester
+                                    &ensp;&ensp;&ensp;&ensp;Rencana Operasional Pengajaran Semester
                                     {{ucfirst($item->semester) }}
                                     TA. {{ $item->ta }} Program Studi {{ $item->prodi }} ITSK RS DR. Soepraoen Kesdam V/Brw Malang
                                 </td>
@@ -228,9 +236,9 @@
                                 <td style="border: none;">
                                     @foreach ($tampil as $item)
                                     @if(ucfirst($item->semester) == 'Ganjil')
-                                    18 Agustus {{ substr($item->ta,0,4) }}
+                                    {{ $item->tglgjl }}
                                     @elseif(ucfirst($item->semester) == 'Genap')
-                                    18 Februari {{ substr($item->ta,0,4) }}
+                                    {{ $item->tglgnp }}
                                     @endif
                                     @endforeach
                                 
@@ -287,9 +295,17 @@
                             @foreach ($tampil as $item)
                             Sgas/ {{ rand(10,50) }} /
                             @if(ucfirst($item->semester) == 'Ganjil')
-                            VIII
+                            @php
+                                $data = explode("-" , $item->tglgjl);
+                                $romawi = getRomawi($data[1]);
+                                echo $romawi;
+                            @endphp
                             @elseif(ucfirst($item->semester) == 'Genap')
-                            III
+                            @php
+                                $data = explode("-" , $item->tglgnp);
+                                $romawi = getRomawi($data[1]);
+                                echo $romawi;
+                            @endphp
                             @endif
                             /{{ substr($item->ta,0,4) }}
                             @endforeach
@@ -442,9 +458,9 @@
                             <td style="border: none;">
                             @foreach ($tampil as $item)
                             @if(ucfirst($item->semester) == 'Ganjil')
-                            18 Agustus {{ substr($item->ta,0,4) }}
+                            {{ $item->tglgjl }}
                             @elseif(ucfirst($item->semester) == 'Genap')
-                            18 Februari {{ substr($item->ta,0,4) }}
+                            {{ $item->tglgnp }}
                             @endif
                             @endforeach
                             </td>
@@ -552,7 +568,59 @@
         </div>
     </div>
 </body>
+@php
+    function getRomawi($bln){
+        switch ($bln){
+            case 'Januari':
+            return "I";
+            break;
+        
+            case 'Februari':
+            return "II";
+            break;
 
+            case 'Maret':
+            return "III";
+            break;
+
+            case 'April':
+            return "IV";
+            break;
+
+            case 'Mei':
+            return "V";
+            break;
+
+            case 'Juni':
+            return "VI";
+            break;
+
+            case 'Juli':
+            return "VII";
+            break;
+
+            case 'Agustus':
+            return "VIII";
+            break;
+
+            case 'September':
+            return "IX";
+            break;
+
+            case 'Oktober':
+            return "X";
+            break;
+
+            case 'November':
+            return "XI";
+            break;
+
+            case 'Desember':
+            return "XII";
+            break;
+        }
+    }
+@endphp
 <script>
    window.onload=function(){
         event.preventDefault();

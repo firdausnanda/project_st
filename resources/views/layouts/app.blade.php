@@ -42,6 +42,9 @@
     <link href="{{ asset('plugins/sweetalerts/sweetalert2.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('plugins/sweetalerts/sweetalert.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets/css/components/custom-sweetalert.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('plugins/flatpickr/custom-flatpickr.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('plugins/flatpickr/flatpickr.css') }}" rel="stylesheet" type="text/css">
+
     <!-- END THEME GLOBAL STYLES -->
 
     <!--  BEGIN CUSTOM STYLE FILE  -->
@@ -190,6 +193,7 @@
 
 <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
 <script src="{{ asset('assets/js/libs/jquery-3.1.1.min.js') }}"></script>
+<script src="{{ asset('plugins/jquery-ui/jquery-ui.min.js') }}"></script>
 <script src="{{ asset('bootstrap/js/popper.min.js') }}"></script>
 <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
 <script src="{{ asset('plugins/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
@@ -553,11 +557,21 @@
         var button = $(event.relatedTarget)
         var id = button.data('id')
         var ta = button.data('ta')
+        var tglgjl = button.data('tglgjl')
+        var tglgnp = button.data('tglgnp')
+        var min = button.data('min')
+        var max = button.data('max')
+        
 
         var modal = $(this)
 
         modal.find('.modal-body #id').val(id);
         modal.find('.modal-body #ta').val(ta);
+        modal.find('.modal-body #tglgjl2').val(tglgjl);
+        modal.find('.modal-body #tglgnp2').val(tglgnp);
+        modal.find('.modal-body #min').val(min);
+        modal.find('.modal-body #max').val(max);
+
     });
 
     //sweetalert delete
@@ -770,6 +784,25 @@
 <script src="{{ asset('plugins/sweetalerts/sweetalert2.min.js') }}"></script>
 <script src="{{ asset('plugins/sweetalerts/custom-sweetalert.js') }}"></script>
 <!-- END THEME GLOBAL STYLE -->
+
+{{-- DATETIMEPICKER --}}
+{{-- <script src="{{ asset('plugins/flatpickr/custom-flatpickr.js') }}"></script> --}}
+<script src="{{ asset('plugins/flatpickr/flatpickr.js') }}"></script>
+<script>
+$("#tglgnp").flatpickr({
+    dateFormat: "d-F-Y"
+});
+$("#tglgjl").flatpickr({
+    dateFormat: "d-F-Y"
+});
+$("#tglgnp2").flatpickr({
+    dateFormat: "d-F-Y"
+});
+$("#tglgjl2").flatpickr({
+    dateFormat: "d-F-Y"
+});
+</script>
+
 
 <!-- BEGIN PAGE LEVEL PLUGINS -->
 <script src="{{ asset('plugins/input-mask/jquery.inputmask.bundle.min.js') }}"></script>

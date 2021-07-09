@@ -30,9 +30,12 @@
                 <div class="table-responsive mb-4 mt-4">
                     <table id="zero-config" class="table table-hover" style="width:100%">
                         <thead>
-                            <tr>
+                            <tr align="center">
                                 <th>NO</th>
                                 <th>Tahun Akademik</th>
+                                <th style="font-size:11px;">Tanggal Pengesahan smt Ganjil</th>
+                                <th style="font-size:11px;">Tanggal Pengesahan smt Genap</th>
+                                <th style="font-size:12px;">Plot No Surat (min - max)</th>
                                 <th class="no-content"></th>
                             </tr>
                         </thead>
@@ -43,10 +46,14 @@
                             <tr>
                                 <td>{{ $no }}</td>
                                 <td>{{ $m->ta }}</td>
+                                <td>{{ $m->tglgjl }}</td>
+                                <td>{{ $m->tglgnp }}</td>
+                                <td align="center">({{ $m->min }},{{ $m->max }})</td>
                                 <td class="row">
                                     <button class="edit-button btn btn-primary mb-2 modal-show"  
                                     data-toggle="modal" data-target="#EditDataTa" 
-                                    data-ta="{{ $m->ta }}" data-id="{{ $m->id_ta }}"><i class="far fa-edit"></i></button>
+                                    data-ta="{{ $m->ta }}" data-id="{{ $m->id_ta }}" data-tglgjl="{{ $m->tglgjl }}" data-tglgnp="{{ $m->tglgnp }}"
+                                    data-min="{{ $m->min }}" data-max="{{ $m->max }}"><i class="far fa-edit"></i></button>
                                     
                                     <form action="{{url('ta/hapus/'.$m->id_ta)}}" method="GET">
                                         <div class="right gap-items-2">
@@ -61,7 +68,10 @@
                             <tr>
                                 <th>NO</th>
                                 <th>Tahun Akademik</th>
-                                <th></th>
+                                <th>Tanggal Pengesahan smt Genap</th>
+                                <th>Tanggal Pengesahan smt Ganjil</th>
+                                <th>Plot No Surat (min - max)</th>
+                                <th class="no-content"></th>
                             </tr>
                         </tfoot>
                     </table>
@@ -78,7 +88,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel" style="font-weight: bold;">Tambah Data TA</h5>
+                <h5 class="modal-title" id="exampleModalLabel" style="font-weight: bold;">Tambah Data Tahun Akademik</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">X</button>
             </div>
             <form action="/ta/store" method="POST">
@@ -87,6 +97,25 @@
                 <div class="form-group mb-4">
                     <label for="ta">Tahun Akademik</label>
                     <input type="text" class="form-control" id="ta" name="ta" required>
+                </div>
+                <div class="form-group mb-4">
+                    <label for="tglgjl">Tanggal Penetapan Semester Ganjil</label>
+                    <input type="text" id="tglgjl" name="tglgjl" class="form-control flatpickr flatpickr-input active">
+                </div>
+                <div class="form-group mb-4">
+                    <label for="tglgnp">Tanggal Penetapan Semester Genap</label>
+                    <input type="text" id="tglgnp" name="tglgnp" class="form-control flatpickr flatpickr-input active">
+                </div>
+                <label for="plotno">Plotting Nomoran Surat</label>
+                <div class="form-row mb-4">
+                    <div class="form-group col-md-6">
+                        <label>Min</label>
+                        <input type="number" class="form-control" id="min" name="min">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label>Max</label>
+                        <input type="number" class="form-control" id="max" name="max">
+                    </div>
                 </div>
             </div>
             <div class="modal-footer">
@@ -116,6 +145,14 @@
                 <div class="form-group mb-4">
                     <label for="ta">Tahun Akademik</label>
                     <input type="text" class="form-control" id="ta" name="ta" required>
+                </div>
+                <div class="form-group mb-4">
+                    <label for="tglgjl">Tanggal Penetapan Semester Ganjil</label>
+                    <input type="text" id="tglgjl2" name="tglgjl" class="form-control flatpickr flatpickr-input active" required>
+                </div>
+                <div class="form-group mb-4">
+                    <label for="tglgnp">Tanggal Penetapan Semester Genap</label>
+                    <input type="text" id="tglgnp2" name="tglgnp" class="form-control flatpickr flatpickr-input active" required>
                 </div>
             </div>
             <div class="modal-footer">

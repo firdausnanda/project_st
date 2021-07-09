@@ -34,6 +34,10 @@ class TaController extends Controller
         if ($cek != 1) {
             DB::table('ta')->insert([
             'ta' => $request->ta,
+            'tglgjl' => $request->tglgjl,
+            'tglgnp' => $request->tglgnp,
+            'min' => $request->min,
+            'max' => $request->max,
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now()
         ]);
@@ -52,6 +56,8 @@ class TaController extends Controller
 
         DB::table('ta')->where('id_ta',$request->id)->update([
             'ta' => $request->ta,
+            'tglgjl' => $request->tglgjl,
+            'tglgnp' => $request->tglgnp,
             'updated_at' => \Carbon\Carbon::now()
             ]);
 
