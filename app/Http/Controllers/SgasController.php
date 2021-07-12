@@ -183,6 +183,29 @@ class SgasController extends Controller
             ->where('semester','=', $request->semester)
             ->count();
         
+        $cekplot = DB::table('sgas')
+            ->select(DB::raw("max(no_plot) as no_plot"))
+            ->where('ta','=', $request->ta)
+            ->value('no_plot');
+        
+        $cekplotmin = DB::table('ta')
+            ->select('min')
+            ->where('id_ta','=', $request->ta)
+            ->value('min');
+        
+        $cekplotmax = DB::table('ta')
+            ->select('max')
+            ->where('id_ta','=', $request->ta)
+            ->value('max');
+
+        $cekplotstore = $cekplot + 1;
+        
+        if($cekplot = 0){
+            $nostore = $cekplotmin;
+        }else{
+            $nostore = $cekplotstore;
+        }
+        
         if ($cek != 1) {
             
             DB::table('sgas')->insert([
@@ -190,6 +213,7 @@ class SgasController extends Controller
             'ta' => $request->ta,
             'semester' => $request->semester,
             'validasi' => '0',
+            'no_plot' => $nostore,
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now()
             ]);
