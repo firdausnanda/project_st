@@ -118,11 +118,11 @@
                                     data-namaa="{{ $m->nama }}" data-jabatann="{{ $m->jabatan }}" 
                                     data-ta="{{ $m->ta }}" data-semester="{{ $m->semester }}"><i class="far fa-edit"></i></button> --}}
                                     
-                                    <form action="{{url('inputdata/hapus/'.$m->id_sgas)}}" method="GET">
+                                    {{-- <form action="{{url('inputdata/hapus/'.$m->id_sgas)}}" method="GET">
                                         <div class="right gap-items-2">
                                             <button class="btn btn-xs btn-danger submitForm" name="archive" type="submit" id="submitForm" ><i class="far fa-trash-alt"></i></button>
                                         </div>
-                                    </form>
+                                    </form> --}}
                                 </td>
                             </tr>
                             @endforeach
