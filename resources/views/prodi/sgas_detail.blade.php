@@ -107,15 +107,15 @@
                     {{-- Data Pengajaran --}}
                     <div class="tab-pane fade show active" id="border-top-home" role="tabpanel" aria-labelledby="border-top-home-tab">
                         {{-- Tombol Tambah Data --}}
+                        @foreach ($ngecek as $n)
+                        @if ($n->validasi == '0')
                         <div style="margin-top: 20px; margin-bottom: -25px; margin-left: 10px;">
-                            @foreach ($ngecek as $n)
-                            @if ($n->validasi == '0')
                             {{-- button tambah --}}
                             <button class="btn btn-primary mb-2" data-toggle="modal" data-target="#TambahDataDetail"><i
                                     class="far fa-edit"></i>Add Data</button>
-                            @endif
-                            @endforeach
                         </div>
+                        @endif
+                        @endforeach
                         
                         {{-- Tabel Data Pengajaran --}}
                         <div class="table-responsive mb-4 mt-4">
@@ -192,9 +192,9 @@
                         <div style="margin-top: 20px; margin-bottom: -25px; margin-left: 10px;">
                             <button class="btn btn-primary mb-2" data-toggle="modal" data-target="#TambahDataPembimbing"><i
                                     class="far fa-edit"></i>Add Data</button>
+                        </div>
                         @endif
                         @endforeach
-                        </div>
                         {{-- Tabel Pembimbingan --}}
                         <div class="table-responsive mb-4 mt-4">
                             <table id="zero-pembimbingan" class="table table-hover" style="width:100%">
@@ -256,9 +256,9 @@
                         <div style="margin-top: 20px; margin-bottom: -25px; margin-left: 10px;">
                             <button class="btn btn-primary mb-2" data-toggle="modal" data-target="#TambahDataPenunjang"><i
                                     class="far fa-edit"></i>Add Data</button>
+                        </div>
                         @endif
                         @endforeach
-                        </div>
                         {{-- Tabel Penunjang --}}
                         <div class="table-responsive mb-4 mt-4">
                             <table id="zero-penunjang" class="table table-hover" style="width:100%">
