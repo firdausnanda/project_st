@@ -312,7 +312,7 @@ class DetailsgasController extends Controller
 
         // dd($counttotal);
 
-        return view('admin/print',['invoice' => $invoice, 'tampil' => $tampil, 
+        return view('report/print',['invoice' => $invoice, 'tampil' => $tampil, 
         'total' => $total, 'pembimbing' => $pembimbing, 'penunjang' => $penunjang,
         'totalpembimbing' => $totalpembimbing, 'totalpenunjang' => $totalpenunjang,
         'counttotal' => $counttotal]);
@@ -389,7 +389,7 @@ class DetailsgasController extends Controller
 
         // dd($counttotal);
 
-        return view('admin/print2',['invoice' => $invoice, 'tampil' => $tampil, 
+        return view('report/print2',['invoice' => $invoice, 'tampil' => $tampil, 
         'total' => $total, 'pembimbing' => $pembimbing, 'penunjang' => $penunjang,
         'totalpembimbing' => $totalpembimbing, 'totalpenunjang' => $totalpenunjang,
         'counttotal' => $counttotal]);
@@ -680,48 +680,5 @@ class DetailsgasController extends Controller
         return view('user/sgas_detail',['detail_sgas' => $detail_sgas, 'items'=> $items, 
             'matkul'=> $matkul, 'prodi' => $prodi, 'print' => $print,
             'pembimbing' => $pembimbing, 'penunjang' => $penunjang ]);
-    }
-
-    public function generateInvoiceUser($id){
-
-        $tampil = DB::table('detail_sgas')
-            ->join('sgas','sgas.id_sgas','=','detail_sgas.id_sgas')
-            ->join('matkul','matkul.kode_matkul','=','detail_sgas.kode_matkul')
-            ->join('dosen','dosen.id','=','sgas.id_dosen')
-            ->join('ta','ta.id_ta','=','sgas.ta') 
-            ->where('sgas.id_sgas','=',$id)
-            ->orderBy('sgas.id_sgas','desc')
-            ->limit(1)
-            ->get();
-    
-        $invoice = DB::table('detail_sgas')
-            ->join('sgas','sgas.id_sgas','=','detail_sgas.id_sgas')
-            ->join('matkul','matkul.kode_matkul','=','detail_sgas.kode_matkul')
-            ->join('dosen','dosen.id','=','sgas.id_dosen')
-            ->join('ta','ta.id_ta','=','sgas.ta') 
-            ->where('sgas.id_sgas','=',$id)
-            ->orderBy('sgas.id_sgas','desc')
-            ->get();
-        
-        $total = DB::table('detail_sgas')
-            ->where('id_sgas','=',$id)
-            ->orderBy('id_detailsgas','desc')
-            ->sum('total');
-
-        $pembimbing = DB::table('detail_pembimbingan')
-            ->where('id_sgas','=',$id)
-            ->orderBy('id_pembimbingan','desc')
-            ->get();
-
-        $penunjang = DB::table('detail_penunjang')
-            ->where('id_sgas','=',$id)
-            ->orderBy('id_penunjang','desc')
-            ->get();
-        // $pdf = PDF::loadView('admin/print',['invoice' => $invoice, 'total' => $total]);
-        // return $pdf->stream();
-        // dd($tampil);
-        return view('user/print',['invoice' => $invoice, 
-            'tampil' => $tampil, 'total' => $total,
-            'pembimbing' => $pembimbing, 'penunjang' => $penunjang]);
     }
 }
