@@ -53,6 +53,12 @@
                 </div>
                 @endif
 
+                {{-- button print --}}
+                <button class="btn btn-success mb-2" data-toggle="modal" data-target="#PrintDetail" style="margin-top:8px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-printer"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+                Print
+                </button>
+
                 <ul class="nav nav-tabs mb-3 mt-3" id="borderTop" role="tablist">
                     <li class="nav-item">
                         <a class="nav-link active" id="border-top-home-tab" data-toggle="tab" href="#border-top-home"
@@ -110,6 +116,7 @@
                             @endif
                             @endforeach
                         </div>
+                        
                         {{-- Tabel Data Pengajaran --}}
                         <div class="table-responsive mb-4 mt-4">
                             <table id="zero-config" class="table table-hover" style="width:100%">
@@ -521,6 +528,46 @@
                 <button class="btn" data-dismiss="modal"><i class="flaticon-cancel-12"></i> Discard</button>
             </div>
             </form>
+        </div>
+    </div>
+</div>
+
+{{-- Modal Print --}}
+<div class="modal fade fadeinUp" id="PrintDetail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel" style="font-weight: bold;">Print</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">X</button>
+            </div>
+            @foreach ($print as $i)
+            <a href="{{ route('invoiceadmin', $i->id_sgas) }}" target="_blank"><button class="btn btn-success mb-2"
+                    style="margin-top:10px;margin-left:10px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="feather feather-printer">
+                        <polyline points="6 9 6 2 18 2 18 9"></polyline>
+                        <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+                        <rect x="6" y="14" width="12" height="8"></rect>
+                    </svg>
+                    Print + TTD
+                </button>
+            </a>
+            @endforeach
+            @foreach ($print as $i)
+            <a href="{{ route('invoiceuser2', $i->id_sgas) }}" target="_blank"><button class="btn btn-success mb-2"
+                    style="margin-top:10px;margin-left:10px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="feather feather-printer">
+                        <polyline points="6 9 6 2 18 2 18 9"></polyline>
+                        <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+                        <rect x="6" y="14" width="12" height="8"></rect>
+                    </svg>
+                    Print
+                </button>
+            </a>
+            @endforeach
         </div>
     </div>
 </div>
