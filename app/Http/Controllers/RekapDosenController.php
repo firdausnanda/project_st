@@ -21,6 +21,7 @@ class RekapDosenController extends Controller
             ->join('detail_sgas','detail_sgas.id_sgas','=','sgas.id_sgas')
             ->join('matkul','matkul.kode_matkul','=','detail_sgas.kode_matkul')
             ->join('ta','ta.id_ta','=','sgas.ta')
+            ->where('sgas.validasi','=',1)
             ->groupBy('dosen.nidn','ta.ta','sgas.semester')
             ->get();
         
@@ -57,6 +58,7 @@ class RekapDosenController extends Controller
                 ->join('detail_sgas','detail_sgas.id_sgas','=','sgas.id_sgas')
                 ->join('matkul','matkul.kode_matkul','=','detail_sgas.kode_matkul')
                 ->join('ta','ta.id_ta','=','sgas.ta')
+                ->where('sgas.validasi','=',1)
                 ->groupBy('dosen.nidn','ta.ta','sgas.semester')
                 ->get();
             
@@ -70,6 +72,7 @@ class RekapDosenController extends Controller
                 ->join('detail_sgas','detail_sgas.id_sgas','=','sgas.id_sgas')
                 ->join('matkul','matkul.kode_matkul','=','detail_sgas.kode_matkul')
                 ->join('ta','ta.id_ta','=','sgas.ta')
+                ->where('sgas.validasi','=',1)
                 // ->groupBy('dosen.nidn','ta.ta','sgas.semester')
                 //->get();
                 ->sum("detail_sgas.grandtotal");
@@ -87,6 +90,7 @@ class RekapDosenController extends Controller
                 ->join('matkul','matkul.kode_matkul','=','detail_sgas.kode_matkul')
                 ->join('ta','ta.id_ta','=','sgas.ta')
                 ->where('matkul.prodii','=',$request->prodii)
+                ->where('sgas.validasi','=',1)
                 ->groupBy('dosen.nidn','ta.ta','sgas.semester')
                 ->get();
 
@@ -101,6 +105,7 @@ class RekapDosenController extends Controller
                 ->join('matkul','matkul.kode_matkul','=','detail_sgas.kode_matkul')
                 ->join('ta','ta.id_ta','=','sgas.ta')
                 ->where('matkul.prodii','=',$request->prodii)
+                ->where('sgas.validasi','=',1)
                 // ->groupBy('dosen.nidn','ta.ta','sgas.semester')
                 //->get();
                 ->sum("detail_sgas.grandtotal");
@@ -118,6 +123,7 @@ class RekapDosenController extends Controller
                 ->join('matkul','matkul.kode_matkul','=','detail_sgas.kode_matkul')
                 ->join('ta','ta.id_ta','=','sgas.ta')
                 ->where('sgas.semester','=',$request->semesterr)
+                ->where('sgas.validasi','=',1)
                 ->groupBy('dosen.nidn','ta.ta','sgas.semester')
                 ->get();
 
@@ -132,6 +138,7 @@ class RekapDosenController extends Controller
                 ->join('matkul','matkul.kode_matkul','=','detail_sgas.kode_matkul')
                 ->join('ta','ta.id_ta','=','sgas.ta')
                 ->where('sgas.semester','=',$request->semesterr)
+                ->where('sgas.validasi','=',1)
                 // ->groupBy('dosen.nidn','ta.ta','sgas.semester')
                 //->get();
                 ->sum("detail_sgas.grandtotal");
@@ -149,6 +156,7 @@ class RekapDosenController extends Controller
                 ->join('matkul','matkul.kode_matkul','=','detail_sgas.kode_matkul')
                 ->join('ta','ta.id_ta','=','sgas.ta')
                 ->where('ta.ta','=',$request->taa)
+                ->where('sgas.validasi','=',1)
                 ->groupBy('dosen.nidn','ta.ta','sgas.semester')
                 ->get();
 
@@ -163,6 +171,7 @@ class RekapDosenController extends Controller
                 ->join('matkul','matkul.kode_matkul','=','detail_sgas.kode_matkul')
                 ->join('ta','ta.id_ta','=','sgas.ta')
                 ->where('ta.ta','=',$request->taa)
+                ->where('sgas.validasi','=',1)
                 // ->groupBy('dosen.nidn','ta.ta','sgas.semester')
                 //->get();
                 ->sum("detail_sgas.grandtotal");
@@ -181,6 +190,7 @@ class RekapDosenController extends Controller
                 ->join('ta','ta.id_ta','=','sgas.ta')
                 ->where('sgas.semester','=',$request->semesterr)
                 ->where('matkul.prodii','=',$request->prodii)
+                ->where('sgas.validasi','=',1)
                 ->groupBy('dosen.nidn','ta.ta','sgas.semester')
                 ->get();
 
@@ -196,6 +206,7 @@ class RekapDosenController extends Controller
                 ->join('ta','ta.id_ta','=','sgas.ta')
                 ->where('sgas.semester','=',$request->semesterr)
                 ->where('matkul.prodii','=',$request->prodii)
+                ->where('sgas.validasi','=',1)
                 // ->groupBy('dosen.nidn','ta.ta','sgas.semester')
                 //->get();
                 ->sum("detail_sgas.grandtotal");
@@ -214,6 +225,7 @@ class RekapDosenController extends Controller
                 ->join('ta','ta.id_ta','=','sgas.ta')
                 ->where('ta.ta','=',$request->taa)
                 ->where('matkul.prodii','=',$request->prodii)
+                ->where('sgas.validasi','=',1)
                 ->groupBy('dosen.nidn','ta.ta','sgas.semester')
                 ->get();
             
@@ -225,6 +237,7 @@ class RekapDosenController extends Controller
                 ->join('ta','ta.id_ta','=','sgas.ta')
                 ->where('ta.ta','=',$request->taa)
                 ->where('matkul.prodii','=',$request->prodii)
+                ->where('sgas.validasi','=',1)
                 // ->groupBy('dosen.nidn','ta.ta','sgas.semester')
                 // ->get();
                 ->sum("detail_sgas.grandtotal");
@@ -243,6 +256,7 @@ class RekapDosenController extends Controller
                 ->join('ta','ta.id_ta','=','sgas.ta')
                 ->where('ta.ta','=',$request->taa)
                 ->where('sgas.semester','=',$request->semesterr)
+                ->where('sgas.validasi','=',1)
                 ->groupBy('dosen.nidn','ta.ta','sgas.semester')
                 ->get();
             
@@ -254,6 +268,7 @@ class RekapDosenController extends Controller
                 ->join('ta','ta.id_ta','=','sgas.ta')
                 ->where('ta.ta','=',$request->taa)
                 ->where('sgas.semester','=',$request->semesterr)
+                ->where('sgas.validasi','=',1)
                 // ->groupBy('dosen.nidn','ta.ta','sgas.semester')
                 // ->get();
                 ->sum("detail_sgas.grandtotal");
@@ -273,6 +288,7 @@ class RekapDosenController extends Controller
                 ->where('ta.ta','=',$request->taa)
                 ->where('sgas.semester','=',$request->semesterr)
                 ->where('matkul.prodii','=',$request->prodii)
+                ->where('sgas.validasi','=',1)
                 ->groupBy('dosen.nidn','ta.ta','sgas.semester')
                 ->get();
             
@@ -284,6 +300,7 @@ class RekapDosenController extends Controller
                 ->where('ta.ta','=',$request->taa)
                 ->where('sgas.semester','=',$request->semesterr)
                 ->where('matkul.prodii','=',$request->prodii)
+                ->where('sgas.validasi','=',1)
                 ->groupBy('dosen.nidn','ta.ta','sgas.semester')
                 ->sum("detail_sgas.grandtotal");
         }

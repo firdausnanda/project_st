@@ -46,6 +46,7 @@ class RekapPenujangController extends Controller
                 ->join('sgas','sgas.id_dosen','=','dosen.id')
                 ->join('detail_penunjang','detail_penunjang.id_sgas','=','sgas.id_sgas')            
                 ->join('ta','ta.id_ta','=','sgas.ta')
+                ->where('sgas.validasi','=',1)
                 ->groupBy('dosen.nidn','dosen.nama','ta.ta','sgas.semester')
                 ->get();
             
@@ -53,6 +54,7 @@ class RekapPenujangController extends Controller
                 ->join('sgas','sgas.id_dosen','=','dosen.id')
                 ->join('detail_penunjang','detail_penunjang.id_sgas','=','sgas.id_sgas')            
                 ->join('ta','ta.id_ta','=','sgas.ta')
+                ->where('sgas.validasi','=',1)
                 ->sum('detail_penunjang.sks');
 
         }elseif($ta == null){
@@ -65,6 +67,7 @@ class RekapPenujangController extends Controller
                 ->join('detail_penunjang','detail_penunjang.id_sgas','=','sgas.id_sgas')            
                 ->join('ta','ta.id_ta','=','sgas.ta')
                 ->where('sgas.semester','=',$request->semesterr)
+                ->where('sgas.validasi','=',1)
                 ->groupBy('dosen.nidn','dosen.nama','ta.ta','sgas.semester')
                 ->get();
             
@@ -73,6 +76,7 @@ class RekapPenujangController extends Controller
                 ->join('detail_penunjang','detail_penunjang.id_sgas','=','sgas.id_sgas')            
                 ->join('ta','ta.id_ta','=','sgas.ta')
                 ->where('sgas.semester','=',$request->semesterr)
+                ->where('sgas.validasi','=',1)
                 ->sum('detail_penunjang.sks');
 
         }elseif($smt == null){
@@ -85,6 +89,7 @@ class RekapPenujangController extends Controller
                 ->join('detail_penunjang','detail_penunjang.id_sgas','=','sgas.id_sgas')            
                 ->join('ta','ta.id_ta','=','sgas.ta')
                 ->where('ta.ta','=',$request->taa)
+                ->where('sgas.validasi','=',1)
                 ->groupBy('dosen.nidn','dosen.nama','ta.ta','sgas.semester')
                 ->get();
 
@@ -93,6 +98,7 @@ class RekapPenujangController extends Controller
                 ->join('detail_penunjang','detail_penunjang.id_sgas','=','sgas.id_sgas')            
                 ->join('ta','ta.id_ta','=','sgas.ta')
                 ->where('sgas.semester','=',$request->taa)
+                ->where('sgas.validasi','=',1)
                 ->sum('detail_penunjang.sks');
 
         }else{
@@ -106,6 +112,7 @@ class RekapPenujangController extends Controller
                 ->join('ta','ta.id_ta','=','sgas.ta')
                 ->where('ta.ta','=',$request->taa)
                 ->where('sgas.semester','=',$request->semesterr)
+                ->where('sgas.validasi','=',1)
                 ->groupBy('dosen.nidn','dosen.nama','ta.ta','sgas.semester')
                 ->get();
 
@@ -115,6 +122,7 @@ class RekapPenujangController extends Controller
                 ->join('ta','ta.id_ta','=','sgas.ta')
                 ->where('sgas.semester','=',$request->taa)
                 ->where('sgas.semester','=',$request->semesterr)
+                ->where('sgas.validasi','=',1)
                 ->sum('detail_penunjang.sks');
         }
         

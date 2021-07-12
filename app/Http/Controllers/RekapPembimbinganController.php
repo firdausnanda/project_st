@@ -18,6 +18,7 @@ class RekapPembimbinganController extends Controller
             ->join('sgas','sgas.id_dosen','=','dosen.id')
             ->join('detail_pembimbingan','detail_pembimbingan.id_sgas','=','sgas.id_sgas')            
             ->join('ta','ta.id_ta','=','sgas.ta')
+            ->where('sgas.validasi','=',1)
             ->groupBy('dosen.nidn','dosen.nama','ta.ta','sgas.semester')
             ->get();
 
@@ -46,6 +47,7 @@ class RekapPembimbinganController extends Controller
                 ->join('sgas','sgas.id_dosen','=','dosen.id')
                 ->join('detail_pembimbingan','detail_pembimbingan.id_sgas','=','sgas.id_sgas')            
                 ->join('ta','ta.id_ta','=','sgas.ta')
+                ->where('sgas.validasi','=',1)
                 ->groupBy('dosen.nidn','dosen.nama','ta.ta','sgas.semester')
                 ->get();
             
@@ -53,6 +55,7 @@ class RekapPembimbinganController extends Controller
                 ->join('sgas','sgas.id_dosen','=','dosen.id')
                 ->join('detail_pembimbingan','detail_pembimbingan.id_sgas','=','sgas.id_sgas')            
                 ->join('ta','ta.id_ta','=','sgas.ta')
+                ->where('sgas.validasi','=',1)
                 ->sum('detail_pembimbingan.sks');
 
         }elseif($ta == null){
@@ -65,6 +68,7 @@ class RekapPembimbinganController extends Controller
                 ->join('detail_pembimbingan','detail_pembimbingan.id_sgas','=','sgas.id_sgas')            
                 ->join('ta','ta.id_ta','=','sgas.ta')
                 ->where('sgas.semester','=',$request->semesterr)
+                ->where('sgas.validasi','=',1)
                 ->groupBy('dosen.nidn','dosen.nama','ta.ta','sgas.semester')
                 ->get();
 
@@ -73,6 +77,7 @@ class RekapPembimbinganController extends Controller
                 ->join('detail_pembimbingan','detail_pembimbingan.id_sgas','=','sgas.id_sgas')            
                 ->join('ta','ta.id_ta','=','sgas.ta')
                 ->where('sgas.semester','=',$request->semesterr)
+                ->where('sgas.validasi','=',1)
                 ->sum('detail_pembimbingan.sks');
 
         }elseif($smt == null){
@@ -85,6 +90,7 @@ class RekapPembimbinganController extends Controller
                 ->join('detail_pembimbingan','detail_pembimbingan.id_sgas','=','sgas.id_sgas')            
                 ->join('ta','ta.id_ta','=','sgas.ta')
                 ->where('ta.ta','=',$request->taa)
+                ->where('sgas.validasi','=',1)
                 ->groupBy('dosen.nidn','dosen.nama','ta.ta','sgas.semester')
                 ->get();
 
@@ -94,6 +100,7 @@ class RekapPembimbinganController extends Controller
                 ->join('detail_pembimbingan','detail_pembimbingan.id_sgas','=','sgas.id_sgas')            
                 ->join('ta','ta.id_ta','=','sgas.ta')
                 ->where('ta.ta','=',$request->taa)
+                ->where('sgas.validasi','=',1)
                 ->sum('detail_pembimbingan.sks');
         }else{
 
@@ -106,6 +113,7 @@ class RekapPembimbinganController extends Controller
                 ->join('ta','ta.id_ta','=','sgas.ta')
                 ->where('ta.ta','=',$request->taa)
                 ->where('sgas.semester','=',$request->semesterr)
+                ->where('sgas.validasi','=',1)
                 ->groupBy('dosen.nidn','dosen.nama','ta.ta','sgas.semester')
                 ->get();
 
@@ -115,6 +123,7 @@ class RekapPembimbinganController extends Controller
                 ->join('ta','ta.id_ta','=','sgas.ta')
                 ->where('ta.ta','=',$request->taa)
                 ->where('sgas.semester','=',$request->semesterr)
+                ->where('sgas.validasi','=',1)
                 ->sum('detail_pembimbingan.sks');
 
         }
