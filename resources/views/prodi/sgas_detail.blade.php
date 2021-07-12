@@ -186,10 +186,14 @@
 
                     {{-- Data Pembimbingan --}}
                     <div class="tab-pane fade" id="border-top-profile" role="tabpanel" aria-labelledby="border-top-profile-tab">
+                        @foreach ($ngecek as $n)
+                        @if ($n->validasi == '0')
                         {{-- Tambah Data --}}
                         <div style="margin-top: 20px; margin-bottom: -25px; margin-left: 10px;">
                             <button class="btn btn-primary mb-2" data-toggle="modal" data-target="#TambahDataPembimbing"><i
                                     class="far fa-edit"></i>Add Data</button>
+                        @endif
+                        @endforeach
                         </div>
                         {{-- Tabel Pembimbingan --}}
                         <div class="table-responsive mb-4 mt-4">
@@ -246,10 +250,14 @@
 
                     {{-- Data Penunjang --}}
                     <div class="tab-pane fade" id="border-top-contact" role="tabpanel" aria-labelledby="border-top-contact-tab">
+                        @foreach ($ngecek as $n)
+                        @if ($n->validasi == '0')
                         {{-- Tambah Data --}}
                         <div style="margin-top: 20px; margin-bottom: -25px; margin-left: 10px;">
                             <button class="btn btn-primary mb-2" data-toggle="modal" data-target="#TambahDataPenunjang"><i
                                     class="far fa-edit"></i>Add Data</button>
+                        @endif
+                        @endforeach
                         </div>
                         {{-- Tabel Penunjang --}}
                         <div class="table-responsive mb-4 mt-4">
