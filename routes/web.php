@@ -91,19 +91,19 @@ Route::post('/tracking/update','TrackingController@update');
 Route::get('/tracking/hapus/{id}','TrackingController@hapus');
 
 //Report
-Route::get('/report/rekap-matkul', 'RekapMatkulController@index');
+Route::get('/report/rekap-matkul', 'RekapMatkulController@index')->name('rekap-matkul');
 Route::get('/report/rekap-matkul/print', 'RekapMatkulController@print')->name('printmatkul');
 
-Route::get('/report/rekap-dosen', 'RekapDosenController@index');
+Route::get('/report/rekap-dosen', 'RekapDosenController@index')->name('rekap-dosen');
 Route::get('/report/rekap-dosen/print', 'RekapDosenController@print')->name('printdosen');
 
-Route::get('/report/rekap-pembimbingan', 'RekapPembimbinganController@index');
+Route::get('/report/rekap-pembimbingan', 'RekapPembimbinganController@index')->name('rekap-pembimbingan');
 Route::get('/report/rekap-pembimbingan/print', 'RekapPembimbinganController@print')->name('printpembimbingan');
 
-Route::get('/report/rekap-penunjang', 'RekapPenujangController@index');
+Route::get('/report/rekap-penunjang', 'RekapPenujangController@index')->name('rekap-penunjang');
 Route::get('/report/rekap-penunjang/print', 'RekapPenujangController@print')->name('printpenunjang');
 
-Route::get('/report/dosen-total', 'RekapDosenTotalController@index');
+Route::get('/report/dosen-total', 'RekapDosenTotalController@index')->name('rekap-dosen-total');
 Route::get('/report/dosen-total/print', 'RekapDosenTotalController@print')->name('printdosentotal');
 
 });
@@ -144,6 +144,21 @@ Route::get('/inputdata/namamatkul/{id}', 'DetailsgasController@loadDataNama')->n
 Route::get('/inputdata/print/{id}', 'DetailsgasController@generateInvoice')->name('invoiceadmin');
 Route::get('/inputdata/printno/{id}', 'DetailsgasController@generateInvoice2')->name('invoiceadmin2');
 
+//Report
+Route::get('/prodi/rekap-matkul', 'RekapMatkulController@index');
+Route::get('/prodi/rekap-matkul/print', 'RekapMatkulController@print')->name('printmatkul');
+
+Route::get('/prodi/report/rekap-dosen', 'RekapDosenController@index');
+Route::get('/prodi/report/rekap-dosen/print', 'RekapDosenController@print')->name('printdosen');
+
+Route::get('/prodi/report/rekap-pembimbingan', 'RekapPembimbinganController@index');
+Route::get('/prodi/report/rekap-pembimbingan/print', 'RekapPembimbinganController@print')->name('printpembimbingan');
+
+Route::get('/prodi/report/rekap-penunjang', 'RekapPenujangController@index');
+Route::get('/prodi/report/rekap-penunjang/print', 'RekapPenujangController@print')->name('printpenunjang');
+
+Route::get('/prodi/report/dosen-total', 'RekapDosenTotalController@index');
+Route::get('/prodi/report/dosen-total/print', 'RekapDosenTotalController@print')->name('printdosentotal');
    
 });
 
