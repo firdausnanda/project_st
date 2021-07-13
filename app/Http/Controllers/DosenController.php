@@ -35,7 +35,7 @@ class DosenController extends Controller
         // $cek = DB::table('dosen')
         //     ->where('nik','=', $request->nik)
         //     ->count();
-        
+        // dd($request->namaa);
         $cekN = DB::table('dosen')
             ->where('nidn','=', $request->nidn)
             ->count();
@@ -45,7 +45,7 @@ class DosenController extends Controller
         }else {
             DB::table('dosen')->insert([
                 'nidn' => $request->nidn,
-                'nama' => $request->nama,
+                'nama' => $request->namaa,
                 'jabatan' => $request->jabatan,
                 'jabatan_fungsional' => $request->jabatan_fungsional,
                 'status' => $request->status,
@@ -54,7 +54,7 @@ class DosenController extends Controller
                 ]);
     
             DB::table('users')->insert([
-                    'name' => $request->nama,
+                    'name' => $request->namaa,
                     'email' => $request->nidn,
                     'password' => Hash::make($request->nidn),
                     'role' => 'user',

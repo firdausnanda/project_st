@@ -107,7 +107,8 @@
                 </div>
                 <div class="form-group mb-4">
                     <label for="nama">Nama Lengkap</label>
-                    <textarea name="nama" id="nama" class="form-control" required></textarea>
+                    <input type="text" class="form-control" id="namaa" name="namaa" required>
+                    {{-- <textarea name="nama" id="nama" class="form-control" required></textarea> --}}
                 </div>
                 <div class="form-group mb-4">
                     <label for="jabatan">Jabatan</label><br>
