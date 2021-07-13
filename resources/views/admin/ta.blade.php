@@ -36,7 +36,7 @@
                                 <th style="font-size:11px;">Tanggal Pengesahan smt Ganjil</th>
                                 <th style="font-size:11px;">Tanggal Pengesahan smt Genap</th>
                                 <th style="font-size:12px;">Plot No Surat (min - max)</th>
-                                <th class="no-content"></th>
+                                <th class="no-content" width="10%"></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -46,8 +46,8 @@
                             <tr>
                                 <td>{{ $no }}</td>
                                 <td>{{ $m->ta }}</td>
-                                <td>{{ $m->tglgjl }}</td>
-                                <td>{{ $m->tglgnp }}</td>
+                                <td align="center">{{ $m->tglgjl }}</td>
+                                <td align="center">{{ $m->tglgnp }}</td>
                                 <td align="center">({{ $m->min }},{{ $m->max }})</td>
                                 <td class="row">
                                     <button class="edit-button btn btn-primary mb-2 modal-show"  
@@ -65,7 +65,7 @@
                             @endforeach
                         </tbody>
                         <tfoot>
-                            <tr>
+                            <tr align="center">
                                 <th>NO</th>
                                 <th>Tahun Akademik</th>
                                 <th>Tanggal Pengesahan smt Genap</th>
