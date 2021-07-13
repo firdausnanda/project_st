@@ -179,6 +179,7 @@
                 <div class="form-group mb-4">
                     <label for="ta">TA</label>
                     <select class="selectpicker form-control" data-live-search="true" id="ta" name="ta" required>
+                        <option value="">-</option>
                         @foreach($items as $item)
                         <option value="{{ $item->id_ta }}">{{ $item->ta }}</option>
                         @endforeach
@@ -187,6 +188,7 @@
                 <div class="form-group mb-4">
                     <label for="semester">Semester</label><br>
                     <select class="selectpicker form-control" data-live-search="true" id="semester" name="semester" required>
+                        <option value="">-</option>
                         <option value="ganjil">Ganjil</option>
                         <option value="genap">Genap</option>
                     </select>
