@@ -44,7 +44,11 @@ class SgasController extends Controller
     public function loadData($id=0)
     {
         //autofill
-    	$data = Dosen::where('nama', $id)->first();
+    	//$data = Dosen::where('nama', $id)->first();
+        $data = DB::table('dosen')
+            ->where('nama','=',$id)
+            ->first();
+
     	return response()->json($data);
     }
 
@@ -228,7 +232,10 @@ class SgasController extends Controller
 
     public function loadDataNama($id=0)
     {
-    	$data = Dosen::where('nama', $id)->first();
+    	//$data = Dosen::where('nama', $id)->first();
+        $data = DB::table('dosen')
+            ->where('nama','=',$id)
+            ->first();
     	return response()->json($data);
     }
 
