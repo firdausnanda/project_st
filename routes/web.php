@@ -146,19 +146,19 @@ Route::get('/inputdata/printno/{id}', 'DetailsgasController@generateInvoice2')->
 
 //Report
 Route::get('/prodi/rekap-matkul', 'RekapMatkulController@index');
-Route::get('/prodi/rekap-matkul/print', 'RekapMatkulController@print')->name('printmatkul');
+Route::get('/prodi/rekap-matkul/print', 'RekapMatkulController@print')->name('printmatkuladmin');
 
 Route::get('/prodi/report/rekap-dosen', 'RekapDosenController@index');
-Route::get('/prodi/report/rekap-dosen/print', 'RekapDosenController@print')->name('printdosen');
+Route::get('/prodi/report/rekap-dosen/print', 'RekapDosenController@print')->name('printdosenadmin');
 
 Route::get('/prodi/report/rekap-pembimbingan', 'RekapPembimbinganController@index');
-Route::get('/prodi/report/rekap-pembimbingan/print', 'RekapPembimbinganController@print')->name('printpembimbingan');
+Route::get('/prodi/report/rekap-pembimbingan/print', 'RekapPembimbinganController@print')->name('printpembimbinganadmin');
 
 Route::get('/prodi/report/rekap-penunjang', 'RekapPenujangController@index');
-Route::get('/prodi/report/rekap-penunjang/print', 'RekapPenujangController@print')->name('printpenunjang');
+Route::get('/prodi/report/rekap-penunjang/print', 'RekapPenujangController@print')->name('printpenunjangadmin');
 
 Route::get('/prodi/report/dosen-total', 'RekapDosenTotalController@index');
-Route::get('/prodi/report/dosen-total/print', 'RekapDosenTotalController@print')->name('printdosentotal');
+Route::get('/prodi/report/dosen-total/print', 'RekapDosenTotalController@print')->name('printdosentotaladmin');
    
 });
 

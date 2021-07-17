@@ -12,7 +12,17 @@
                     <h4 style="font-weight: bold;">Data Rekap Mata Kuliah</h4>
                 </div>
 
-                <form action="{{ route('printmatkul') }}" target="_blank">
+                @if(Auth::user()->role == 'superadmin')
+                    @php
+                        $data = route('printmatkul');
+                    @endphp
+                @elseif(Auth::user()->role == 'admin')
+                    @php
+                        $data = route('printmatkuladmin');
+                    @endphp
+                @endif
+
+                <form action="{{ $data }}" target="_blank">
                     <div style="margin-top: 30px; margin-bottom: -25px;">
                         <div class="form-row">
                             <div class="form-group col-md-2">
