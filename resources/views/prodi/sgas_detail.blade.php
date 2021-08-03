@@ -390,7 +390,7 @@
                 </div>
                 <div class="form-group mb-4">
                     <label for="teori">Teori <div style="font-size:12px;"><i>SKS</i></div></label>
-                    <input type="number" name="teori" id="teori" class="form-control" onkeyup="sum();" onclick="sum();" required>
+                    <input type="number" name="teori" id="teori" class="form-control" onkeyup="sum();" onclick="sum();" step="any" required>
                     <div id="hilangT" style="display:none;">
                         <small class="form-text" style="color: red;">* Jumlah Maksimal SKS Teori adalah :
                             <input type="text" name="skst" id="skst"
@@ -406,7 +406,7 @@
                 </div>
                 <div class="form-group mb-4">
                     <label for="teori">Praktek <div style="font-size:12px;"><i>SKS</i></div></label>
-                    <input type="number" name="praktek" id="praktek" class="form-control" onkeyup="sum();" onclick="sum();" required>
+                    <input type="number" name="praktek" id="praktek" class="form-control" onkeyup="sum();" onclick="sum();" step="any" required>
                     <div id="hilangP" style="display:none;">
                         <small class="form-text" style="color: red;">* Jumlah Maksimal SKS Praktek adalah :
                             <input type="text" name="sksp" id="sksp"
@@ -422,7 +422,7 @@
                 </div>
                 <div class="form-group mb-4">
                     <label for="teori">Klinik <div style="font-size:12px;"><i>SKS</i></div></label>
-                    <input type="number" name="klinik" id="klinik" class="form-control" onkeyup="sum();" onclick="sum();" required>
+                    <input type="number" name="klinik" id="klinik" class="form-control" onkeyup="sum();" onclick="sum();" step="any" required>
                     <div id="hilangK" style="display:none;">
                         <small class="form-text" style="color: red;">* Jumlah Maksimal SKS Klinik adalah :
                             <input type="text" name="sksk" id="sksk"
@@ -480,7 +480,7 @@
                     
                 <div class="form-group mb-4">
                     <label for="sks">SKS</label>
-                    <input type="number" class="form-control" id="sks" name="sks" required>
+                    <input type="number" class="form-control" id="sks" name="sks" step="any" required>
                 </div>
                 <div class="form-group mb-4">
                     <label for="masa_penugasan">Masa Penugasan</label>
@@ -519,7 +519,7 @@
                     
                 <div class="form-group mb-4">
                     <label for="sksp">SKS</label>
-                    <input type="number" class="form-control" id="skspenunjang" name="skspenunjang" required>
+                    <input type="number" class="form-control" id="skspenunjang" name="skspenunjang" step="any" required>
                 </div>
                 <div class="form-group mb-4">
                     <label for="masa_penugasanp">Masa Penugasan</label>
