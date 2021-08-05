@@ -126,6 +126,31 @@
                             Penunjang
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="border-top-penelitian-tab" data-toggle="tab" href="#border-top-penelitian"
+                            role="tab" aria-controls="border-top-penelitian" aria-selected="false">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="feather feather-archive">
+                                <polyline points="21 8 21 21 3 21 3 8"></polyline>
+                                <rect x="1" y="3" width="22" height="5"></rect>
+                                <line x1="10" y1="12" x2="14" y2="12"></line>
+                            </svg>
+                            Penelitian
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="border-top-pengabdian-tab" data-toggle="tab" href="#border-top-pengabdian"
+                            role="tab" aria-controls="border-top-pengabdian" aria-selected="false">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="feather feather-book">
+                                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                            </svg>
+                            Pengabdian
+                        </a>
+                    </li>
                 </ul>
                      
                 <div class="tab-content" id="borderTopContent">
@@ -308,6 +333,66 @@
                                     <tr>
                                         <th>NO</th>
                                         <th>Jenis Kegiatan</th>
+                                        <th>SKS</th>
+                                        <th>Masa Penugasan</th>
+                                        <th class="no-content"></th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+
+                    {{-- Data Penelitian --}}
+                    <div class="tab-pane fade" id="border-top-penelitian" role="tabpanel" aria-labelledby="border-top-penelitian-tab">
+                        {{-- Tambah Data --}}
+                        <div style="margin-top: 20px; margin-bottom: -25px; margin-left: 10px;">
+                            <button class="btn btn-primary mb-2" data-toggle="modal" data-target="#TambahDataPenunjang"><i
+                                    class="far fa-edit"></i>Add Data</button>
+                        </div>
+                        {{-- Tabel Penelitian --}}
+                        <div class="table-responsive mb-4 mt-4">
+                            <table id="zero-penelitian" class="table table-hover" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th>NO</th>
+                                        <th>Jenis Penelitian</th>
+                                        <th>SKS</th>
+                                        <th align="center">Masa Penugasan</th>
+                                        <th class="no-content"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php $no = 0; ?>
+                                    @foreach ($penunjang as $pen)
+                                    <?php $no++ ;?>
+                                    <tr>
+                                        <td>{{ $no }}</td>
+                                        <td>{{ $pen->jenis_kegiatan }}</td>
+                                        <td>{{ $pen->sks }}</td>
+                                        <td>{{ $pen->masa_penugasan }}</td>
+                                        <td class="row">
+                                            {{-- <button class="edit-button btn btn-primary mb-2 modal-show"  
+                                            data-toggle="modal" data-target="#EditDataSgas" 
+                                            data-nidnn="{{ $m->nidn }}"
+                                            data-namaa="{{ $m->nama }}" data-jabatann="{{ $m->jabatan }}"
+                                            data-ta="{{ $m->ta }}" data-semester="{{ $m->semester }}"><i
+                                                class="far fa-edit"></i></button> --}}
+
+                                            <form action="{{url('detail/penunjang/'.$pen->id_penunjang)}}" method="GET">
+                                                <div class="right gap-items-2">
+                                                    <button class="btn btn-xs btn-danger submitForm" name="archive"
+                                                        type="submit" id="submitForm"><i
+                                                            class="far fa-trash-alt"></i></button>
+                                                </div>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th>NO</th>
+                                        <th>Jenis Penelitian</th>
                                         <th>SKS</th>
                                         <th>Masa Penugasan</th>
                                         <th class="no-content"></th>
