@@ -67,12 +67,24 @@ class DetailsgasController extends Controller
             ->where('id_sgas','=',$id)
             ->orderBy('id_penunjang','desc')
             ->get();
+        
+        //tampil data penelitian
+        $penelitian = DB::table('detail_penelitian')
+            ->where('id_sgas','=',$id)
+            ->orderBy('id_penelitian','desc')
+            ->get();
+
+        //tampil data pengabdian
+        $pengabdian = DB::table('detail_pengabdian')
+            ->where('id_sgas','=',$id)
+            ->orderBy('id_pengabdian','desc')
+            ->get();
 
         // grab data from database
         //return $print;
         return view('admin/sgas_detail',['detail_sgas' => $detail_sgas, 'ngecek'=> $ngecek, 'items'=> $items, 'matkul'=> $matkul, 
         'prodi' => $prodi, 'print' => $print, 'pembimbing' => $pembimbing, 
-        'penunjang' => $penunjang  ]);
+        'penunjang' => $penunjang,'penelitian' => $penelitian,'pengabdian' => $pengabdian  ]);
     }
 
     public function loadDataKode($id=0)
@@ -219,6 +231,42 @@ class DetailsgasController extends Controller
 
     }
 
+    public function storepenelitian(Request $request){
+
+            
+        DB::table('detail_penelitian')->insert([
+            'id_sgas' => $request->id_sgas,
+            'jenis_penelitian' => $request->jenis_kegiatanp,
+            'sks' => $request->skspenunjang,
+            'masa_penugasan' => $request->masa_penugasanp,
+                
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+            
+        // return $grandtotal;
+        return redirect()->back();
+
+    }
+
+    public function storepengabdian(Request $request){
+
+            
+        DB::table('detail_pengabdian')->insert([
+            'id_sgas' => $request->id_sgas,
+            'jenis_pengabdian' => $request->jenis_kegiatanp,
+            'sks' => $request->skspenunjang,
+            'masa_penugasan' => $request->masa_penugasanp,
+                
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+            
+        // return $grandtotal;
+        return redirect()->back();
+
+    }
+
     public function hapus($id){
 
         DB::table('detail_sgas')->where('id_detailsgas',$id)->delete();
@@ -234,6 +282,18 @@ class DetailsgasController extends Controller
     public function hapuspenunjang($id){
 
         DB::table('detail_penunjang')->where('id_penunjang',$id)->delete();
+        return back()->with('success','Post deleted successfully');
+    }
+
+    public function hapuspenelitian($id){
+
+        DB::table('detail_penelitian')->where('id_penelitian',$id)->delete();
+        return back()->with('success','Post deleted successfully');
+    }
+
+    public function hapuspengabdian($id){
+
+        DB::table('detail_pengabdian')->where('id_pengabdian',$id)->delete();
         return back()->with('success','Post deleted successfully');
     }
 

@@ -71,10 +71,15 @@ Route::get('/sgas/detail/{id}', 'DetailsgasController@index')->name('detail');
 Route::post('/sgas/detail/store','DetailsgasController@store');
 Route::post('/sgas/detail/storepembimbing','DetailsgasController@storepembimbing');
 Route::post('/sgas/detail/storepenunjang','DetailsgasController@storepenunjang');
+Route::post('/sgas/detail/storepenelitian','DetailsgasController@storepenelitian');
+Route::post('/sgas/detail/storepengabdian','DetailsgasController@storepengabdian');
+
 
 Route::get('/detail/hapus/{id}','DetailsgasController@hapus');
 Route::get('/detail/pembimbing/{id}','DetailsgasController@hapuspembimbing');
 Route::get('/detail/penunjang/{id}','DetailsgasController@hapuspenunjang');
+Route::get('/detail/penelitian/{id}','DetailsgasController@hapuspenelitian');
+Route::get('/detail/pengabdian/{id}','DetailsgasController@hapuspengabdian');
 
 Route::get('/detail/validasi/{validasi}','DetailsgasController@validasi')->name('validasi');
 

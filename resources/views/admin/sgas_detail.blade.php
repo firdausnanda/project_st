@@ -346,7 +346,7 @@
                     <div class="tab-pane fade" id="border-top-penelitian" role="tabpanel" aria-labelledby="border-top-penelitian-tab">
                         {{-- Tambah Data --}}
                         <div style="margin-top: 20px; margin-bottom: -25px; margin-left: 10px;">
-                            <button class="btn btn-primary mb-2" data-toggle="modal" data-target="#TambahDataPenunjang"><i
+                            <button class="btn btn-primary mb-2" data-toggle="modal" data-target="#TambahDataPenelitian"><i
                                     class="far fa-edit"></i>Add Data</button>
                         </div>
                         {{-- Tabel Penelitian --}}
@@ -363,11 +363,11 @@
                                 </thead>
                                 <tbody>
                                     <?php $no = 0; ?>
-                                    @foreach ($penunjang as $pen)
+                                    @foreach ($penelitian as $pen)
                                     <?php $no++ ;?>
                                     <tr>
                                         <td>{{ $no }}</td>
-                                        <td>{{ $pen->jenis_kegiatan }}</td>
+                                        <td>{{ $pen->jenis_penelitian }}</td>
                                         <td>{{ $pen->sks }}</td>
                                         <td>{{ $pen->masa_penugasan }}</td>
                                         <td class="row">
@@ -378,7 +378,7 @@
                                             data-ta="{{ $m->ta }}" data-semester="{{ $m->semester }}"><i
                                                 class="far fa-edit"></i></button> --}}
 
-                                            <form action="{{url('detail/penunjang/'.$pen->id_penunjang)}}" method="GET">
+                                            <form action="{{url('detail/penelitian/'.$pen->id_penelitian)}}" method="GET">
                                                 <div class="right gap-items-2">
                                                     <button class="btn btn-xs btn-danger submitForm" name="archive"
                                                         type="submit" id="submitForm"><i
@@ -393,6 +393,66 @@
                                     <tr>
                                         <th>NO</th>
                                         <th>Jenis Penelitian</th>
+                                        <th>SKS</th>
+                                        <th>Masa Penugasan</th>
+                                        <th class="no-content"></th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+
+                    {{-- Data Pengabdian --}}
+                    <div class="tab-pane fade" id="border-top-pengabdian" role="tabpanel" aria-labelledby="border-top-pengabdian-tab">
+                        {{-- Tambah Data --}}
+                        <div style="margin-top: 20px; margin-bottom: -25px; margin-left: 10px;">
+                            <button class="btn btn-primary mb-2" data-toggle="modal" data-target="#TambahDataPengabdian"><i
+                                    class="far fa-edit"></i>Add Data</button>
+                        </div>
+                        {{-- Tabel Pengabdian --}}
+                        <div class="table-responsive mb-4 mt-4">
+                            <table id="zero-pengabdian" class="table table-hover" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th>NO</th>
+                                        <th>Jenis Pengabdian</th>
+                                        <th>SKS</th>
+                                        <th align="center">Masa Penugasan</th>
+                                        <th class="no-content"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php $no = 0; ?>
+                                    @foreach ($pengabdian as $pen)
+                                    <?php $no++ ;?>
+                                    <tr>
+                                        <td>{{ $no }}</td>
+                                        <td>{{ $pen->jenis_pengabdian }}</td>
+                                        <td>{{ $pen->sks }}</td>
+                                        <td>{{ $pen->masa_penugasan }}</td>
+                                        <td class="row">
+                                            {{-- <button class="edit-button btn btn-primary mb-2 modal-show"  
+                                            data-toggle="modal" data-target="#EditDataSgas" 
+                                            data-nidnn="{{ $m->nidn }}"
+                                            data-namaa="{{ $m->nama }}" data-jabatann="{{ $m->jabatan }}"
+                                            data-ta="{{ $m->ta }}" data-semester="{{ $m->semester }}"><i
+                                                class="far fa-edit"></i></button> --}}
+
+                                            <form action="{{url('detail/pengabdian/'.$pen->id_pengabdian)}}" method="GET">
+                                                <div class="right gap-items-2">
+                                                    <button class="btn btn-xs btn-danger submitForm" name="archive"
+                                                        type="submit" id="submitForm"><i
+                                                            class="far fa-trash-alt"></i></button>
+                                                </div>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th>NO</th>
+                                        <th>Jenis Pengabdian</th>
                                         <th>SKS</th>
                                         <th>Masa Penugasan</th>
                                         <th class="no-content"></th>
@@ -642,6 +702,84 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">X</button>
             </div>
             <form action="/sgas/detail/storepenunjang" method="POST" name="tambah">
+            {{ csrf_field() }}
+            <div class="modal-body">
+                <div class="form-group mb-4">
+                    <label for="jenis_kegiatanp">Jenis Kegiatan</label>
+                    <textarea name="jenis_kegiatanp" id="jenis_kegiatanp" class="form-control" required></textarea>    
+                </div>
+                    
+                <div class="form-group mb-4">
+                    <label for="sksp">SKS</label>
+                    <input type="number" class="form-control" id="skspenunjang" name="skspenunjang" step="any" required>
+                </div>
+                <div class="form-group mb-4">
+                    <label for="masa_penugasanp">Masa Penugasan</label>
+                    <input type="text" class="form-control" id="masa_penugasanp" name="masa_penugasanp" required>
+                </div>
+                <div class="form-group mb-4">
+                    @foreach($items as $ite)
+                    <input type="hidden" name="id_sgas" id="id_sgas" class="form-control" value="{{ $ite->id_sgas }}" readonly>
+                    @endforeach
+                </div>
+            </div>
+            <div class="modal-footer">
+                <input type="submit" class="btn btn-primary" value="Save">
+                <button class="btn" data-dismiss="modal"><i class="flaticon-cancel-12"></i> Discard</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{{-- Modal Tambah Data Penelitian --}}
+<div class="modal fade fadeinUp" id="TambahDataPenelitian" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel" style="font-weight: bold;">Tambah Data Penelitian</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">X</button>
+            </div>
+            <form action="/sgas/detail/storepenelitian" method="POST" name="tambah">
+            {{ csrf_field() }}
+            <div class="modal-body">
+                <div class="form-group mb-4">
+                    <label for="jenis_kegiatanp">Jenis Kegiatan</label>
+                    <textarea name="jenis_kegiatanp" id="jenis_kegiatanp" class="form-control" required></textarea>    
+                </div>
+                    
+                <div class="form-group mb-4">
+                    <label for="sksp">SKS</label>
+                    <input type="number" class="form-control" id="skspenunjang" name="skspenunjang" step="any" required>
+                </div>
+                <div class="form-group mb-4">
+                    <label for="masa_penugasanp">Masa Penugasan</label>
+                    <input type="text" class="form-control" id="masa_penugasanp" name="masa_penugasanp" required>
+                </div>
+                <div class="form-group mb-4">
+                    @foreach($items as $ite)
+                    <input type="hidden" name="id_sgas" id="id_sgas" class="form-control" value="{{ $ite->id_sgas }}" readonly>
+                    @endforeach
+                </div>
+            </div>
+            <div class="modal-footer">
+                <input type="submit" class="btn btn-primary" value="Save">
+                <button class="btn" data-dismiss="modal"><i class="flaticon-cancel-12"></i> Discard</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{{-- Modal Tambah Data Penelitian --}}
+<div class="modal fade fadeinUp" id="TambahDataPengabdian" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel" style="font-weight: bold;">Tambah Data Pengabdian</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">X</button>
+            </div>
+            <form action="/sgas/detail/storepengabdian" method="POST" name="tambah">
             {{ csrf_field() }}
             <div class="modal-body">
                 <div class="form-group mb-4">
