@@ -101,6 +101,31 @@
                             Penunjang
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="border-top-penelitian-tab" data-toggle="tab" href="#border-top-penelitian"
+                            role="tab" aria-controls="border-top-penelitian" aria-selected="false">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="feather feather-archive">
+                                <polyline points="21 8 21 21 3 21 3 8"></polyline>
+                                <rect x="1" y="3" width="22" height="5"></rect>
+                                <line x1="10" y1="12" x2="14" y2="12"></line>
+                            </svg>
+                            Penelitian
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="border-top-pengabdian-tab" data-toggle="tab" href="#border-top-pengabdian"
+                            role="tab" aria-controls="border-top-pengabdian" aria-selected="false">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="feather feather-book">
+                                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                            </svg>
+                            Pengabdian
+                        </a>
+                    </li>
                 </ul>
 
                 <div class="tab-content" id="borderTopContent">
@@ -215,6 +240,80 @@
                                     <tr>
                                         <th>NO</th>
                                         <th>Jenis Kegiatan</th>
+                                        <th>SKS</th>
+                                        <th>Masa Penugasan</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+
+                    {{-- Data Penelitian --}}
+                    <div class="tab-pane fade" id="border-top-penelitian" role="tabpanel" aria-labelledby="border-top-penelitian-tab">
+                        {{-- Tabel Penelitian --}}
+                        <div class="table-responsive mb-4 mt-4">
+                            <table id="zero-penelitian" class="table table-hover" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th>NO</th>
+                                        <th>Jenis Penelitian</th>
+                                        <th>SKS</th>
+                                        <th align="center">Masa Penugasan</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php $no = 0; ?>
+                                    @foreach ($penelitian as $pen)
+                                    <?php $no++ ;?>
+                                    <tr>
+                                        <td>{{ $no }}</td>
+                                        <td>{{ $pen->jenis_penelitian }}</td>
+                                        <td>{{ $pen->sks }}</td>
+                                        <td>{{ $pen->masa_penugasan }}</td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th>NO</th>
+                                        <th>Jenis Penelitian</th>
+                                        <th>SKS</th>
+                                        <th>Masa Penugasan</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+
+                    {{-- Data Pengabdian --}}
+                    <div class="tab-pane fade" id="border-top-pengabdian" role="tabpanel" aria-labelledby="border-top-pengabdian-tab">
+                        {{-- Tabel Pengabdian --}}
+                        <div class="table-responsive mb-4 mt-4">
+                            <table id="zero-pengabdian" class="table table-hover" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th>NO</th>
+                                        <th>Jenis Pengabdian</th>
+                                        <th>SKS</th>
+                                        <th align="center">Masa Penugasan</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php $no = 0; ?>
+                                    @foreach ($pengabdian as $pen)
+                                    <?php $no++ ;?>
+                                    <tr>
+                                        <td>{{ $no }}</td>
+                                        <td>{{ $pen->jenis_pengabdian }}</td>
+                                        <td>{{ $pen->sks }}</td>
+                                        <td>{{ $pen->masa_penugasan }}</td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th>NO</th>
+                                        <th>Jenis Pengabdian</th>
                                         <th>SKS</th>
                                         <th>Masa Penugasan</th>
                                     </tr>

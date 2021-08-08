@@ -794,11 +794,22 @@ class DetailsgasController extends Controller
             ->where('id_sgas','=',$id)
             ->orderBy('id_penunjang','desc')
             ->get();
+        
+        $penelitian = DB::table('detail_penelitian')
+            ->where('id_sgas','=',$id)
+            ->orderBy('id_penelitian','desc')
+            ->get();
+        
+        $pengabdian = DB::table('detail_pengabdian')
+            ->where('id_sgas','=',$id)
+            ->orderBy('id_pengabdian','desc')
+            ->get();
 
         // grab data from database
         //return $print;
         return view('user/sgas_detail',['detail_sgas' => $detail_sgas, 'items'=> $items, 
             'matkul'=> $matkul, 'prodi' => $prodi, 'print' => $print,
-            'pembimbing' => $pembimbing, 'penunjang' => $penunjang ]);
+            'pembimbing' => $pembimbing, 'penunjang' => $penunjang,
+            'penelitian' => $penelitian, 'pengabdian' =>$pengabdian ]);
     }
 }
