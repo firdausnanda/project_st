@@ -446,7 +446,7 @@
                         </tbody>
                     </table>
 
-                    <table style="width: 60%; text-align: left; float: right; margin-top: 25px;">
+                    {{-- <table style="width: 60%; text-align: left; float: right; margin-top: 25px;">
                         <tr>
                             <td style="width: 40%; border: none;" align="right">Ditetapkan di</td>
                             <td style="border: none;">:</td>
@@ -477,14 +477,13 @@
                         <tr height="80px">
                             <td style="border: none;" align="center" valign="bottom" colspan="3">
                                 <img src="{{ asset('assets/img/ttd.png')}}" alt="ttd"><br>
-                                    {{-- Arief Efendi, SMPh., SH(adv)., S.Kep., Ners., MM., M.Kes --}}
+                                    
                                     </td>
                         </tr>
                         <tr>
-                            {{-- <td style="border: none;" align="center" valign="bottom" colspan="3">NIDK. 8807901019
-                            </td> --}}
+                           
                         </tr>
-                    </table> 
+                    </table>  --}}
                     @endif
                 </div>
             {{-- </div> --}}
@@ -519,6 +518,64 @@
                                 <td></td>
                                 <td colspan="2" style="font-weight: bold;">Total</td>
                                 <td align="center">{{ $totalpenunjang }}</td>
+                            </tr>
+                        </tbody>
+                    </table>    
+                    @endif
+                    <h4>IV. Penelitian</h4>
+                    <table>
+                        <thead>
+                            <tr style="height: 25px;">
+                                <th>No</th>
+                                <th>Nama Penelitian</th>
+                                <th>Masa Pelaksanaan Tugas</th>
+                                <th>SKS</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php $no = 0; ?>
+                            @foreach ($penelitian as $pen)
+                            <?php $no++ ;?>
+                            <tr style="height: 25px;">
+                                <td align="center">{{ $no }}</td>
+                                <td>{{ $pen->jenis_penelitian }}</td>
+                                <td align="center">{{ $pen->masa_penugasan }}</td>
+                                <td align="center">{{ $pen->sks }}</td>
+                            </tr>
+                            @endforeach
+                            <tr style="height: 25px;">
+                                <td></td>
+                                <td colspan="2" style="font-weight: bold;">Total</td>
+                                <td align="center">{{ $totalpenelitian }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h4>IV. Pengabdian</h4>
+                    <table>
+                        <thead>
+                            <tr style="height: 25px;">
+                                <th>No</th>
+                                <th>Nama Pengabdian</th>
+                                <th>Masa Pelaksanaan Tugas</th>
+                                <th>SKS</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php $no = 0; ?>
+                            @foreach ($pengabdian as $pen)
+                            <?php $no++ ;?>
+                            <tr style="height: 25px;">
+                                <td align="center">{{ $no }}</td>
+                                <td>{{ $pen->jenis_pengabdian }}</td>
+                                <td align="center">{{ $pen->masa_penugasan }}</td>
+                                <td align="center">{{ $pen->sks }}</td>
+                            </tr>
+                            @endforeach
+                            <tr style="height: 25px;">
+                                <td></td>
+                                <td colspan="2" style="font-weight: bold;">Total</td>
+                                <td align="center">{{ $totalpengabdian}}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -561,8 +618,7 @@
                             {{-- <td style="border: none;" align="center" valign="bottom" colspan="3">NIDK. 8807901019
                             </td> --}}
                         </tr>
-                    </table>    
-                    @endif
+                    </table>
                 </div>
             {{-- </div> --}}
         </div>

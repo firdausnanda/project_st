@@ -337,6 +337,16 @@ class DetailsgasController extends Controller
             ->where('id_sgas','=',$id)
             ->orderBy('id_detailsgas','desc')
             ->sum('sks');
+        
+        $totalpenelitian = DB::table('detail_penelitian')
+            ->where('id_sgas','=',$id)
+            ->orderBy('id_detailsgas','desc')
+            ->sum('sks');
+        
+        $totalpengabdian = DB::table('detail_pengabdian')
+            ->where('id_sgas','=',$id)
+            ->orderBy('id_detailsgas','desc')
+            ->sum('sks');
 
         $pembimbing = DB::table('detail_pembimbingan')
             ->where('id_sgas','=',$id)
@@ -346,6 +356,16 @@ class DetailsgasController extends Controller
         $penunjang = DB::table('detail_penunjang')
             ->where('id_sgas','=',$id)
             ->orderBy('id_penunjang','desc')
+            ->get();
+        
+        $penelitian = DB::table('detail_penelitian')
+            ->where('id_sgas','=',$id)
+            ->orderBy('id_penelitian','desc')
+            ->get();
+        
+        $pengabdian = DB::table('detail_pengabdian')
+            ->where('id_sgas','=',$id)
+            ->orderBy('id_pengabdian','desc')
             ->get();
         
         $invoicecount = DB::table('detail_sgas')
@@ -374,6 +394,8 @@ class DetailsgasController extends Controller
 
         return view('report/print',['invoice' => $invoice, 'tampil' => $tampil, 
         'total' => $total, 'pembimbing' => $pembimbing, 'penunjang' => $penunjang,
+        'penelitian' => $penelitian, 'pengabdian' => $pengabdian, 'totalpengabdian' => $totalpengabdian,
+        'totalpenelitian' => $totalpenelitian,
         'totalpembimbing' => $totalpembimbing, 'totalpenunjang' => $totalpenunjang,
         'counttotal' => $counttotal]);
     }
