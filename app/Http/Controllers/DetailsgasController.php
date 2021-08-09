@@ -403,14 +403,18 @@ class DetailsgasController extends Controller
     public function generateInvoice2($id){
     
         $tampil = DB::table('detail_sgas')
+            ->select('sgas.semester','ta.ta','dosen.nama','dosen.jabatan','dosen.jabatan_fungsional','dosen.nidn','ta.tglgjl','ta.tglgnp','sgas.no_plot',
+                DB::raw("GROUP_CONCAT(detail_sgas.prodi) as prodi"))
             ->join('sgas','sgas.id_sgas','=','detail_sgas.id_sgas')
             ->join('matkul','matkul.kode_matkul','=','detail_sgas.kode_matkul')
             ->join('dosen','dosen.id','=','sgas.id_dosen')
             ->join('ta','ta.id_ta','=','sgas.ta') 
             ->where('sgas.id_sgas','=',$id)
             ->orderBy('sgas.id_sgas','desc')
-            ->limit(1)
+            // ->limit(1)
             ->get();
+        
+        //dd($tampil);
         
         $invoice = DB::table('detail_sgas')
             ->join('sgas','sgas.id_sgas','=','detail_sgas.id_sgas')
@@ -436,6 +440,16 @@ class DetailsgasController extends Controller
             ->where('id_sgas','=',$id)
             ->orderBy('id_detailsgas','desc')
             ->sum('sks');
+        
+        $totalpenelitian = DB::table('detail_penelitian')
+            ->where('id_sgas','=',$id)
+            ->orderBy('id_detailsgas','desc')
+            ->sum('sks');
+        
+        $totalpengabdian = DB::table('detail_pengabdian')
+            ->where('id_sgas','=',$id)
+            ->orderBy('id_detailsgas','desc')
+            ->sum('sks');
 
         $pembimbing = DB::table('detail_pembimbingan')
             ->where('id_sgas','=',$id)
@@ -445,6 +459,16 @@ class DetailsgasController extends Controller
         $penunjang = DB::table('detail_penunjang')
             ->where('id_sgas','=',$id)
             ->orderBy('id_penunjang','desc')
+            ->get();
+        
+        $penelitian = DB::table('detail_penelitian')
+            ->where('id_sgas','=',$id)
+            ->orderBy('id_penelitian','desc')
+            ->get();
+        
+        $pengabdian = DB::table('detail_pengabdian')
+            ->where('id_sgas','=',$id)
+            ->orderBy('id_pengabdian','desc')
             ->get();
         
         $invoicecount = DB::table('detail_sgas')
@@ -473,6 +497,8 @@ class DetailsgasController extends Controller
 
         return view('report/print2',['invoice' => $invoice, 'tampil' => $tampil, 
         'total' => $total, 'pembimbing' => $pembimbing, 'penunjang' => $penunjang,
+        'penelitian' => $penelitian, 'pengabdian' => $pengabdian, 'totalpengabdian' => $totalpengabdian,
+        'totalpenelitian' => $totalpenelitian,
         'totalpembimbing' => $totalpembimbing, 'totalpenunjang' => $totalpenunjang,
         'counttotal' => $counttotal]);
     }
