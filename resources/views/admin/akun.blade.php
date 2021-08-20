@@ -108,7 +108,7 @@
                     <select class="selectpicker form-control" data-live-search="true" id="role" name="role" required>
                         <option value="">-</option>
                         <option value="superadmin">Superadmin</option>
-                        <option value="prodi">Admin Prodi</option>
+                        <option value="admin">Admin Prodi</option>
                     </select>
                 </div>
             </div>
@@ -149,7 +149,7 @@
                     <label for="role">Role</label><br>
                     <select class="selectpicker form-control" data-live-search="true" id="role" name="role">
                         <option value="superadmin">Superadmin</option>
-                        <option value="prodi">Admin Prodi</option>
+                        <option value="admin">Admin Prodi</option>
                         <option value="user">User</option>
                     </select>
                 </div>
