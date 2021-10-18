@@ -566,6 +566,7 @@ class DetailsgasController extends Controller
         //tampil data matkul
         $matkul = DB::table('matkul')
             ->join('users','users.prodi','=','matkul.prodii')
+            ->where('users.prodi','=', Auth::user()->prodi)
             ->orderBy('id_matkul','desc')
             ->get();
 
