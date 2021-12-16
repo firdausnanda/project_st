@@ -607,6 +607,27 @@ class DetailsgasController extends Controller
                 'penunjang' => $penunjang, 'penelitian' => $penelitian, 'pengabdian' => $pengabdian ]);
     }
 
+    public function loadDataKodeadmin($id=0)
+    {
+    	$data = DB::table('matkul')
+            ->join('users','users.prodi','=','matkul.prodii')
+            ->where('kode_matkul', $id)
+            ->where('users.prodi','=', Auth::user()->prodi)
+            ->first();
+    	return response()->json($data);
+    }
+
+    public function loadDataNamaadmin($id=0)
+    {
+    	$data = DB::table('matkul')
+            ->join('users','users.prodi','=','matkul.prodii')
+            ->where('nama_matkul', $id)
+            ->where('users.prodi','=', Auth::user()->prodi)
+            ->first();
+
+    	return response()->json($data);
+    }
+
     public function storeadmin(Request $request){
         
         //cek teori sks

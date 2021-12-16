@@ -148,8 +148,8 @@ Route::get('/inputdata/penelitian/{id}','DetailsgasController@hapuspenelitianadm
 Route::get('/inputdata/pengabdian/{id}','DetailsgasController@hapuspengabdianadmin');
 
 
-Route::get('/inputdata/idmatkul/{id}', 'DetailsgasController@loadDataKode')->name('getDataKodeMatkul');
-Route::get('/inputdata/namamatkul/{id}', 'DetailsgasController@loadDataNama')->name('getDataNamaMatkul');
+Route::get('/inputdata/idmatkul/{id}', 'DetailsgasController@loadDataKodeadmin')->name('getDataKodeMatkul');
+Route::get('/inputdata/namamatkul/{id}', 'DetailsgasController@loadDataNamaadmin')->name('getDataNamaMatkul');
 
 Route::get('/inputdata/print/{id}', 'DetailsgasController@generateInvoice')->name('invoiceadmin');
 Route::get('/inputdata/printno/{id}', 'DetailsgasController@generateInvoice2')->name('invoiceadmin2');
