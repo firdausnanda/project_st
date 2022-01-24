@@ -62,24 +62,31 @@
                     </button>
                     {{-- button validasi admin --}}
                     @foreach ($items as $ds)
-                    @if($ds->validasi =='0')
-                    <a href="{{ route('validasi', $ds->id_sgas) }}">
-                        <button class="btn btn-info mb-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="feather feather-check">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                            Validasi
-                        </button>
-                    </a>
-                    @elseif($ds->validasi =='1')
-                    <a href="{{ route('validasi', $ds->id_sgas) }}">
-                        <button class="btn btn-danger mb-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-                        Batal Validasi
-                        </button>
-                    </a>
+                    @if(Auth::user()->name != "BSDM")
+                        @if($ds->validasi =='0')
+                        <a href="{{ route('validasi', $ds->id_sgas) }}">
+                            <button class="btn btn-info mb-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-check">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                Validasi
+                            </button>
+                        </a>
+                        @elseif($ds->validasi =='1')
+                        <a href="{{ route('validasi', $ds->id_sgas) }}">
+                            <button class="btn btn-danger mb-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-x">
+                                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                                </svg>
+                                Batal Validasi
+                            </button>
+                        </a>
+                        @endif
                     @endif
                     @endforeach
                 </div>
@@ -196,11 +203,13 @@
                                             data-namaa="{{ $m->nama }}" data-jabatann="{{ $m->jabatan }}" 
                                             data-ta="{{ $m->ta }}" data-semester="{{ $m->semester }}"><i class="far fa-edit"></i></button> --}}
                                             
+                                            @if(Auth::user()->name != "BSDM")
                                             <form action="{{url('detail/hapus/'.$m->id_detailsgas)}}" method="GET">
                                                 <div class="right gap-items-2">
                                                     <button class="btn btn-xs btn-danger submitForm" name="archive" type="submit" id="submitForm" ><i class="far fa-trash-alt"></i></button>
                                                 </div>
                                             </form>
+                                            @endif
                                         </td>
                                     </tr>
                                     @endforeach

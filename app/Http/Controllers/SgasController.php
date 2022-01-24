@@ -23,6 +23,7 @@ class SgasController extends Controller
             ->join('dosen','sgas.id_dosen','=','dosen.id')
             ->join('ta','ta.id_ta','=','sgas.ta')
             ->orderBy('id_sgas','desc')
+            ->orderBy('validasi','asc')
             ->get();
 
         $items = DB::table('ta')
