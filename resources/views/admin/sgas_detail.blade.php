@@ -164,8 +164,14 @@
                     {{-- Data Pengajaran --}}
                     <div class="tab-pane fade show active" id="border-top-home" role="tabpanel" aria-labelledby="border-top-home-tab">
                         {{-- Tambah Data --}}
-                        <div style="margin-top: 20px; margin-bottom: -25px; margin-left: 10px;">
-                        <button class="btn btn-primary mb-2" data-toggle="modal" data-target="#TambahDataDetail"><i class="far fa-edit"></i>Add Data</button>
+                        <div style="margin-top: 40px; margin-bottom: -25px; margin-left: 10px;">
+                            <div style="float: left">
+                                <button class="btn btn-primary mb-2" data-toggle="modal" data-target="#TambahDataDetail"><i class="far fa-edit"></i>Add Data</button>
+                            </div>
+                            <div style="float: right;">
+                                <div class="btn btn-dark mb-2">Total SKS :</div>
+                                <button class="btn btn-danger mb-2">{{ $total }}</button>
+                            </div>
                         </div>
                         {{-- Tabel Pengajaran --}}
                         <div class="table-responsive mb-4 mt-4">

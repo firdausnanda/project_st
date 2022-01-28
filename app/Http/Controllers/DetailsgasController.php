@@ -79,12 +79,19 @@ class DetailsgasController extends Controller
             ->where('id_sgas','=',$id)
             ->orderBy('id_pengabdian','desc')
             ->get();
+            
+        //sum total
+        $total = DB::table('detail_sgas')
+            ->where('id_sgas','=',$id)
+            ->orderBy('id_detailsgas','desc')
+            ->sum('grandtotal');
 
         // grab data from database
         //return $print;
         return view('admin/sgas_detail',['detail_sgas' => $detail_sgas, 'ngecek'=> $ngecek, 'items'=> $items, 'matkul'=> $matkul, 
         'prodi' => $prodi, 'print' => $print, 'pembimbing' => $pembimbing, 
-        'penunjang' => $penunjang,'penelitian' => $penelitian,'pengabdian' => $pengabdian  ]);
+        'penunjang' => $penunjang,'penelitian' => $penelitian,'pengabdian' => $pengabdian,
+        'total' => $total ]);
     }
 
     public function loadDataKode($id=0)
