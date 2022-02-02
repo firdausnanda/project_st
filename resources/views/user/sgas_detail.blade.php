@@ -131,46 +131,102 @@
                 <div class="tab-content" id="borderTopContent">
                     {{-- Data Pengajaran --}}
                     <div class="tab-pane fade show active" id="border-top-home" role="tabpanel" aria-labelledby="border-top-home-tab">
-                        <div class="table-responsive mb-4 mt-4">
-                            <table id="zero-config" class="table table-hover" style="width:100%">
-                                <thead>
-                                    <tr>
-                                        <th>NO</th>
-                                        <th>Kode Matkul</th>
-                                        <th>Matakuliah</th>
-                                        <th>Prodi</th>
-                                        <th>Semester</th>
-                                        <th>Kelas</th>
-                                        <th>SKS</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php $no = 0; ?>
-                                    @foreach ($detail_sgas as $m)
-                                    <?php $no++ ;?>
-                                    <tr>
-                                        <td>{{ $no }}</td>
-                                        <td>{{ $m->kode_matkul }}</td>
-                                        <td>{{ $m->nama_matkul }}</td>
-                                        <td>{{ $m->prodi }}</td>
-                                        <td>{{ $m->semesterd }}</td>
-                                        <td>{{ $m->kelas }}</td>
-                                        <td>{{ $m->total }} ({{ $m->tsks }}T, {{ $m->psks }}P, {{ $m->ksks }}K)</td>
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-                                <tfoot>
-                                    <tr>
-                                        <th>NO</th>
-                                        <th>Kode Matkul</th>
-                                        <th>Matakuliah</th>
-                                        <th>Prodi</th>
-                                        <th>Semester</th>
-                                        <th>Kelas</th>
-                                        <th>SKS</th>
-                                    </tr>
-                                </tfoot>
-                            </table>
+                        
+                        {{-- TAB PENGAJARAN DAN JABATAN --}}
+                        <ul class="nav nav-pills mb-3 mt-3" id="pills-tab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Data Pengajaran</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-contact" aria-selected="false">Data Jabatan</a>
+                            </li>
+                        </ul>
+
+                        {{-- ISI TAB PENGAJARAN DAN JABATAN --}}
+                        <div class="tab-content" id="pills-tabContent">
+                            {{-- pengajaran --}}
+                            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                                <div class="table-responsive mb-4 mt-4">
+                                    <table id="zero-config" class="table table-hover" style="width:100%">
+                                        <thead>
+                                            <tr>
+                                                <th>NO</th>
+                                                <th>Kode Matkul</th>
+                                                <th>Matakuliah</th>
+                                                <th>Prodi</th>
+                                                <th>Semester</th>
+                                                <th>Jumlah Kelas</th>
+                                                <th>SKS</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php $no = 0; ?>
+                                            @foreach ($detail_sgas as $m)
+                                            <?php $no++ ;?>
+                                            <tr>
+                                                <td>{{ $no }}</td>
+                                                <td>{{ $m->kode_matkul }}</td>
+                                                <td>{{ $m->nama_matkul }}</td>
+                                                <td>{{ $m->prodi }}</td>
+                                                <td>{{ $m->semesterd }}</td>
+                                                <td>{{ $m->kelas }}</td>
+                                                <td>{{ $m->total }} ({{ $m->tsks }}T, {{ $m->psks }}P, {{ $m->ksks }}K)</td>
+                                            </tr>
+                                            @endforeach
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <th>NO</th>
+                                                <th>Kode Matkul</th>
+                                                <th>Matakuliah</th>
+                                                <th>Prodi</th>
+                                                <th>Semester</th>
+                                                <th>Jumlah Kelas</th>
+                                                <th>SKS</th>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                            </div>
+                            {{-- jabatan --}}
+                            <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                                {{-- Tabel jabatan --}}
+                                <div class="table-responsive mb-4 mt-4">
+                                    <table id="zero-jabatan" class="table table-hover" style="width:100%">
+                                        <thead>
+                                            <tr>
+                                                <th>NO</th>
+                                                {{-- <th>Kode Jabatan</th> --}}
+                                                <th>Nama Jabatan</th>
+                                                <th>SKS</th>
+                                                <td></td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php $no = 0; ?>
+                                            @foreach ($jabatan as $j)
+                                            <?php $no++ ;?>
+                                            <tr>
+                                                <td>{{ $no }}</td>
+                                                {{-- <td>{{ $j->id_jabatan }}</td> --}}
+                                                <td>{{ $j->nama_jabatan }}</td>
+                                                <td>{{ $j->sks }}</td>
+                                                <td></td>
+                                            </tr>
+                                            @endforeach
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <th>NO</th>
+                                                {{-- <th>Kode Jabatan</th> --}}
+                                                <th>Nama Jabatan</th>
+                                                <th>SKS</th>
+                                                <th class="no-content"></th>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     

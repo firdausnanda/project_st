@@ -993,11 +993,19 @@ class DetailsgasController extends Controller
             ->orderBy('id_pengabdian','desc')
             ->get();
 
+        //tampil jabatan
+        $jabatan = DB::table('detail_jabatan')
+            ->join('jabatan','jabatan.id_jabatan','=','detail_jabatan.id_jabatan')
+            ->where('detail_jabatan.id_sgas','=',$id)
+            ->orderBy('jabatan.id_jabatan','desc')
+            ->get();
+
         // grab data from database
         //return $print;
         return view('user/sgas_detail',['detail_sgas' => $detail_sgas, 'items'=> $items, 
             'matkul'=> $matkul, 'prodi' => $prodi, 'print' => $print,
             'pembimbing' => $pembimbing, 'penunjang' => $penunjang,
-            'penelitian' => $penelitian, 'pengabdian' =>$pengabdian ]);
+            'penelitian' => $penelitian, 'pengabdian' =>$pengabdian,
+            'jabatan' => $jabatan ]);
     }
 }
