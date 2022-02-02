@@ -131,81 +131,168 @@
                 <div class="tab-content" id="borderTopContent">
                     {{-- Data Pengajaran --}}
                     <div class="tab-pane fade show active" id="border-top-home" role="tabpanel" aria-labelledby="border-top-home-tab">
-                        {{-- Tombol Tambah Data --}}
-                        @foreach ($ngecek as $n)
-                        @if ($n->validasi == '0')
-                        <div style="margin-top: 20px; margin-bottom: -25px; margin-left: 10px;">
-                            {{-- button tambah --}}
-                            <button class="btn btn-primary mb-2" data-toggle="modal" data-target="#TambahDataDetail"><i
-                                    class="far fa-edit"></i>Add Data</button>
-                        </div>
-                        @endif
-                        @endforeach
-                        
-                        {{-- Tabel Data Pengajaran --}}
-                        <div class="table-responsive mb-4 mt-4">
-                            <table id="zero-config" class="table table-hover" style="width:100%">
-                                <thead>
-                                    <tr>
-                                        <th>NO</th>
-                                        <th>Kode Matkul</th>
-                                        <th>Matakuliah</th>
-                                        <th>Prodi</th>
-                                        <th>Semester</th>
-                                        <th>Kelas</th>
-                                        <th>SKS</th>
-                                        <th>Total</th>
-                                        <th class="no-content"></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php $no = 0; ?>
-                                    @foreach ($detail_sgas as $m)
-                                    <?php $no++ ;?>
-                                    <tr>
-                                        <td>{{ $no }}</td>
-                                        <td>{{ $m->kode_matkul }}</td>
-                                        <td>{{ $m->nama_matkul }}</td>
-                                        <td>{{ $m->prodi }}</td>
-                                        <td>{{ $m->semesterd }}</td>
-                                        <td>{{ $m->kelas }}</td>
-                                        <td>{{ $m->total }} ({{ $m->tsks }}T, {{ $m->psks }}P, {{ $m->ksks }}K)</td>
-                                        <td>{{ $m->grandtotal }}</td>
-                                        <td class="row">
-                                            {{-- <button class="edit-button btn btn-primary mb-2 modal-show"  
+                        {{-- TAB PENGAJARAN DAN JABATAN --}}
+                        <ul class="nav nav-pills mb-3 mt-3" id="pills-tab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Data Pengajaran</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-contact" aria-selected="false">Data Jabatan</a>
+                            </li>
+                        </ul>
+
+                        {{-- ISI TAB PENGAJARAN DAN JABATAN --}}
+                        <div class="tab-content" id="pills-tabContent">
+                            {{-- pengajaran --}}
+                            <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
+                                aria-labelledby="pills-home-tab">
+                                {{-- Tombol Tambah Data --}}
+                                @foreach ($ngecek as $n)
+                                @if ($n->validasi == '0')
+                                <div style="margin-top: 20px; margin-bottom: -25px; margin-left: 10px;">
+                                    {{-- button tambah --}}
+                                    <button class="btn btn-primary mb-2" data-toggle="modal"
+                                        data-target="#TambahDataDetail"><i class="far fa-edit"></i>Add Data</button>
+                                </div>
+                                @endif
+                                @endforeach
+
+                                {{-- Tabel Data Pengajaran --}}
+                                <div class="table-responsive mb-4 mt-4">
+                                    <table id="zero-config" class="table table-hover" style="width:100%">
+                                        <thead>
+                                            <tr>
+                                                <th>NO</th>
+                                                <th>Kode Matkul</th>
+                                                <th>Matakuliah</th>
+                                                <th>Prodi</th>
+                                                <th>Semester</th>
+                                                <th>Kelas</th>
+                                                <th>SKS</th>
+                                                <th>Total</th>
+                                                <th class="no-content"></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php $no = 0; ?>
+                                            @foreach ($detail_sgas as $m)
+                                            <?php $no++ ;?>
+                                            <tr>
+                                                <td>{{ $no }}</td>
+                                                <td>{{ $m->kode_matkul }}</td>
+                                                <td>{{ $m->nama_matkul }}</td>
+                                                <td>{{ $m->prodi }}</td>
+                                                <td>{{ $m->semesterd }}</td>
+                                                <td>{{ $m->kelas }}</td>
+                                                <td>{{ $m->total }} ({{ $m->tsks }}T, {{ $m->psks }}P, {{ $m->ksks }}K)
+                                                </td>
+                                                <td>{{ $m->grandtotal }}</td>
+                                                <td class="row">
+                                                    {{-- <button class="edit-button btn btn-primary mb-2 modal-show"  
                                     data-toggle="modal" data-target="#EditDataSgas" 
                                     data-nidnn="{{ $m->nidn }}"
-                                            data-namaa="{{ $m->nama }}" data-jabatann="{{ $m->jabatan }}"
-                                            data-ta="{{ $m->ta }}" data-semester="{{ $m->semester }}"><i
-                                                class="far fa-edit"></i></button> --}}
-                                            @if ($m->validasi == '0')
-                                            <form action="{{url('inputdata/detail/hapus/'.$m->id_detailsgas)}}"
-                                                method="GET">
-                                                <div class="right gap-items-2">
-                                                    <button class="btn btn-xs btn-danger submitForm" name="archive"
-                                                        type="submit" id="submitForm"><i
-                                                            class="far fa-trash-alt"></i></button>
-                                                </div>
-                                            </form>
-                                            @endif
-                                        </td>
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-                                <tfoot>
-                                    <tr>
-                                        <th>NO</th>
-                                        <th>Kode Matkul</th>
-                                        <th>Matakuliah</th>
-                                        <th>Prodi</th>
-                                        <th>Semester</th>
-                                        <th>Kelas</th>
-                                        <th>SKS</th>
-                                        <th>Total</th>
-                                        <th></th>
-                                    </tr>
-                                </tfoot>
-                            </table>
+                                                    data-namaa="{{ $m->nama }}" data-jabatann="{{ $m->jabatan }}"
+                                                    data-ta="{{ $m->ta }}" data-semester="{{ $m->semester }}"><i
+                                                        class="far fa-edit"></i></button> --}}
+                                                    @if ($m->validasi == '0')
+                                                    <form action="{{url('inputdata/detail/hapus/'.$m->id_detailsgas)}}"
+                                                        method="GET">
+                                                        <div class="right gap-items-2">
+                                                            <button class="btn btn-xs btn-danger submitForm"
+                                                                name="archive" type="submit" id="submitForm"><i
+                                                                    class="far fa-trash-alt"></i></button>
+                                                        </div>
+                                                    </form>
+                                                    @endif
+                                                </td>
+                                            </tr>
+                                            @endforeach
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <th>NO</th>
+                                                <th>Kode Matkul</th>
+                                                <th>Matakuliah</th>
+                                                <th>Prodi</th>
+                                                <th>Semester</th>
+                                                <th>Kelas</th>
+                                                <th>SKS</th>
+                                                <th>Total</th>
+                                                <th></th>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                            </div>
+
+                            {{-- jabatan --}}
+                            <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                                {{-- Tambah Data --}}
+                                @foreach ($ngecek as $n)
+                                @if ($n->validasi == '0')
+                                <div style="margin-top: 40px; margin-bottom: -25px; margin-left: 10px;">
+                                    <div style="float: left">
+                                        <button class="btn btn-primary mb-2" data-toggle="modal"
+                                            data-target="#TambahDataJabatan"><i class="far fa-edit"></i>Add Data</button>
+                                    </div>
+                                </div>
+                                @endif
+                                @endforeach
+                                {{-- Tabel jabatan --}}
+                                <div class="table-responsive mb-4 mt-4">
+                                    <table id="zero-jabatan" class="table table-hover" style="width:100%">
+                                        <thead>
+                                            <tr>
+                                                <th>NO</th>
+                                                {{-- <th>Kode Jabatan</th> --}}
+                                                <th>Nama Jabatan</th>
+                                                <th>SKS</th>
+                                                <th class="no-content"></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php $no = 0; ?>
+                                            @foreach ($jabatan as $j)
+                                            <?php $no++ ;?>
+                                            <tr>
+                                                <td>{{ $no }}</td>
+                                                {{-- <td>{{ $j->id_jabatan }}</td> --}}
+                                                <td>{{ $j->nama_jabatan }}</td>
+                                                <td>{{ $j->sks }}</td>
+                                                <td class="row">
+                                                    {{-- <button class="edit-button btn btn-primary mb-2 modal-show"  
+                                            data-toggle="modal" data-target="#EditDataSgas" 
+                                            data-nidnn="{{ $m->nidn }}"
+                                                    data-namaa="{{ $m->nama }}" data-jabatann="{{ $m->jabatan }}"
+                                                    data-ta="{{ $m->ta }}" data-semester="{{ $m->semester }}"><i
+                                                        class="far fa-edit"></i></button> --}}
+
+                                                    @if(Auth::user()->name != "BSDM")
+                                                    <form action="{{url('inputdata/jabatan/'.$j->id_detailjabatan)}}"
+                                                        method="GET">
+                                                        <div class="right gap-items-2">
+                                                            <button class="btn btn-xs btn-danger submitForm"
+                                                                name="archive" type="submit" id="submitForm"><i
+                                                                    class="far fa-trash-alt"></i></button>
+                                                        </div>
+                                                    </form>
+                                                    @endif
+                                                </td>
+                                            </tr>
+                                            @endforeach
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <th>NO</th>
+                                                {{-- <th>Kode Jabatan</th> --}}
+                                                <th>Nama Jabatan</th>
+                                                <th>SKS</th>
+                                                <th class="no-content"></th>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -792,6 +879,44 @@
                     @foreach($items as $ite)
                     <input type="hidden" name="id_sgas" id="id_sgas" class="form-control" value="{{ $ite->id_sgas }}" readonly>
                     @endforeach
+                </div>
+            </div>
+            <div class="modal-footer">
+                <input type="submit" class="btn btn-primary" value="Save">
+                <button class="btn" data-dismiss="modal"><i class="flaticon-cancel-12"></i> Discard</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{{-- Modal Tambah Data Jabatan --}}
+<div class="modal fade fadeinUp" id="TambahDataJabatan" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel" style="font-weight: bold;">Tambah Data Jabatan</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">X</button>
+            </div>
+            <form action="/inputdata/detail/storejabatan" method="POST" name="tambah">
+            {{ csrf_field() }}
+            @foreach($items as $ite)
+            <input type="hidden" name="id_sgas" id="id_sgas" class="form-control" value="{{ $ite->id_sgas }}" readonly>
+            @endforeach
+            <input type="hidden" name="id_jabatan" id="id_jabatan">
+            <div class="modal-body">
+                <div class="form-group mb-4">
+                    <label for="nama_jabatan">Nama Jabatan</label>
+                    <select class="selectpicker form-control" data-live-search="true" id="nama_jabatan" name="nama_jabatan" required>
+                        @foreach($selectjabatan as $i)
+                        <option value="{{ $i->nama_jabatan }}">{{ $i->nama_jabatan }}</option>
+                        @endforeach
+                        <option value="0" selected>-</option>
+                    </select>
+                </div> 
+                <div class="form-group mb-4">
+                    <label for="sksjabatan">SKS</label>
+                    <input type="number" class="form-control" id="sksjabatan" name="sksjabatan" step="any" readonly>
                 </div>
             </div>
             <div class="modal-footer">

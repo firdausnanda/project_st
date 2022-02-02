@@ -73,6 +73,7 @@ Route::post('/sgas/detail/storepembimbing','DetailsgasController@storepembimbing
 Route::post('/sgas/detail/storepenunjang','DetailsgasController@storepenunjang');
 Route::post('/sgas/detail/storepenelitian','DetailsgasController@storepenelitian');
 Route::post('/sgas/detail/storepengabdian','DetailsgasController@storepengabdian');
+Route::post('/sgas/detail/storejabatan','DetailsgasController@storejabatan');
 
 
 Route::get('/detail/hapus/{id}','DetailsgasController@hapus');
@@ -80,11 +81,13 @@ Route::get('/detail/pembimbing/{id}','DetailsgasController@hapuspembimbing');
 Route::get('/detail/penunjang/{id}','DetailsgasController@hapuspenunjang');
 Route::get('/detail/penelitian/{id}','DetailsgasController@hapuspenelitian');
 Route::get('/detail/pengabdian/{id}','DetailsgasController@hapuspengabdian');
+Route::get('/detail/jabatan/{id}','DetailsgasController@hapusjabatan');
 
 Route::get('/detail/validasi/{validasi}','DetailsgasController@validasi')->name('validasi');
 
 Route::get('/detail/idmatkul/{id}', 'DetailsgasController@loadDataKode')->name('getDetailKodeMatkul');
 Route::get('/detail/namamatkul/{id}', 'DetailsgasController@loadDataNama')->name('getDetailNamaMatkul');
+Route::get('/detail/namajabatan/{id}', 'DetailsgasController@loadDataJabatan')->name('getDetailNamaJabatan');
 
 Route::get('/print/{id}', 'DetailsgasController@generateInvoice')->name('invoice');
 Route::get('/printno/{id}', 'DetailsgasController@generateInvoice2')->name('invoice2');
@@ -139,6 +142,7 @@ Route::post('/inputdata/detail/storepembimbing','DetailsgasController@storepembi
 Route::post('/inputdata/detail/storepenunjang','DetailsgasController@storepenunjangadmin');
 Route::post('/inputdata/detail/storepenelitian','DetailsgasController@storepenelitianadmin');
 Route::post('/inputdata/detail/storepengabdian','DetailsgasController@storepengabdianadmin');
+Route::post('/inputdata/detail/storejabatan','DetailsgasController@storejabatanadmin');
 
 
 Route::get('/inputdata/detail/hapus/{id}','DetailsgasController@hapusadmin');
@@ -146,10 +150,12 @@ Route::get('/inputdata/pembimbing/{id}','DetailsgasController@hapuspembimbingadm
 Route::get('/inputdata/penunjang/{id}','DetailsgasController@hapuspenunjangadmin');
 Route::get('/inputdata/penelitian/{id}','DetailsgasController@hapuspenelitianadmin');
 Route::get('/inputdata/pengabdian/{id}','DetailsgasController@hapuspengabdianadmin');
+Route::get('/inputdata/jabatan/{id}','DetailsgasController@hapusjabatanadmin');
 
 
 Route::get('/inputdata/idmatkul/{id}', 'DetailsgasController@loadDataKodeadmin')->name('getDataKodeMatkul');
 Route::get('/inputdata/namamatkul/{id}', 'DetailsgasController@loadDataNamaadmin')->name('getDataNamaMatkul');
+Route::get('/inputdata/namajabatan/{id}', 'DetailsgasController@loadDataJabatanadmin')->name('getDataNamaJabatan');
 
 Route::get('/inputdata/print/{id}', 'DetailsgasController@generateInvoice')->name('invoiceadmin');
 Route::get('/inputdata/printno/{id}', 'DetailsgasController@generateInvoice2')->name('invoiceadmin2');

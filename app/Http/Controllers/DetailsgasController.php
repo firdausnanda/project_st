@@ -80,18 +80,40 @@ class DetailsgasController extends Controller
             ->orderBy('id_pengabdian','desc')
             ->get();
             
-        //sum total
-        $total = DB::table('detail_sgas')
+        //sum total pengajaran
+        $totalpengajaran = DB::table('detail_sgas')
             ->where('id_sgas','=',$id)
             ->orderBy('id_detailsgas','desc')
             ->sum('grandtotal');
+        
+        //sum total jabatan
+        $totaljabatan = DB::table('detail_jabatan')
+            ->join('jabatan','jabatan.id_jabatan','=','detail_jabatan.id_jabatan')
+            ->where('id_sgas','=',$id)
+            ->orderBy('id_sgas','desc')
+            ->sum('sks');
+        
+        //sum total pengajaran dan jabatan
+        $total = $totalpengajaran + $totaljabatan;
+
+        //tampil jabatan
+        $jabatan = DB::table('detail_jabatan')
+            ->join('jabatan','jabatan.id_jabatan','=','detail_jabatan.id_jabatan')
+            ->where('detail_jabatan.id_sgas','=',$id)
+            ->orderBy('jabatan.id_jabatan','desc')
+            ->get();
+
+        // SELECT BOX JABATAN
+        $selectjabatan = DB::table('jabatan')
+            ->orderBy('jabatan.id_jabatan','asc')
+            ->get();
 
         // grab data from database
         //return $print;
         return view('admin/sgas_detail',['detail_sgas' => $detail_sgas, 'ngecek'=> $ngecek, 'items'=> $items, 'matkul'=> $matkul, 
         'prodi' => $prodi, 'print' => $print, 'pembimbing' => $pembimbing, 
         'penunjang' => $penunjang,'penelitian' => $penelitian,'pengabdian' => $pengabdian,
-        'total' => $total ]);
+        'total' => $total, 'jabatan' => $jabatan, 'selectjabatan' => $selectjabatan ]);
     }
 
     public function loadDataKode($id=0)
@@ -109,6 +131,14 @@ class DetailsgasController extends Controller
     	return response()->json($data);
     }
 
+    public function loadDataJabatan($id=0)
+    {
+    	$data = DB::table('jabatan')
+            ->where('nama_jabatan', $id)->first();
+
+    	return response()->json($data);
+    }
+    
     public function store(Request $request){
 
         //cek teori sks
@@ -274,6 +304,22 @@ class DetailsgasController extends Controller
 
     }
 
+    public function storejabatan(Request $request){
+
+            
+        DB::table('detail_jabatan')->insert([
+            'id_sgas' => $request->id_sgas,
+            'id_jabatan' => $request->id_jabatan,
+                
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+            
+        // return $grandtotal;
+        return redirect()->back();
+
+    }
+
     public function hapus($id){
 
         DB::table('detail_sgas')->where('id_detailsgas',$id)->delete();
@@ -301,6 +347,12 @@ class DetailsgasController extends Controller
     public function hapuspengabdian($id){
 
         DB::table('detail_pengabdian')->where('id_pengabdian',$id)->delete();
+        return back()->with('success','Post deleted successfully');
+    }
+
+    public function hapusjabatan($id){
+
+        DB::table('detail_jabatan')->where('id_detailjabatan',$id)->delete();
         return back()->with('success','Post deleted successfully');
     }
 
@@ -605,13 +657,42 @@ class DetailsgasController extends Controller
             ->where('id_sgas','=',$id)
             ->orderBy('id_pengabdian','desc')
             ->get();
+        
+        //sum total pengajaran
+        $totalpengajaran = DB::table('detail_sgas')
+            ->where('id_sgas','=',$id)
+            ->orderBy('id_detailsgas','desc')
+            ->sum('grandtotal');
+        
+        //sum total jabatan
+        $totaljabatan = DB::table('detail_jabatan')
+            ->join('jabatan','jabatan.id_jabatan','=','detail_jabatan.id_jabatan')
+            ->where('id_sgas','=',$id)
+            ->orderBy('id_sgas','desc')
+            ->sum('sks');
+        
+        //sum total pengajaran dan jabatan
+        $total = $totalpengajaran + $totaljabatan;
+
+        //tampil jabatan
+        $jabatan = DB::table('detail_jabatan')
+            ->join('jabatan','jabatan.id_jabatan','=','detail_jabatan.id_jabatan')
+            ->where('detail_jabatan.id_sgas','=',$id)
+            ->orderBy('jabatan.id_jabatan','desc')
+            ->get();
+
+        // SELECT BOX JABATAN
+        $selectjabatan = DB::table('jabatan')
+            ->orderBy('jabatan.id_jabatan','asc')
+            ->get();
 
         // grab data from database
         //return $ngecek;
         return view('prodi/sgas_detail',['detail_sgas' => $detail_sgas, 
                 'ngecek'=> $ngecek, 'items'=> $items, 'matkul'=> $matkul, 
                 'prodi' => $prodi, 'print' => $print, 'pembimbing' => $pembimbing,
-                'penunjang' => $penunjang, 'penelitian' => $penelitian, 'pengabdian' => $pengabdian ]);
+                'penunjang' => $penunjang, 'penelitian' => $penelitian, 'pengabdian' => $pengabdian,
+                'total' => $total, 'jabatan' => $jabatan, 'selectjabatan' => $selectjabatan ]);
     }
 
     public function loadDataKodeadmin($id=0)
@@ -631,6 +712,14 @@ class DetailsgasController extends Controller
             ->where('nama_matkul', $id)
             ->where('users.prodi','=', Auth::user()->prodi)
             ->first();
+
+    	return response()->json($data);
+    }
+
+    public function loadDataJabatanadmin($id=0)
+    {
+    	$data = DB::table('jabatan')
+            ->where('nama_jabatan', $id)->first();
 
     	return response()->json($data);
     }
@@ -797,6 +886,22 @@ class DetailsgasController extends Controller
 
     }
 
+    public function storejabatanadmin(Request $request){
+
+            
+        DB::table('detail_jabatan')->insert([
+            'id_sgas' => $request->id_sgas,
+            'id_jabatan' => $request->id_jabatan,
+                
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
+        ]);
+            
+        // return $grandtotal;
+        return redirect()->back();
+
+    }
+
     public function hapusadmin($id){
 
         DB::table('detail_sgas')->where('id_detailsgas',$id)->delete();
@@ -824,6 +929,12 @@ class DetailsgasController extends Controller
     public function hapuspengabdianadmin($id){
 
         DB::table('detail_pengabdian')->where('id_pengabdian',$id)->delete();
+        return back()->with('success','Post deleted successfully');
+    }
+
+    public function hapusjabatanadmin($id){
+
+        DB::table('detail_jabatan')->where('id_detailjabatan',$id)->delete();
         return back()->with('success','Post deleted successfully');
     }
 
