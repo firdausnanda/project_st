@@ -449,6 +449,12 @@ class DetailsgasController extends Controller
         // menghitung banyak record untuk print maks 7
         $counttotal = $invoicecount + $pembimbingcount + $penunjangcount;
 
+        $jabatan = DB::table('detail_jabatan')
+            ->join('jabatan','jabatan.id_jabatan','=','detail_jabatan.id_jabatan')
+            ->where('detail_jabatan.id_sgas','=',$id)
+            ->orderBy('jabatan.id_jabatan','desc')
+            ->get();
+
         // dd($counttotal);
 
         return view('report/print',['invoice' => $invoice, 'tampil' => $tampil, 
@@ -456,7 +462,7 @@ class DetailsgasController extends Controller
         'penelitian' => $penelitian, 'pengabdian' => $pengabdian, 'totalpengabdian' => $totalpengabdian,
         'totalpenelitian' => $totalpenelitian,
         'totalpembimbing' => $totalpembimbing, 'totalpenunjang' => $totalpenunjang,
-        'counttotal' => $counttotal]);
+        'counttotal' => $counttotal, 'jabatan' => $jabatan]);
     }
 
     public function generateInvoice2($id){
@@ -552,6 +558,12 @@ class DetailsgasController extends Controller
         // menghitung banyak record untuk print maks 7
         $counttotal = $invoicecount + $pembimbingcount + $penunjangcount;
 
+        $jabatan = DB::table('detail_jabatan')
+            ->join('jabatan','jabatan.id_jabatan','=','detail_jabatan.id_jabatan')
+            ->where('detail_jabatan.id_sgas','=',$id)
+            ->orderBy('jabatan.id_jabatan','desc')
+            ->get();
+
         // dd($counttotal);
 
         return view('report/print2',['invoice' => $invoice, 'tampil' => $tampil, 
@@ -559,7 +571,7 @@ class DetailsgasController extends Controller
         'penelitian' => $penelitian, 'pengabdian' => $pengabdian, 'totalpengabdian' => $totalpengabdian,
         'totalpenelitian' => $totalpenelitian,
         'totalpembimbing' => $totalpembimbing, 'totalpenunjang' => $totalpenunjang,
-        'counttotal' => $counttotal]);
+        'counttotal' => $counttotal, 'jabatan' => $jabatan ]);
     }
 
     public function validasi($validasi){

@@ -117,9 +117,9 @@
             {{-- <div class="subpage"> --}}
                     <div id="subpage">
 
-                        <table style="width: 350px; margin-top: 10px;">
+                        <table style="width: 430px; margin-top: 10px;">
                             <tr>
-                                <td align="center" style="border: none;">YAYASAN WAHANA BHAKTI KARYA HUSADA</td>
+                                <td align="center" style="border: none; font-size: 13px;">INSTITUT TEKNOLOGI SAINS DAN KESEHATAN RS DR. SOEPRAOEN</td>
                                 <td></td>
                             </tr>
                             <tr>
@@ -147,11 +147,7 @@
                                 <td style="width: 22%; border: none; vertical-align: top;">Pertimbangan</td>
                                 <td style="width: 5%; border: none; vertical-align: top;">:</td>
                                 <td style="width: 58%; border: none; vertical-align: top; text-align: justify;">
-                                    &ensp;&ensp;&ensp;&ensp;Bahwa untuk menjadi Dosen Pengajar Semester
-                                    {{ ucfirst($item->semester) }} TA. {{ $item->ta }}
-                                    Program Studi {{ $item->prodi }} ITSK RS DR. Soepraoen Kesdam V/Brw Malang, maka
-                                    perlu dikeluarkan surat
-                                    tugas
+                                    &ensp;&ensp;&ensp;&ensp;Bahwa untuk melaksanakan kegiatan Tri Dharma di lingkungan Fakultas Sains, Teknologi, dan Kesehatan ITSK RS DR. Soepraoen Kesdam V/Brw Malang maka perlu dikeluarkan surat tugas.
                                 </td>
                             </tr>
                             <tr style="height:10px;">
@@ -162,10 +158,9 @@
                                 <td style="width: 22%; border: none; vertical-align: top;">Dasar</td>
                                 <td style="width: 5%; border: none; vertical-align: top;">:</td>
                                 <td style="width: 58%; border: none; vertical-align: top; text-align: justify;">
-                                    &ensp;&ensp;&ensp;&ensp;Rencana Operasional Pengajaran Semester
+                                    &ensp;&ensp;&ensp;&ensp;Rencana Operasional kegiatan pelaksanaan Tri Dharma perguruan tinggi bagi dosen Semester
                                     {{ucfirst($item->semester) }}
-                                    TA. {{ $item->ta }} Program Studi {{ $item->prodi }} ITSK RS DR. Soepraoen Kesdam
-                                    V/Brw Malang
+                                    TA. {{ $item->ta }} di lingkungan Fakultas Sains, Teknologi, dan Kesehatan ITSK RS DR. Soepraoen Kesdam V/Brw Malang.
                                 </td>
                             </tr>
                             <tr style="height:10px;">
@@ -176,7 +171,7 @@
                                 <td style="width: 22%; border: none; vertical-align: top;">Kepada</td>
                                 <td style="width: 5%; border: none; vertical-align: top;">:</td>
                                 <td style="width: 58%; border: none; vertical-align: top; text-align: justify;">
-                                    Nama, NIDN, Pengampu Mata Kuliah, seperti tersebut pada lampiran
+                                    Nama, NIDN, Bentuk Kegiatan, seperti tersebut pada lampiran
                                 </td>
                             </tr>
                             <tr style="height:10px;">
@@ -187,9 +182,9 @@
                                 <td style="width: 22%; border: none; vertical-align: top;">Untuk</td>
                                 <td style="width: 5%; border: none; vertical-align: top;">:</td>
                                 <td style="width: 58%; border: none; vertical-align: top; text-align: justify;">
-                                    1.&ensp;&ensp;&ensp;Seterimanya surat perintah ini ditugaskan sebagai Dosen Pengajar
-                                    Semester {{ ucfirst($item->semester) }}
-                                    Program Studi {{ $item->prodi }} TA. {{ $item->ta }}
+                                    1.&ensp;&ensp;&ensp;Seterimanya surat perintah ini ditugaskan sebagai Dosen Pengajar untuk melaksanakan kegiatan tri dharma perguruan tinggi bagi dosen Semester
+                                    {{ucfirst($item->semester) }}
+                                    TA. {{ $item->ta }} di lingkungan Fakultas Sains, Teknologi, dan Kesehatan ITSK RS DR. Soepraoen Kesdam V/Brw Malang.
                                 </td>
                             </tr>
                             <tr style="height:10px;">
@@ -200,8 +195,8 @@
                                 <td style="width: 22%; border: none; vertical-align: top;"></td>
                                 <td style="width: 5%; border: none; vertical-align: top;"></td>
                                 <td style="width: 58%; border: none; vertical-align: top; text-align: justify;">
-                                    2.&ensp;&ensp;&ensp;Lapor kepada Rektor ITSK RS DR. Soepraoen atas pelaksanaan surat
-                                    perintah ini.
+                                    2.&ensp;&ensp;&ensp;Lapor kepada Dekan Fakultas Sains, Teknologi, dan Kesehatan ITSK RS DR. Soepraoen atas pelaksanaan surat
+                                    tugas ini.
                                 </td>
                             </tr>
                             <tr style="height:10px;">
@@ -212,7 +207,7 @@
                                 <td style="width: 22%; border: none; vertical-align: top;"></td>
                                 <td style="width: 5%; border: none; vertical-align: top;"></td>
                                 <td style="width: 58%; border: none; vertical-align: top; text-align: justify;">
-                                    3.&ensp;&ensp;&ensp;Melaksanakan perintah ini dengan seksama dan penuh rasa tanggung
+                                    3.&ensp;&ensp;&ensp;Melaksanakan tugas ini dengan seksama dan penuh rasa tanggung
                                     jawab.
                                 </td>
                             </tr>
@@ -245,7 +240,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td style="border: none;" align="center" valign="bottom" colspan="3">Dekan FSTK,</td>
+                                <td style="border: none;" align="center" valign="bottom" colspan="3">Dekan Fakultas, Sains, Teknologi dan Kesehatan</td>
                             </tr>
 
                             <tr height="80px">
@@ -282,9 +277,9 @@
                         <hr align="left">
                     </h5> --}}
 
-                    <table style="width: 350px; margin-top: 10px;">
+                    <table style="width: 430px; margin-top: 10px;">
                         <tr>
-                            <td align="center" style="border: none;">YAYASAN WAHANA BHAKTI KARYA HUSADA</td>
+                            <td align="center" style="border: none; font-size: 13px;">INSTITUT TEKNOLOGI SAINS DAN KESEHATAN RS DR. SOEPRAOEN</td>
                             <td></td>
                         </tr>
                         <tr>
@@ -372,191 +367,97 @@
                         </tbody>
                     </table>
 
-                    <h4>II. Pembimbingan</h4>
-                    <table>
+                    <div style="margin-top: 25px;"></div>
+                    <h4>II. Jabatan</h4>
+                    <table style="width: 80%;">
                         <thead>
-                            <tr style="height: 25px;">
-                                <th>No</th>
-                                <th>Nama Kegiatan</th>
-                                <th>Masa Pelaksanaan Tugas</th>
+                            <tr>
+                                <th>NO</th>
+                                <th>Nama Jabatan</th>
                                 <th>SKS</th>
+                                <td></td>
                             </tr>
                         </thead>
                         <tbody>
                             <?php $no = 0; ?>
-                            @foreach ($pembimbing as $pem)
+                            @foreach ($jabatan as $j)
                             <?php $no++ ;?>
                             <tr style="height: 25px;">
                                 <td align="center">{{ $no }}</td>
-                                <td>{{ $pem->jenis_kegiatan }}</td>
-                                <td align="center">{{ $pem->masa_penugasan }}</td>
-                                <td align="center">{{ $pem->sks }}</td>
+                                <td align="center">{{ $j->nama_jabatan }}</td>
+                                <td align="center">{{ $j->sks }}</td>
+                                <td></td>
                             </tr>
                             @endforeach
-                            <tr style="height: 25px;">
-                                <td></td>
-                                <td colspan="2" style="font-weight: bold;">Total</td>
-                                <td align="center">{{ $totalpembimbing }}</td>
-                            </tr>
                         </tbody>
-                    </table>
-
-                    @if($counttotal <= 7)
-                    <h4>III. Penunjang</h4>
-                    <table>
-                        <thead>
-                            <tr style="height: 25px;">
-                                <th>No</th>
-                                <th>Nama Kegiatan</th>
-                                <th>Masa Pelaksanaan Tugas</th>
+                        <tfoot>
+                            <tr>
+                                <th>NO</th>
+                                <th>Nama Jabatan</th>
                                 <th>SKS</th>
+                                <th class="no-content"></th>
                             </tr>
-                        </thead>
-                        <tbody>
-                            <?php $no = 0; ?>
-                            @foreach ($penunjang as $pen)
-                            <?php $no++ ;?>
-                            <tr style="height: 25px;">
-                                <td align="center">{{ $no }}</td>
-                                <td>{{ $pen->jenis_kegiatan }}</td>
-                                <td align="center">{{ $pen->masa_penugasan }}</td>
-                                <td align="center">{{ $pen->sks }}</td>
-                            </tr>
-                            @endforeach
-                            <tr style="height: 25px;">
-                                <td></td>
-                                <td colspan="2" style="font-weight: bold;">Total</td>
-                                <td align="center">{{ $totalpenunjang }}</td>
-                            </tr>
-                        </tbody>
+                        </tfoot>
                     </table>
 
-                    {{-- <table style="width: 60%; text-align: left; float: right; margin-top: 25px;">
-                        <tr>
-                            <td style="width: 40%; border: none;" align="right">Ditetapkan di</td>
-                            <td style="border: none;">:</td>
-                            <td style="border: none;">Malang</td>
-                        </tr>
-                        <tr>
-                            <td style="width: 40%; border: none;" align="right">Pada tanggal</td>
-                            <td style="border: none;">:</td>
-                            <td style="border: none;"></td>
-                        </tr>
-                        <tr>
-                            <td style="border: none;" colspan="3">
-                                <hr style="width: 50%;">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="border: none;" align="center" valign="bottom" colspan="3">Rektor</td>
-                        </tr>
+                    <!--<h4>II. Pembimbingan</h4>-->
+                    <!--<table>-->
+                    <!--    <thead>-->
+                    <!--        <tr style="height: 25px;">-->
+                    <!--            <th>No</th>-->
+                    <!--            <th>Nama Kegiatan</th>-->
+                    <!--            <th>Masa Pelaksanaan Tugas</th>-->
+                    <!--            <th>SKS</th>-->
+                    <!--        </tr>-->
+                    <!--    </thead>-->
+                    <!--    <tbody>-->
+                    <!--        <?php $no = 0; ?>-->
+                    <!--        @foreach ($pembimbing as $pem)-->
+                    <!--        <?php $no++ ;?>-->
+                    <!--        <tr style="height: 25px;">-->
+                    <!--            <td align="center">{{ $no }}</td>-->
+                    <!--            <td>{{ $pem->jenis_kegiatan }}</td>-->
+                    <!--            <td align="center">{{ $pem->masa_penugasan }}</td>-->
+                    <!--            <td align="center">{{ $pem->sks }}</td>-->
+                    <!--        </tr>-->
+                    <!--        @endforeach-->
+                    <!--        <tr style="height: 25px;">-->
+                    <!--            <td></td>-->
+                    <!--            <td colspan="2" style="font-weight: bold;">Total</td>-->
+                    <!--            <td align="center">{{ $totalpembimbing }}</td>-->
+                    <!--        </tr>-->
+                    <!--    </tbody>-->
+                    <!--</table>-->
 
-                        <tr height="80px">
-                            <td style="border: none;" align="center" valign="bottom" colspan="3">
-                                
-                                    Arief Efendi, SMPh., SH(adv)., S.Kep., Ners., MM., M.Kes</td>
-                        </tr>
-                        <tr>
-                            <td style="border: none;" align="center" valign="bottom" colspan="3">NIDK. 8807901019
-                            </td>
-                        </tr>
-                    </table>  --}}
-                    @endif
-                </div>
-            {{-- </div> --}}
-        </div>
-
-        <div class="page">
-            {{-- <div class="subpage">Page 2/2 --}}
-                <div id="subpage">
-                    @if($counttotal >= 8)
-                    <h4>III. Penunjang</h4>
-                    <table>
-                        <thead>
-                            <tr style="height: 25px;">
-                                <th>No</th>
-                                <th>Nama Kegiatan</th>
-                                <th>Masa Pelaksanaan Tugas</th>
-                                <th>SKS</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php $no = 0; ?>
-                            @foreach ($penunjang as $pen)
-                            <?php $no++ ;?>
-                            <tr style="height: 25px;">
-                                <td align="center">{{ $no }}</td>
-                                <td>{{ $pen->jenis_kegiatan }}</td>
-                                <td align="center">{{ $pen->masa_penugasan }}</td>
-                                <td align="center">{{ $pen->sks }}</td>
-                            </tr>
-                            @endforeach
-                            <tr style="height: 25px;">
-                                <td></td>
-                                <td colspan="2" style="font-weight: bold;">Total</td>
-                                <td align="center">{{ $totalpenunjang }}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    @endif
-
-                    <h4>IV. Penelitian</h4>
-                    <table>
-                        <thead>
-                            <tr style="height: 25px;">
-                                <th>No</th>
-                                <th>Nama Penelitian</th>
-                                <th>Masa Pelaksanaan Tugas</th>
-                                <th>SKS</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php $no = 0; ?>
-                            @foreach ($penelitian as $pen)
-                            <?php $no++ ;?>
-                            <tr style="height: 25px;">
-                                <td align="center">{{ $no }}</td>
-                                <td>{{ $pen->jenis_penelitian }}</td>
-                                <td align="center">{{ $pen->masa_penugasan }}</td>
-                                <td align="center">{{ $pen->sks }}</td>
-                            </tr>
-                            @endforeach
-                            <tr style="height: 25px;">
-                                <td></td>
-                                <td colspan="2" style="font-weight: bold;">Total</td>
-                                <td align="center">{{ $totalpenelitian }}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                    <h4>IV. Pengabdian</h4>
-                    <table>
-                        <thead>
-                            <tr style="height: 25px;">
-                                <th>No</th>
-                                <th>Nama Pengabdian</th>
-                                <th>Masa Pelaksanaan Tugas</th>
-                                <th>SKS</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php $no = 0; ?>
-                            @foreach ($pengabdian as $pen)
-                            <?php $no++ ;?>
-                            <tr style="height: 25px;">
-                                <td align="center">{{ $no }}</td>
-                                <td>{{ $pen->jenis_pengabdian }}</td>
-                                <td align="center">{{ $pen->masa_penugasan }}</td>
-                                <td align="center">{{ $pen->sks }}</td>
-                            </tr>
-                            @endforeach
-                            <tr style="height: 25px;">
-                                <td></td>
-                                <td colspan="2" style="font-weight: bold;">Total</td>
-                                <td align="center">{{ $totalpengabdian}}</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <!--@if($counttotal <= 7)-->
+                    <!--<h4>III. Penunjang</h4>-->
+                    <!--<table>-->
+                    <!--    <thead>-->
+                    <!--        <tr style="height: 25px;">-->
+                    <!--            <th>No</th>-->
+                    <!--            <th>Nama Kegiatan</th>-->
+                    <!--            <th>Masa Pelaksanaan Tugas</th>-->
+                    <!--            <th>SKS</th>-->
+                    <!--        </tr>-->
+                    <!--    </thead>-->
+                    <!--    <tbody>-->
+                    <!--        <?php $no = 0; ?>-->
+                    <!--        @foreach ($penunjang as $pen)-->
+                    <!--        <?php $no++ ;?>-->
+                    <!--        <tr style="height: 25px;">-->
+                    <!--            <td align="center">{{ $no }}</td>-->
+                    <!--            <td>{{ $pen->jenis_kegiatan }}</td>-->
+                    <!--            <td align="center">{{ $pen->masa_penugasan }}</td>-->
+                    <!--            <td align="center">{{ $pen->sks }}</td>-->
+                    <!--        </tr>-->
+                    <!--        @endforeach-->
+                    <!--        <tr style="height: 25px;">-->
+                    <!--            <td></td>-->
+                    <!--            <td colspan="2" style="font-weight: bold;">Total</td>-->
+                    <!--            <td align="center">{{ $totalpenunjang }}</td>-->
+                    <!--        </tr>-->
+                    <!--    </tbody>-->
+                    <!--</table>-->
 
                     <table style="width: 60%; text-align: left; float: right; margin-top: 25px;">
                         <tr>
@@ -575,7 +476,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td style="border: none;" align="center" valign="bottom" colspan="3">Dekan FSTK,</td>
+                            <td style="border: none;" align="center" valign="bottom" colspan="3">Dekan Fakultas, Sains, Teknologi dan Kesehatan</td>
                         </tr>
 
                         <tr height="80px">
@@ -587,11 +488,138 @@
                             <td style="border: none;" align="center" valign="bottom" colspan="3">NIDN. 0703077604
                             </td>
                         </tr>
-                    </table> 
-                    
+                    </table>  
+                    <!--@endif-->
                 </div>
             {{-- </div> --}}
         </div>
+
+        <!--<div class="page">-->
+        <!--    {{-- <div class="subpage">Page 2/2 --}}-->
+        <!--        <div id="subpage">-->
+        <!--            @if($counttotal >= 8)-->
+        <!--            <h4>III. Penunjang</h4>-->
+        <!--            <table>-->
+        <!--                <thead>-->
+        <!--                    <tr style="height: 25px;">-->
+        <!--                        <th>No</th>-->
+        <!--                        <th>Nama Kegiatan</th>-->
+        <!--                        <th>Masa Pelaksanaan Tugas</th>-->
+        <!--                        <th>SKS</th>-->
+        <!--                    </tr>-->
+        <!--                </thead>-->
+        <!--                <tbody>-->
+        <!--                    <?php $no = 0; ?>-->
+        <!--                    @foreach ($penunjang as $pen)-->
+        <!--                    <?php $no++ ;?>-->
+        <!--                    <tr style="height: 25px;">-->
+        <!--                        <td align="center">{{ $no }}</td>-->
+        <!--                        <td>{{ $pen->jenis_kegiatan }}</td>-->
+        <!--                        <td align="center">{{ $pen->masa_penugasan }}</td>-->
+        <!--                        <td align="center">{{ $pen->sks }}</td>-->
+        <!--                    </tr>-->
+        <!--                    @endforeach-->
+        <!--                    <tr style="height: 25px;">-->
+        <!--                        <td></td>-->
+        <!--                        <td colspan="2" style="font-weight: bold;">Total</td>-->
+        <!--                        <td align="center">{{ $totalpenunjang }}</td>-->
+        <!--                    </tr>-->
+        <!--                </tbody>-->
+        <!--            </table>-->
+        <!--            @endif-->
+
+        <!--            <h4>IV. Penelitian</h4>-->
+        <!--            <table>-->
+        <!--                <thead>-->
+        <!--                    <tr style="height: 25px;">-->
+        <!--                        <th>No</th>-->
+        <!--                        <th>Nama Penelitian</th>-->
+        <!--                        <th>Masa Pelaksanaan Tugas</th>-->
+        <!--                        <th>SKS</th>-->
+        <!--                    </tr>-->
+        <!--                </thead>-->
+        <!--                <tbody>-->
+        <!--                    <?php $no = 0; ?>-->
+        <!--                    @foreach ($penelitian as $pen)-->
+        <!--                    <?php $no++ ;?>-->
+        <!--                    <tr style="height: 25px;">-->
+        <!--                        <td align="center">{{ $no }}</td>-->
+        <!--                        <td>{{ $pen->jenis_penelitian }}</td>-->
+        <!--                        <td align="center">{{ $pen->masa_penugasan }}</td>-->
+        <!--                        <td align="center">{{ $pen->sks }}</td>-->
+        <!--                    </tr>-->
+        <!--                    @endforeach-->
+        <!--                    <tr style="height: 25px;">-->
+        <!--                        <td></td>-->
+        <!--                        <td colspan="2" style="font-weight: bold;">Total</td>-->
+        <!--                        <td align="center">{{ $totalpenelitian }}</td>-->
+        <!--                    </tr>-->
+        <!--                </tbody>-->
+        <!--            </table>-->
+
+        <!--            <h4>IV. Pengabdian</h4>-->
+        <!--            <table>-->
+        <!--                <thead>-->
+        <!--                    <tr style="height: 25px;">-->
+        <!--                        <th>No</th>-->
+        <!--                        <th>Nama Pengabdian</th>-->
+        <!--                        <th>Masa Pelaksanaan Tugas</th>-->
+        <!--                        <th>SKS</th>-->
+        <!--                    </tr>-->
+        <!--                </thead>-->
+        <!--                <tbody>-->
+        <!--                    <?php $no = 0; ?>-->
+        <!--                    @foreach ($pengabdian as $pen)-->
+        <!--                    <?php $no++ ;?>-->
+        <!--                    <tr style="height: 25px;">-->
+        <!--                        <td align="center">{{ $no }}</td>-->
+        <!--                        <td>{{ $pen->jenis_pengabdian }}</td>-->
+        <!--                        <td align="center">{{ $pen->masa_penugasan }}</td>-->
+        <!--                        <td align="center">{{ $pen->sks }}</td>-->
+        <!--                    </tr>-->
+        <!--                    @endforeach-->
+        <!--                    <tr style="height: 25px;">-->
+        <!--                        <td></td>-->
+        <!--                        <td colspan="2" style="font-weight: bold;">Total</td>-->
+        <!--                        <td align="center">{{ $totalpengabdian}}</td>-->
+        <!--                    </tr>-->
+        <!--                </tbody>-->
+        <!--            </table>-->
+
+        <!--            <table style="width: 60%; text-align: left; float: right; margin-top: 25px;">-->
+        <!--                <tr>-->
+        <!--                    <td style="width: 40%; border: none;" align="right">Ditetapkan di</td>-->
+        <!--                    <td style="border: none;">:</td>-->
+        <!--                    <td style="border: none;">Malang</td>-->
+        <!--                </tr>-->
+        <!--                <tr>-->
+        <!--                    <td style="width: 40%; border: none;" align="right">Pada tanggal</td>-->
+        <!--                    <td style="border: none;">:</td>-->
+        <!--                    <td style="border: none;"></td>-->
+        <!--                </tr>-->
+        <!--                <tr>-->
+        <!--                    <td style="border: none;" colspan="3">-->
+        <!--                        <hr style="width: 50%;">-->
+        <!--                    </td>-->
+        <!--                </tr>-->
+        <!--                <tr>-->
+        <!--                    <td style="border: none;" align="center" valign="bottom" colspan="3">Dekan Fakultas, Sains, Teknologi dan Kesehatan</td>-->
+        <!--                </tr>-->
+
+        <!--                <tr height="80px">-->
+        <!--                    <td style="border: none;" align="center" valign="bottom" colspan="3">-->
+        <!--                        {{-- <img src="{{ asset('assets/img/ttd.png')}}" alt="ttd"><br> --}}-->
+        <!--                        Amin Zakaria, S.Kep., Ners., M.Kes</td>-->
+        <!--                </tr>-->
+        <!--                <tr>-->
+        <!--                    <td style="border: none;" align="center" valign="bottom" colspan="3">NIDN. 0703077604-->
+        <!--                    </td>-->
+        <!--                </tr>-->
+        <!--            </table> -->
+                    
+        <!--        </div>-->
+        <!--    {{-- </div> --}}-->
+        <!--</div>-->
     </div>
 </body>
 
