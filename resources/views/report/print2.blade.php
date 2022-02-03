@@ -367,6 +367,7 @@
                         </tbody>
                     </table>
 
+                    @if ($jabatan->count() != 0)
                     <div style="margin-top: 25px;"></div>
                     <h4>II. Jabatan</h4>
                     <table style="width: 80%;">
@@ -398,8 +399,9 @@
                                 <th class="no-content"></th>
                             </tr>
                         </tfoot>
-                    </table>
-
+                    </table> 
+                    @endif
+                    
                     <!--<h4>II. Pembimbingan</h4>-->
                     <!--<table>-->
                     <!--    <thead>-->
