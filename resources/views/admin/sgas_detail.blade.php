@@ -167,7 +167,7 @@
                         {{-- TOTAL SKS --}}
                         <div style="float: right;">
                             <div class="btn btn-dark mb-2">Total SKS :</div>
-                            <button class="btn btn-danger mb-2">{{ $total }}</button>
+                            <button class="btn btn-danger mb-2">{{ number_format($total,2) }}</button>
                         </div>
 
                         {{-- TAB PENGAJARAN DAN JABATAN --}}
@@ -191,7 +191,7 @@
                                             data-target="#TambahDataDetail"><i class="far fa-edit"></i>Add Data</button>
                                     </div>
                                 </div>
-                                {{-- Tabel Jabatan --}}
+                                {{-- Tabel PENGAJARAN --}}
                                 <div class="table-responsive mb-4 mt-4">
                                     <table id="zero-config" class="table table-hover" style="width:100%">
                                         <thead>
