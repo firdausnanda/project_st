@@ -903,7 +903,7 @@
             @foreach($items as $ite)
             <input type="hidden" name="id_sgas" id="id_sgas" class="form-control" value="{{ $ite->id_sgas }}" readonly>
             @endforeach
-            <input type="hidden" name="id_jabatan" id="id_jabatan">
+            <input type="text" name="id_jabatan" id="id_jabatan" required hidden>
             <div class="modal-body">
                 <div class="form-group mb-4">
                     <label for="nama_jabatan">Nama Jabatan</label>
