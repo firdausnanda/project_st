@@ -110,11 +110,11 @@
                 <div class="form-row mb-4">
                     <div class="form-group col-md-6">
                         <label>Min</label>
-                        <input type="number" class="form-control" id="min" name="min">
+                        <input type="number" class="form-control" id="min" name="min" value="1">
                     </div>
                     <div class="form-group col-md-6">
                         <label>Max</label>
-                        <input type="number" class="form-control" id="max" name="max">
+                        <input type="number" class="form-control" id="max" name="max" value="1000">
                     </div>
                 </div>
             </div>
