@@ -141,7 +141,7 @@
                                 </td> --}}
                                 <td>
                                     @php
-                                    $data = explode("@" , $m->total);
+                                    $data = explode("@" , round($m->total,2));
                                     foreach ($data as $key => $dataa) {
                                     echo $dataa;
                                     }

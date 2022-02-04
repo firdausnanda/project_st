@@ -167,7 +167,7 @@
                         {{-- TOTAL SKS --}}
                         <div style="float: right;">
                             <div class="btn btn-dark mb-2">Total SKS :</div>
-                            <button class="btn btn-danger mb-2">{{ number_format($total,2) }}</button>
+                            <button class="btn btn-danger mb-2">{{ round($total,2) }}</button>
                         </div>
 
                         {{-- TAB PENGAJARAN DAN JABATAN --}}
