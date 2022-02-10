@@ -154,9 +154,9 @@
                                 </td>
                                 <td style="font-size: 12px; width: 5%;">
                                     @php
-                                    $data = explode("@" , ceil($m->total));
+                                    $data = explode("@" , $m->total);
                                     foreach ($data as $key => $dataa) {
-                                    echo "<li style='margin: 10px;'>".$dataa."</li>";
+                                    echo "<li style='margin: 10px;'>".ceil($dataa)."</li>";
                                     }
                                     echo "<br>";
                                     @endphp
