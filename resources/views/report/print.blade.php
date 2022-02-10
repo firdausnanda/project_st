@@ -148,7 +148,18 @@
                                 echo $romawi;
                             @endphp
                             @endif
-                            /{{ substr($item->ta,0,4) }}
+                            /
+                            @if(ucfirst($item->semester) == 'Ganjil')
+                            @php
+                                $data = explode("-" , $item->tglgjl);
+                                echo $data[2];
+                            @endphp
+                            @elseif(ucfirst($item->semester) == 'Genap')
+                            @php
+                                $data = explode("-" , $item->tglgnp);
+                                echo $data[2];
+                            @endphp
+                            @endif
                             @endforeach
                         </h5>
 
@@ -335,7 +346,18 @@
                                 echo $romawi;
                             @endphp
                             @endif
-                            /{{ substr($item->ta,0,4) }}
+                            /
+                            @if(ucfirst($item->semester) == 'Ganjil')
+                            @php
+                                $data = explode("-" , $item->tglgjl);
+                                echo $data[2];
+                            @endphp
+                            @elseif(ucfirst($item->semester) == 'Genap')
+                            @php
+                                $data = explode("-" , $item->tglgnp);
+                                echo $data[2];
+                            @endphp
+                            @endif
                             @endforeach
                     </h5>
 
