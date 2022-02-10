@@ -219,7 +219,7 @@
                                         @php
                                         $data = explode("@" , $m->total);
                                         foreach ($data as $key => $dataa) {
-                                        echo "<li style='margin: 10px;'>".$dataa."</li>";
+                                        echo "<li style='margin: 10px;'>".ceil($dataa)."</li>";
                                         }
                                         echo "<br>";
                                         @endphp
@@ -234,17 +234,17 @@
                                     <td style="font-weight: bold; text-align: center;">Total</td>
                                     @php
                                     $data = explode("@" , $m->total);
-                                    echo '<td style="font-weight: bold; text-align: center;">'.array_sum($data).'</td>';
+                                    echo '<td style="font-weight: bold; text-align: center;">'.ceil(array_sum($data)).'</td>';
                                     @endphp
                                 </tr>
                                 @endforeach
                             </tbody>
-                            <tfoot>
+                            {{-- <tfoot>
                                 <tr style="font-size: 17px;">
                                     <th colspan="6">Grand Total</th>
                                     <th>{{ $totalsks }}</th>
                                 </tr>
-                            </tfoot>
+                            </tfoot> --}}
                         </table>
                     </div>
             </div>

@@ -195,7 +195,7 @@
                                     @php
                                     $data = explode("@" , $m->total);
                                     foreach ($data as $key => $dataa) {
-                                    echo $dataa;
+                                    echo ceil($dataa);
                                     }
                                     echo "<br>";
                                     @endphp
@@ -212,13 +212,13 @@
                             </tr>
                             @endforeach
                         </tbody>
-                        <tfoot>
+                        {{-- <tfoot>
                             <tr style="font-size: 17px;">
                                 <th colspan="8">Grand Total</th>
                                 <th>{{ $totalsks }}</th>
                                 <th></th>
                             </tr>
-                        </tfoot>
+                        </tfoot> --}}
                     </table>
                 </div>
             </div>
