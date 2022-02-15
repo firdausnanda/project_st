@@ -424,15 +424,15 @@
                                 <td style="font-size:12px;">{{ $m->prodi }}</td>
                                 <td align="center">{{ $m->semesterd }}</td>
                                 <td align="center">{{ $m->kelas }}</td>
-                                <td align="center">{{ $m->total }} ({{ $m->tsks }}T, {{ $m->psks }}P,
-                                    {{ $m->ksks }}K)</td>
-                                <td align="center">{{ $m->grandtotal }}</td>
+                                <td align="center">{{ ceil($m->total) }} ({{ ceil($m->tsks) }}T, {{ ceil($m->psks) }}P,
+                                    {{ ceil($m->ksks) }}K)</td>
+                                <td align="center">{{ ceil($m->grandtotal) }}</td>
                             </tr>
                             @endforeach
                             <tr style="height: 25px;">
                                 <td></td>
                                 <td colspan="6" style="font-weight: bold;">Total</td>
-                                <td align="center">{{ $total }}</td>
+                                <td align="center">{{ ceil($total) }}</td>
                             </tr>
                         </tbody>
                     </table>
