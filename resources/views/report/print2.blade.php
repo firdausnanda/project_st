@@ -360,7 +360,9 @@
                                 <td align="center">{{ round($m->total) }} ({{ $m->tsks }}T, {{ $m->psks }}P,
                                     {{ $m->ksks }}K)</td>
                                 <td align="center">{{ round($m->grandtotal) }}</td>
-                                {{ $jumlah += round($m->grandtotal) }}
+                                @php 
+                                $jumlah += round($m->grandtotal) 
+                                @endphp
                             </tr>
                             @endforeach
                             <tr style="height: 25px;">
