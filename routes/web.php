@@ -65,6 +65,9 @@ Route::post('/sgas/store','SgasController@store');
 Route::get('/sgas/hapus/{id}','SgasController@hapus');
 Route::POST('/sgas/cari','SgasController@cari');
 
+Route::get('/detail/validasi','SgasController@validasi')->name('validasiall');
+Route::get('/detail/batalvalidasi','SgasController@batalvalidasi')->name('batalvalidasi');
+
 //SGAS Detail Management
 Route::get('/sgas/detail/{id}', 'DetailsgasController@index')->name('detail');
 

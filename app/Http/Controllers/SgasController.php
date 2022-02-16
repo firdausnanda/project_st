@@ -145,8 +145,25 @@ class SgasController extends Controller
 
     }
 
+    public function validasi(){
+                   
+        DB::table('sgas')->update([
+                'validasi' => '1',
+                'updated_at' => \Carbon\Carbon::now()
+                ]);
+        
+        return redirect('/sgas');
+    }
 
-
+    public function batalvalidasi(){
+                   
+        DB::table('sgas')->update([
+                'validasi' => '0',
+                'updated_at' => \Carbon\Carbon::now()
+                ]);
+        
+        return redirect('/sgas');
+    }
 
 
 

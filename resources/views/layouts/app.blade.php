@@ -652,6 +652,42 @@
         });
     });
 
+    //sweetalert Validate ALL
+    $('.validasiall').on('click', function(e){
+        e.preventDefault();
+        var form = $(this).parents('form');
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You will validate all data",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#38c172',
+            confirmButtonText: 'Yes, validate it!'
+        }).then((result) => {
+            if (result.value) {
+                window.location.href = "{{ route('validasiall') }}";
+            }
+        });
+    });
+
+    //sweetalert Invalidate ALL
+    $('.invalidate').on('click',function(e){
+        e.preventDefault();
+        var form = $(this).parents('form');
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You will invalidate all data",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#e3342f',
+            confirmButtonText: 'Yes, invalidate it!'
+        }).then((result) => {
+            if (result.value) {
+                window.location.href = "{{ route('batalvalidasi') }}";
+            }
+        });
+    });
+
     //autofill add sgas
     $(document).ready(function () {
         $(document).on('change', '#nama', function () {
