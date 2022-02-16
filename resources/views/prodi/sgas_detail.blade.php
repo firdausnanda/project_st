@@ -184,9 +184,9 @@
                                                 <td>{{ $m->prodi }}</td>
                                                 <td>{{ $m->semesterd }}</td>
                                                 <td>{{ $m->kelas }}</td>
-                                                <td>{{ $m->total }} ({{ $m->tsks }}T, {{ $m->psks }}P, {{ $m->ksks }}K)
+                                                <td>{{ round($m->total) }} ({{ $m->tsks }}T, {{ $m->psks }}P, {{ $m->ksks }}K)
                                                 </td>
-                                                <td>{{ $m->grandtotal }}</td>
+                                                <td>{{ round($m->grandtotal) }}</td>
                                                 <td class="row">
                                                     {{-- <button class="edit-button btn btn-primary mb-2 modal-show"  
                                     data-toggle="modal" data-target="#EditDataSgas" 

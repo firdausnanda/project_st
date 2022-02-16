@@ -157,6 +157,7 @@
                                                 <th>Semester</th>
                                                 <th>Jumlah Kelas</th>
                                                 <th>SKS</th>
+                                                <th>Total</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -170,7 +171,9 @@
                                                 <td>{{ $m->prodi }}</td>
                                                 <td>{{ $m->semesterd }}</td>
                                                 <td>{{ $m->kelas }}</td>
-                                                <td>{{ $m->total }} ({{ $m->tsks }}T, {{ $m->psks }}P, {{ $m->ksks }}K)</td>
+                                                <td>{{ round($m->total) }} ({{ $m->tsks }}T, {{ $m->psks }}P, {{ $m->ksks }}K)
+                                                </td>
+                                                <td>{{ round($m->grandtotal) }}</td>
                                             </tr>
                                             @endforeach
                                         </tbody>
@@ -183,6 +186,7 @@
                                                 <th>Semester</th>
                                                 <th>Jumlah Kelas</th>
                                                 <th>SKS</th>
+                                                <th>Total</th>
                                             </tr>
                                         </tfoot>
                                     </table>
